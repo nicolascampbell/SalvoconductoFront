@@ -1,8 +1,17 @@
 <template>
   <div>
-    <b-container style=" position:relative;" >
+    <b-container style="position: relative">
       <b-row class="vh-100" align-v="center">
-        <b-col align-self="start"></b-col>
+        <b-col>
+          <b-dropdown text="Go somewhere!">
+            <b-dropdown-item :to="{ name: 'CollectionList' }">
+                go to Collections
+            </b-dropdown-item>
+            <b-dropdown-item :to="{ name: 'FilmList' }">
+                go to Films
+            </b-dropdown-item>
+          </b-dropdown>
+        </b-col>
         <b-col>
           <h1 id="title" class="text-left">Salvoconducto</h1>
           <h6 id="subtitle" class="text-left">[Sal·vo·con·duc·to]</h6>
@@ -11,7 +20,7 @@
             <li>A place to share what my eyes see.</li>
             <li>Within can be found all my films and collections.</li>
             <li>Freedom to do something without fear of punishment.</li>
-            <li><about-me/></li>
+            <li><about-me /></li>
           </ol>
         </b-col>
         <b-col></b-col>
@@ -20,10 +29,9 @@
   </div>
 </template>
 <script lang="ts">
-import { BIconInfoSquare } from "bootstrap-vue";
-import compass from "../components/compass.vue";
-import aboutMe from "../components/about_me_modal.vue";
-
+import { BIconInfoSquare } from "bootstrap-vue"
+import compass from "../components/compass.vue"
+import aboutMe from "../components/about_me_modal.vue"
 
 export default {
   components: {
@@ -31,7 +39,7 @@ export default {
     compass,
     aboutMe,
   },
-};
+}
 </script>
 <style scoped>
 div {
@@ -58,8 +66,4 @@ li {
   color: rgb(61, 61, 61);
   margin: 0 0 10px 0;
 }
-
-  
-
-
 </style>

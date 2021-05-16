@@ -1,9 +1,11 @@
 <template>
   <div id="films_container" class="container">
-     <b-row class="vh-100 text-center" align-v="center" v-for="image in images" :key="image.id" >
-      <b-col offset="2" >
-        <photo-card :pic="image" 
-        :path="`../assets/${filmId}/${image.id}.jpg`"/>
+    <b-button :to="{ name: 'FilmList' }">
+          go Back! 
+    </b-button>
+     <b-row class="vh-100 text-center" align-v="center" v-for="image in film.images" :key="image.id" >
+      <b-col offset="3" >
+        <photo-card :pic="image"/>
       </b-col>
      </b-row>
   </div>
@@ -16,12 +18,8 @@ export default ({
       photoCard,
   },
   props:{
-    filmId:String,
+    film:Object,
   },
-  data(){
-    return{
-      images:store.films[0].images,
-    }
-  }
+  
 });
 </script>
