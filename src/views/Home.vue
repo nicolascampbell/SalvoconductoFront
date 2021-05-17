@@ -29,14 +29,10 @@
   </div>
 </template>
 <script lang="ts">
-import { BIconInfoSquare } from "bootstrap-vue"
-import compass from "../components/compass.vue"
 import aboutMe from "../components/about_me_modal.vue"
 
 export default {
   components: {
-    BIconInfoSquare,
-    compass,
     aboutMe,
   },
 }

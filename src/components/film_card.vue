@@ -11,7 +11,7 @@
           <b-card-body :title=filmInfo.name :sub-title=filmInfo.date>
             <b-card-text v-text="filmInfo.description">
             </b-card-text>
-            <b-button :to="{name:'Film', params: { filmId: filmInfo.name }}" >Go to Film Pics</b-button>
+            <b-button :to="{name:'Film', params: { film: filmInfo}}" >Go to Film Pics</b-button>
           </b-card-body>
         </b-col>
       </b-row>
