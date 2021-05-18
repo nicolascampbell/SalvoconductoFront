@@ -1,18 +1,25 @@
 <template>
   <div>
-    <b-card no-body class="overflow-hidden" style="max-width: 800px;">
-      <b-row no-gutters>
+    <b-card no-body class="overflow-hidden" style="max-width: 900px">
+      <b-row class="text-center" no-gutters>
         <b-col md="7">
-          <b-card-img
-            :src="coverSrc(filmInfo)">
-          </b-card-img>
+          <b-card-img :src="coverSrc(filmInfo)"> </b-card-img>
         </b-col>
         <b-col md="5">
-          <b-card-body :title="`Film `+filmInfo.id" :sub-title="filmInfo.year">
-            <b-card-text v-text="filmInfo.description">
-            </b-card-text>
-            <b-button :to="{name:'Film', params: {filmId:filmInfo.id, filmSize:filmInfo.size}}" >Go to Film Pics</b-button>
-          </b-card-body>
+          <div id="header">
+            <b-link
+              style="color: rebeccapurple"
+              :to="{
+                name: 'Film',
+                params: { filmId: filmInfo.id, filmSize: filmInfo.size },
+              }"
+            >
+              <h3>{{ `Film ` + filmInfo.id }}</h3>
+            </b-link>
+            <h6>{{ filmInfo.year }}</h6>
+          </div>
+          <b-card-text v-text="filmInfo.description.substr(0, 100) + '(...)'">
+          </b-card-text>
         </b-col>
       </b-row>
     </b-card>
@@ -20,18 +27,21 @@
 </template>
 <script lang="ts">
 export default {
-  props:{
-    filmInfo:Object,
+  props: {
+    filmInfo: Object,
   },
-  data(){
-    return{
-    }
+  data() {
+    return {}
   },
-  methods:{
-    coverSrc(info){
-      return require(`../assets/${info.id}/${info.fotoCover}.jpg`);
-    }
-  }
-  
-};
+  methods: {
+    coverSrc(info) {
+      return require(`../assets/${info.id}/${info.fotoCover}.jpg`)
+    },
+  },
+}
 </script>
+<style scoped>
+#header {
+  padding-bottom: 15%;
+}
+</style>
