@@ -37,7 +37,7 @@ export default {
   },
 }
 </script>
-<style scoped>
+<style>
 div {
   font-family: "Courier New", Courier, monospace;
 }
