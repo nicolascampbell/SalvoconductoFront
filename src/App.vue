@@ -2,7 +2,7 @@
   <div id="container" class="vh-100">
     <nav-bar />
     <router-view class="view"></router-view>
-    <navigator id="navi" />
+    <navigator @navigate-to="handleDirection" id="navi" />
   </div>
 </template>
 
@@ -19,7 +19,11 @@ export default Vue.extend({
   data() {
     return {}
   },
-  methods: {},
+  methods: {
+    handleDirection(direction:String){
+      
+    }
+  },
 })
 </script>
 

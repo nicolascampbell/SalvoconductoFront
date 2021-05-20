@@ -55,11 +55,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    handleClick(action: String) {
-      this.$router.push({
-        name: "",
-        params: {},
-      })
+    handleClick(direction: String) {
+      this.$emit('navigate-to',{direction});
     },
   },
 })
