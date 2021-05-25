@@ -1,8 +1,7 @@
 <template>
     <div id="film_card">   
         <b-card
-            :header="pic.title"
-            >
+            :header="pic.title">
         <b-card-img :src="getImg(pic)"></b-card-img>
         <b-card-text v-text="pic.description"></b-card-text>
         </b-card>
