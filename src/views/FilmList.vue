@@ -9,25 +9,27 @@
       <b-col>
         <film-card :filmInfo="film" />
       </b-col>
-      <b-col cols="1">
-        <img
-          @click="goToFilm(film)"
-          @mouseover="hover = true"
-          @mouseleave="hover = false"
-          class="active"
-          :src="require('../assets/arrow_right.png')"
-        >
-      </b-col>
     </b-row>
+    <navigator 
+    :show_routes="{
+        left: {name:'Home',params:{}},
+        right: {name:'Film', params:{ filmId: '2', filmSize: '17' }},
+        up: null,
+        down: null,
+      }" 
+      id="navi"/>
   </div>
 </template>
 <script lang="ts">
 import Vue from "vue"
 import filmCard from "../components/film_card.vue"
 import films from "../films.json"
+import navigator from "../components/navigator.vue"
+
 export default Vue.extend({
   components: {
     filmCard,
+    navigator
   },
   data() {
     return {

@@ -2,19 +2,16 @@
   <div id="container" class="vh-100">
     <nav-bar />
     <router-view class="view"></router-view>
-    <navigator @navigate-to="handleDirection" id="navi" />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue"
 import nav from "./components/navbar.vue"
-import navigator from "./components/navigator.vue"
 export default Vue.extend({
   name: "app",
   components: {
     "nav-bar": nav,
-    navigator,
   },
   data() {
     return {}
@@ -28,6 +25,9 @@ export default Vue.extend({
 </script>
 
 <style>
+div {
+  font-family: "Courier New", Courier, monospace;
+}
 #navi {
   position: fixed;
   bottom: 0;

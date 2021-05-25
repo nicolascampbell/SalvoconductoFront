@@ -1,32 +1,41 @@
 <template>
   <div id="navigator">
-    <b-container class="bv-example-row">
-      <b-row align-h="center" >
+    <b-container>
+      <b-row align-h="center">
         <b-col cols="6">
           <img
-            @click="handleClick('up')"
-            @mouseover="hover = true"
-            @mouseleave="hover = false"
-            class="active"
+            v-if="show_routes.up != null"
+            @click="
+              $router.push({
+                name: show_routes.up.name,
+                params: show_routes.up.params,
+              })
+            "
+            class="arrow"
             :src="require('../assets/arrow_up.png')"
           />
         </b-col>
       </b-row>
       <b-row align-h="between">
-          <b-col style="padding:0px 10px 0px 11px;" cols="2"
+        <b-col style="padding: 0px 10px 0px 11px" cols="2"
           ><img
-            @click="handleClick('left')"
-            @mouseover="hover = true"
-            @mouseleave="hover = false"
-            class="active"
+            v-if="show_routes.left != null"
+            @click="
+              $router.push({
+                name: show_routes.left.name,
+                params: show_routes.left.params,
+              })
+            "
+            class="arrow"
             :src="require('../assets/arrow_left.png')"
         /></b-col>
-        <b-col style="padding-left:11px;" cols="2">
+        <b-col style="padding-left: 11px" cols="2">
           <img
-            @click="handleClick('right')"
-            @mouseover="hover = true"
-            @mouseleave="hover = false"
-            class="active"
+            v-if="show_routes.right != null"
+            @click="
+              $router.push(show_routes.right)
+            "
+            class="arrow"
             :src="require('../assets/arrow_right.png')"
           />
         </b-col>
@@ -34,10 +43,14 @@
       <b-row align-h="center">
         <b-col cols="6"
           ><img
-            @click="handleClick('down')"
-            @mouseover="hover = true"
-            @mouseleave="hover = false"
-            class="active"
+            v-if="show_routes.down != null"
+            @click="
+              $router.push({
+                name: show_routes.down.name,
+                params: show_routes.down.params,
+              })
+            "
+            class="arrow"
             :src="require('../assets/arrow_down.png')"
         /></b-col>
       </b-row>
@@ -47,30 +60,34 @@
 
 <script lang="ts">
 import Vue from "vue"
+type route = {
+  name: String
+  params: Object
+}
+type show_routes = {
+  left: route
+  right: route
+  up: route
+  down: route
+}
 export default Vue.extend({
   name: "navigator",
   data() {
-    return {
-      hover: false,
-    }
+    let hola="sw";
   },
-  methods: {
-    handleClick(direction: String) {
-      this.$emit('navigate-to',{direction});
+  props: {
+    show_routes: {
+      type: Object as () => show_routes,
     },
   },
 })
 </script>
 <style>
-
-.active{
-    transform:scale(0.9);
-    transition: transform .2s;
-  }
-  .active:hover{
-    transform: scale(1);
-  }
-  .active:focus{
-    filter: blur(5px) brightness(90%);
-  }
+.arrow {
+  transform: scale(0.9);
+  transition: transform 0.2s;
+}
+.arrow:hover {
+  transform: scale(1.1);
+}
 </style>

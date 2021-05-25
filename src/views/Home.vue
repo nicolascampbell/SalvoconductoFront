@@ -5,10 +5,10 @@
         <b-col>
           <b-dropdown text="Go somewhere!">
             <b-dropdown-item :to="{ name: 'CollectionList' }">
-                go to Collections
+              go to Collections
             </b-dropdown-item>
             <b-dropdown-item :to="{ name: 'FilmList' }">
-                go to Films
+              go to Films
             </b-dropdown-item>
           </b-dropdown>
         </b-col>
@@ -26,21 +26,28 @@
         <b-col></b-col>
       </b-row>
     </b-container>
+    <navigator
+      :show_routes="{
+        left: {name:'CollectionList',params:{}},
+        right: {name:'FilmList',params:{}},
+        up: null,
+        down: null,
+      }"
+      id="navi"
+    />
   </div>
 </template>
 <script lang="ts">
 import aboutMe from "../components/about_me_modal.vue"
-
+import navigator from "../components/navigator.vue"
 export default {
   components: {
     aboutMe,
+    navigator,
   },
 }
 </script>
 <style>
-div {
-  font-family: "Courier New", Courier, monospace;
-}
 #title {
   color: rgb(71, 70, 70);
   display: inline-block;
