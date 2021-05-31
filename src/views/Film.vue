@@ -11,18 +11,15 @@
         <photo-card :pic="image" />
       </b-col>
     </b-row>
-    <navigator id="navi" />
   </div>
 </template>
 <script lang="ts">
 import photoCard from "../components/photo_card.vue"
 import images from "../images.json"
-import navigator from "../components/navigator.vue"
 
 export default {
   components: {
     photoCard,
-    navigator,
   },
   props: {
     filmId: String,

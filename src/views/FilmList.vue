@@ -10,26 +10,17 @@
         <film-card :filmInfo="film" />
       </b-col>
     </b-row>
-    <navigator 
-    :show_routes="{
-        left: {name:'Home',params:{}},
-        right: {name:'Film', params:{ filmId: '2', filmSize: '17' }},
-        up: null,
-        down: null,
-      }" 
-      id="navi"/>
+    
   </div>
 </template>
 <script lang="ts">
 import Vue from "vue"
 import filmCard from "../components/film_card.vue"
 import films from "../films.json"
-import navigator from "../components/navigator.vue"
 
 export default Vue.extend({
   components: {
     filmCard,
-    navigator
   },
   data() {
     return {
@@ -48,15 +39,6 @@ export default Vue.extend({
   },
 })
 </script>
-<style scoped>
-  .active{
-    transform:scale(0.9);
-    transition: transform .2s;
-  }
-  .active:hover{
-    transform: scale(1);
-  }
-  .active:focus{
-    filter: blur(5px) brightness(90%);
-  }
+<style>
+
 </style>

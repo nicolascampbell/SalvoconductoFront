@@ -1,0 +1,25 @@
+<navigator 
+    :show_routes="{
+        left: {name:'Home',params:{}},
+        right: {name:'Film', params:{ filmId: '2', filmSize: '17' }},
+        up: null,
+        down: null,
+      }" 
+      id="navi"/>
+      
+      <navigator
+      :show_routes="{
+        left: {name:'CollectionList',params:{}},
+        right: {name:'FilmList',params:{}},
+        up: null,
+        down: null,
+      }"
+      id="navi"
+    />
+    #navi {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 0px 20px 10px 0px;
+  transform: scale(0.7);
+}

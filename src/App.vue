@@ -16,11 +16,6 @@ export default Vue.extend({
   data() {
     return {}
   },
-  methods: {
-    handleDirection(direction:String){
-      
-    }
-  },
 })
 </script>
 
@@ -28,11 +23,5 @@ export default Vue.extend({
 div {
   font-family: "Courier New", Courier, monospace;
 }
-#navi {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  padding: 0px 20px 10px 0px;
-  transform: scale(0.7);
-}
+
 </style>
