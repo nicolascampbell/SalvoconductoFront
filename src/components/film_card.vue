@@ -26,15 +26,25 @@
   </div>
 </template>
 <script lang="ts">
+type film = {
+  id: String,
+  description: String,
+  year: String,
+  place: String,
+  tags: Array<String>,
+  fotoCover: Number
+}
 export default {
   props: {
-    filmInfo: Object,
+    filmInfo: {
+      type: Object as () => film,
+    }
   },
   data() {
     return {}
   },
   methods: {
-    coverSrc(info) {
+    coverSrc(info:film) {
       return require(`../assets/${info.id}/${info.fotoCover}.jpg`)
     },
   },
