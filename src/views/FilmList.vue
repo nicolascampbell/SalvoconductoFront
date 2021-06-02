@@ -9,7 +9,7 @@
           <template v-slot:next>
             <film-card
               key="next"
-              :filmInfo="films[Math.min(maxFilms, index)]"
+              :filmInfo="films[index]"
           /></template>
         </navigate-items>
       </b-col>

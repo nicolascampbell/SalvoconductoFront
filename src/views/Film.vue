@@ -4,11 +4,20 @@
       id="rows"
       class="vh-100 text-center"
       align-v="center"
-      v-for="image in filterImg(img, filmId)"
-      :key="image.id"
     >
-      <b-col>
-        <photo-card :pic="image" />
+      <b-col offset-lg="2" cols="8">
+        <navigate-items @changeIndex="changeIndex" :maxItems="maxImg">
+          <template v-slot:current>
+            <photo-card
+               key="current"
+               :pic="filterImg(img, filmId)[index]" />
+          </template>
+          <template v-slot:next>
+            <photo-card
+              key="next"
+              :pic="filterImg(img, filmId)[index]"
+          /></template>
+        </navigate-items>
       </b-col>
     </b-row>
   </div>
@@ -16,17 +25,20 @@
 <script lang="ts">
 import photoCard from "../components/photo_card.vue"
 import images from "../images.json"
-
+import navigateItems from "../components/navigateItems.vue"
 export default {
   components: {
     photoCard,
+    navigateItems
   },
   props: {
     filmId: String,
-    filmSize: String,
+    filmSize: Number,
   },
   data() {
     return {
+      index:0,
+      maxImg:this.filmSize-1,
       img: images.images,
     }
   },
@@ -37,6 +49,9 @@ export default {
         return image.id.includes(`${filmid}_`)
       })
       return images
+    },
+    changeIndex(i: number) {
+      this.index = i
     },
   },
 }
