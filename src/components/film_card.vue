@@ -29,6 +29,7 @@
 type film = {
   id: String,
   description: String,
+  size: Number,
   year: String,
   place: String,
   tags: Array<String>,
@@ -42,6 +43,9 @@ export default {
   },
   data() {
     return {}
+  },
+  mounted(){
+    alert(this.filmInfo.size );
   },
   methods: {
     coverSrc(info:film) {
