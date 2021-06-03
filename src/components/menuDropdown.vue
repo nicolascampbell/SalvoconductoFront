@@ -1,17 +1,19 @@
 <template >
-  <div>
-    <menu-icon @open="open" @close="close"/>
-      <div id="menu" :class="{enter:openMenu, leave:closeMenu}">
-         <router-link class="item" to="/">
-            Home
-          </router-link>
-          <router-link class="item" to="/Films">
-            Films
-          </router-link>
-          <router-link class="item" to="/Collections">
-            Collections
-          </router-link>
-      </div>
+  <div id="menuDrop">
+    <menu-icon  @open="open" @close="close"/>
+      <transition name="appear">
+        <div id="menu" v-if="openMenu">
+          <b-link class="item" to="/">
+              Home
+            </b-link>
+            <b-link class="item" to="/Films">
+              Films
+            </b-link>
+            <b-link class="item" to="/Collections">
+              Collections
+            </b-link>
+        </div>
+      </transition>
   </div>
 </template>
 <script lang="ts">
@@ -40,53 +42,37 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
+#menuDrop{
+  position: fixed;
+  top: 60px;
+  left: 60px;
+  z-index: 1;
+}
 
 #menu{
-  position: fixed;
-  height: 100vh;
-  width: 0px;
-  background-color:rgba(119, 119, 119, 0.5);
-  right:0;
-  top:115px;
+  position:absolute;
+  top:20px;
+  left:-28px;
   display: flex;
   flex-direction: column;
-
-}
-#menu.enter {
-  animation: slide-in ease 0.5s ;
-      animation-fill-mode:forwards;
-
-}
-#menu.leave  {
-  animation: slide-out ease 0.5s;
-    animation-fill-mode:forwards;
-
+  text-align: center;
+  width: 100px;
 }
 .item{
-  text-align:center;
-color: white;
-  margin:5px;  /* and that, will result in a 10px gap */
+  font-size: 1.2em;
+  color:rgb(71, 70, 70);
+}
+.appear-enter-active {
+  transition: all .3s ease;
+}
+.appear-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.appear-enter, .appear-leave-to
+/* .app-enter-active-leave-active below version 2.1.8 */ {
+  transform: translateX(-10px);
+  opacity: 0;
+}
 
-}
-@keyframes slide-in {
-  0%{
-    width:0px;
-  }
-  100%{
-    width:170px;
-    transform: translateX(-30px);
-  }
-  
-}
-@keyframes slide-out {
-  0%{
-    width:170px;
-  }
-  100%{
-    width: 0px;
-    transform: translateX(30px);
-    opacity:0;
-  }
-  
-}
+
 </style>
