@@ -70,18 +70,18 @@ export default Vue.extend({
 </script>
 <style scoped>
 .slide-down-enter-active {
-  animation: slideBottom 0.5s;
+  animation: slideBottom ease 0.5s;
 }
 
 .slide-down-leave-active {
-  animation: slideTop 0.5s reverse;
+  animation: slideTop 0.5s ease reverse;
 }
 .slide-up-enter-active {
-  animation: slideTop 0.5s;
+  animation: slideTop 0.5s ease;
 }
 
 .slide-up-leave-active {
-  animation: slideBottom 0.5s reverse;
+  animation: slideBottom 0.5s ease reverse;
 }
 
 @keyframes slideBottom {
