@@ -11,7 +11,7 @@ Vue.use(Router);
 export default new Router({
   mode: 'history',
   routes: [{
-    path: "/Salvoconducto_front",
+    path: "/",
     name: 'Home',
     component: Home
   },
