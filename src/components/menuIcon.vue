@@ -1,6 +1,8 @@
 <template >
   <div
     @click="openCLick"
+    v-b-toggle.sidebar-1
+    ref="dropdownMenu"
     :class="{ activate
 : clicked, deactivate: unclick }"
     id="container"
@@ -32,15 +34,24 @@ export default Vue.extend({
       this.$emit("open");
     },
     closeClick: function (event) {
-      this.clicked = false
-      this.unclick = true
+      //basically checks if the click event is the click to the buttom if it is then
+      // pays no atention to it
+      //from here https://forum.vuejs.org/t/closing-all-dropdown-on-document-click/11217/7
+      let el = this.$refs.dropdownMenu;
+      if (!this.$el.contains(event.target)) {
+          this.clicked = false;
+          this.unclick = true;
+          this.$emit("close");
+      }
+      
     },
+    
   },
   created() {
-    window.addEventListener("keyup", this.closeClick)
+    window.addEventListener("click", this.closeClick)
   },
   destroyed() {
-    window.removeEventListener("keyup", this.closeClick)
+    window.removeEventListener("click", this.closeClick)
   },
 })
 </script>
@@ -124,7 +135,7 @@ export default Vue.extend({
     background: linear-gradient(270deg, #ffffff, #ffffff);
   }
 }
-/**Makes vertical bars change size in diff. states */
+/**Makes VERTICAL bars change size in diff. states */
 #container.activate > .vertical {
   animation: getBig ease 0.1s reverse;
   animation-fill-mode:forwards;
@@ -132,7 +143,7 @@ export default Vue.extend({
 #container.deactivate > .vertical {
   animation: getSmall ease 0.8s reverse;
 }
-/**Makes horizontal bars move from bottom to center and vice.*/
+/**Makes HORIZONTAL bars move from bottom to center and vice.*/
 #container.activate > .horizontal.bottom {
   animation: getToCenterB ease 0.2s;
   animation-fill-mode: forwards;
@@ -140,7 +151,7 @@ export default Vue.extend({
 #container.deactivate > .horizontal.bottom {
   animation: getToCenterB ease 0.4s reverse;
 }
-/**Makes horizontal bars move from Top to center and vice. */
+/**Makes HORIZONTAL bars move from Top to center and vice. */
 #container.activate > .horizontal.top {
   animation: getToCenterT ease 0.2s;
   animation-fill-mode: forwards;
@@ -148,7 +159,7 @@ export default Vue.extend({
 #container.deactivate > .horizontal.top {
   animation: getToCenterT ease 0.4s reverse;
 }
-/**Changes the color of background */
+/**Changes the color of BACKGROUND */
 #container.activate {
   animation: coloredBack ease 0.3s;
   animation-fill-mode: forwards;
@@ -158,12 +169,14 @@ export default Vue.extend({
 }
 
 #container.deactivate:hover > .vertical:nth-child(odd){
-  animation: getBig ease
- 1s infinite alternate-reverse;
+  animation: getBig ease 1s infinite alternate-reverse;
+    animation-fill-mode: forwards;
+
 }
 #container.deactivate:hover > .vertical:nth-child(even){
-  animation: getBig ease
- 1.5s infinite alternate-reverse;
+  animation: getBig ease 1.5s infinite alternate-reverse;
+    animation-fill-mode: forwards;
+
 }
 
 
