@@ -25,25 +25,33 @@ export default Vue.extend({
     return {
       clicked: false,
       unclick: true,
+      //to be able to click again and close it I had to use a counter to finish the trick
+      counter:0,
     }
   },
   methods: {
     openCLick: function () {
-      this.clicked = true
-      this.unclick = false
+      this.clicked = true;
+      this.unclick = false;
+      this.counter++;
       this.$emit("open");
     },
     closeClick: function (event) {
       //basically checks if the click event is the click to the buttom if it is then
       // pays no atention to it
       //from here https://forum.vuejs.org/t/closing-all-dropdown-on-document-click/11217/7
-      let el = this.$refs.dropdownMenu;
       if (!this.$el.contains(event.target)) {
+          this.counter=0; 
           this.clicked = false;
           this.unclick = true;
           this.$emit("close");
+      }else if(this.counter==2){
+        this.counter=0;
+        this.clicked = false;
+        this.unclick = true;
+        this.$emit("close");
       }
-      
+
     },
     
   },
@@ -59,11 +67,7 @@ export default Vue.extend({
 <style scoped>
 #container {
   cursor: pointer;
-  position: fixed;
-  top: 0;
-  right: 0;
-  margin: 100px;
-  display: flexbox;
+  position:absolute;
   padding: 5px;
   background: linear-gradient(45deg, #fdd10d, #e6dcf3);
  
@@ -96,22 +100,19 @@ export default Vue.extend({
 
 @keyframes getSmall {
   0% {
-    height: 15px;
-    transform: translateY(0px);
+    
+    transform: scale(1) translateY(0px);
   }
   100% {
-    height: 0px;
-    transform: translateY(-7px);
+    transform: scale(0) translateY(-7px);
   }
 }
 @keyframes getBig {
   0% {
-    height: 0px;
-    transform: translateY(-7px);
+    transform: scale(0) translateY(-7px);
   }
   100% {
-    height: 15px;
-    transform: translateY(0px);
+    transform: scale(0.75) translateY(0px);
   }
 }
 @keyframes getToCenterT {
@@ -137,19 +138,35 @@ export default Vue.extend({
 }
 /**Makes VERTICAL bars change size in diff. states */
 #container.activate > .vertical {
-  animation: getBig ease 0.1s reverse;
+  animation: getBig ease 0.2s reverse;
   animation-fill-mode:forwards;
 }
-#container.deactivate > .vertical {
-  animation: getSmall ease 0.8s reverse;
+#container.deactivate> .vertical {
+  animation-delay: 10s;
+  animation: getBig ease 2s ;
+  animation-fill-mode:forwards;
+
 }
+#container.deactivate>.vertical:nth-child(odd){
+  
+  animation: getBig ease 1.5s infinite alternate-reverse;
+    animation-fill-mode:forwards;
+      animation-delay: 0.75s;
+}
+
+#container.deactivate>.vertical.vertical:nth-child(even){
+  animation: getBig ease 1.5s infinite alternate-reverse;
+    animation-fill-mode:forwards;
+
+}
+
 /**Makes HORIZONTAL bars move from bottom to center and vice.*/
 #container.activate > .horizontal.bottom {
   animation: getToCenterB ease 0.2s;
   animation-fill-mode: forwards;
 }
 #container.deactivate > .horizontal.bottom {
-  animation: getToCenterB ease 0.4s reverse;
+  animation: getToCenterB ease 0.2s reverse;
 }
 /**Makes HORIZONTAL bars move from Top to center and vice. */
 #container.activate > .horizontal.top {
@@ -157,7 +174,7 @@ export default Vue.extend({
   animation-fill-mode: forwards;
 }
 #container.deactivate > .horizontal.top {
-  animation: getToCenterT ease 0.4s reverse;
+  animation: getToCenterT ease 0.2s reverse;
 }
 /**Changes the color of BACKGROUND */
 #container.activate {
@@ -165,18 +182,20 @@ export default Vue.extend({
   animation-fill-mode: forwards;
 }
 #container.deactivate {
-  animation: coloredBack ease 0.6s reverse;
-}
-
-#container.deactivate:hover > .vertical:nth-child(odd){
-  animation: getBig ease 1s infinite alternate-reverse;
+  animation: coloredBack ease 0.2s reverse;
     animation-fill-mode: forwards;
+
+}
+/**HOVER VERTICAL */
+#container.deactivate:hover > .vertical:nth-child(odd){
+  animation: getBig ease 0.5s infinite alternate-reverse;
+  animation-fill-mode: forwards;
 
 }
 #container.deactivate:hover > .vertical:nth-child(even){
-  animation: getBig ease 1.5s infinite alternate-reverse;
+  animation: getBig ease 0.5s infinite alternate-reverse;
+  animation-delay: 0.25s;
     animation-fill-mode: forwards;
-
 }
 
 
