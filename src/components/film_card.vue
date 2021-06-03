@@ -44,9 +44,7 @@ export default {
   data() {
     return {}
   },
-  mounted(){
-    alert(this.filmInfo.size );
-  },
+
   methods: {
     coverSrc(info:film) {
       return require(`../assets/${info.id}/${info.fotoCover}.jpg`)
