@@ -1,37 +1,56 @@
 <template>
-  <div id="films_container" class="container">
-    <b-row class="vh-100 text-center" align-v="center">
-      <b-col offset-lg="1">
+  <b-container id="films_container" >
+    <b-row class="vh-100" id="firstRow" align-v="center" >
+      <b-col offset-lg="9">
         <definition
-          :title="'Salvoconducto'"
-          :subtitle="'[Sal·vo·con·duc·to]'"
-          :type="'Website'"
+          :title="'Films'"
+          :subtitle="'[Films]'"
+          :type="'Section'"
           :definitions="[
-            'A place to share what my eyes see.',
-            'Within can be found all my films and collections.',
-            'Freedom to do something without fear of punishment.',
+            'Bundle of memories.',
+            'Chronologically ordered films.',
           ]"
-          :withSlot="true"
+          :withSlot="false"
         >
-          <about-me />
         </definition>
       </b-col>
     </b-row>
-  </div>
+    <b-row  class="films" align-v="center" v-for=" film in films" :key="film.id">
+      <b-col offset="2" cols="8">
+        <film-card :filmInfo="film"/>
+      </b-col>
+
+    </b-row>
+  </b-container>
 </template>
 <script lang="ts">
 import Vue from "vue"
 import definition from "../components/definition.vue"
+import filmCard from "../components/film_card.vue"
 import films from "../films.json"
 export default Vue.extend({
   components: {
     definition,
+    filmCard,
   },
   data() {
-    return {}
+    return {
+      films: films.films,
+    }
   },
   methods: {},
 })
 </script>
 <style scoped>
+#films_container{
+  text-align: left;
+  color: honeydew !important;
+}
+#firstRow{
+  background-image: url("../assets/3/2.jpg");
+  background-size: cover;
+  box-shadow: 0 0 10px black;}
+.films{
+  margin-top:100px;
+}
 </style>
