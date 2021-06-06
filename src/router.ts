@@ -11,28 +11,28 @@ Vue.use(Router);
 export default new Router({
   mode: 'history',
   routes: [{
-    path: "/Salvoconducto-front/",
+    path: "/",
     name: 'Home',
     component: Home
   },
   {
-    path: "/Salvoconducto-front/Films",
+    path: "/Films",
     name: "FilmList",
     component: FilmList
   },
   {
-    path: "/Salvoconducto-front/Collections",
+    path: "/Collections",
     name: "CollectionList",
     component: CollectionList
   },
   {
-    path: "/Salvoconducto-front/Films/:filmId",
+    path: "/Films/:filmId",
     name: "Film",
     component: Film,
     props:true,
   },
   {
-    path: "/Salvoconducto-front/Collections/:collectionId",
+    path: "/Collections/:collectionId",
     name: "Collection",
     component: Collection
   },]
