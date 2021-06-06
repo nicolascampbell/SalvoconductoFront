@@ -7,12 +7,15 @@
           :title="'Salvoconducto'"
           :subtitle="'[Sal·vo·con·duc·to]'"
           :type="'Website'"
-          :definitions="['A place to share what my eyes see.',
-                          'Within can be found all my films and collections.',
-                          'Freedom to do something without fear of punishment.']"
-          :withSlot="true">
+          :definitions="[
+            'A place to share what my eyes see.',
+            'Within can be found all my films and collections.',
+            'Freedom to do something without fear of punishment.',
+          ]"
+          :withSlot="true"
+        >
           <about-me />
-        </definition>      
+        </definition>
       </b-col>
       <b-col></b-col>
     </b-row>
@@ -30,5 +33,4 @@ export default {
 }
 </script>
 <style>
-
 </style>
