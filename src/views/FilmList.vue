@@ -1,6 +1,6 @@
 <template>
   <b-container id="films_container" >
-    <b-row class="vh-100" id="firstRow" align-v="center" >
+    <b-row class="vh-100 vw-100" id="firstRow" align-v="center" >
       <b-col offset-lg="9">
         <definition
           :title="'Films'"
@@ -45,11 +45,16 @@ export default Vue.extend({
 #films_container{
   text-align: left;
   color: honeydew !important;
+  margin:0px;
+  padding:0px;
 }
+
 #firstRow{
   background-image: url("../assets/3/2.jpg");
   background-size: cover;
-  box-shadow: 0 0 10px black;}
+  box-shadow: 0 0 10px black;
+  margin:0px;
+  }
 .films{
   margin-top:100px;
 }
