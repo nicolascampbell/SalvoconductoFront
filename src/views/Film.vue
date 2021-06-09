@@ -1,5 +1,5 @@
 <template>
-  <div id="films_container" class="container">
+  <b-container id="films_container" >
     <b-row id="rows" class="vh-100 text-center" align-v="center">
       <b-col offset-lg="2" cols="8">
         <navigate-items @changeIndex="changeIndex" :maxItems="maxImg">
@@ -12,7 +12,7 @@
         </navigate-items>
       </b-col>
     </b-row>
-  </div>
+  </b-container>
 </template>
 <script lang="ts">
 import photoCard from "../components/photo_card.vue"
