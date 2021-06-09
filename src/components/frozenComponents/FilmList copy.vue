@@ -19,7 +19,7 @@
 <script lang="ts">
 import Vue from "vue"
 import filmCard from "../components/film_card.vue"
-import films from "../films.json"
+import films from "../../films.json"
 import navigateItems from "../components/navigateItems.vue"
 export default Vue.extend({
   components: {
