@@ -1,6 +1,6 @@
 <template >
-  <div id="menuDrop">
-    <menu-icon  @open="open" @close="close"/>
+  <div id="menuDrop"  >
+    <menu-icon  @open="open" @close="close" :class="scrolled"/>
       <transition name="appear">
         <div id="menu" v-if="openMenu">
           <b-link class="item" to="/">
@@ -27,6 +27,11 @@ export default Vue.extend({
     return {
       openMenu:false,
       closeMenu:false,
+      lastScrollPosition: 0,
+      scrolled: {
+        scrolled_up: false,
+        scrolled_down: false,
+      },
     }
   },
   methods: {
@@ -37,15 +42,48 @@ export default Vue.extend({
       close(){
         this.openMenu=false;
         this.closeMenu=true;
+      },
+      handleScroll: function () {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+      // Because of momentum scrolling on mobiles,
+      //we shouldn't continue if it is less than zero
+      if (currentScrollPosition < 30) {
+        return;
       }
+      // Here we determine whether we need to show or hide the navbar
+      this.scrolled.scrolled_up =
+        currentScrollPosition < this.lastScrollPosition;
+      this.scrolled.scrolled_down = !this.scrolled.scrolled_up;
+      // Set the current scroll position as the last scroll position
+      this.lastScrollPosition = currentScrollPosition;
+    },
+  },
+   created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
 })
 </script>
 <style scoped>
+
+.scrolled_down {
+  transform: translateX(-300%);
+  transition: all 0.2s cubic-bezier(.68,-0.55,.27,1.55);
+  opacity: 0;
+}
+.scrolled_up {
+  transform: translateX(100%);
+  transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
 #menuDrop{
   position: fixed;
-  top: 60px;
-  left: 60px;
+  top: 10%;
+  bottom: 90%;
+  left: 5%;
   z-index: 1;
 }
 
@@ -63,10 +101,10 @@ export default Vue.extend({
   color:rgb(71, 70, 70);
 }
 .appear-enter-active {
-  transition: all .3s ease;
+  transition: all .3s cubic-bezier(.68,-0.55,.27,1.55);
 }
 .appear-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  transition: all .8s cubic-bezier(.68,-0.55,.27,1.55);
 }
 .appear-enter, .appear-leave-to
 /* .app-enter-active-leave-active below version 2.1.8 */ {
