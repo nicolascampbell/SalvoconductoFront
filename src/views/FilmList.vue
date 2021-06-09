@@ -1,6 +1,6 @@
 <template>
   <b-container id="films_container" >
-    <b-row class="vh-100 vw-100" id="firstRow" align-v="center" >
+    <b-row class="vh-100" fluid id="firstRow" align-v="center" no-gutters>
       <b-col offset-lg="9">
         <definition
           :title="'Films'"
@@ -15,8 +15,8 @@
         </definition>
       </b-col>
     </b-row>
-    <b-row  class="films" align-v="center" v-for=" film in films" :key="film.id">
-      <b-col offset="2" cols="8">
+    <b-row  class="films" v-for=" film in films" :key="film.id">
+      <b-col>
         <film-card :filmInfo="film"/>
       </b-col>
 
@@ -44,16 +44,12 @@ export default Vue.extend({
 <style scoped>
 #films_container{
   text-align: left;
-  color: honeydew !important;
-  margin:0px;
-  padding:0px;
 }
 
 #firstRow{
   background-image: url("../assets/3/2.jpg");
-  background-size: cover;
+  background-position: bottom;
   box-shadow: 0 0 10px black;
-  margin:0px;
   }
 .films{
   margin-top:100px;
