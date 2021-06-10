@@ -17,6 +17,12 @@ export default Vue.extend({
     return {}
   },
 })
+/**#footer{
+  position: fixed;
+  bottom: 0px;
+  font-size: 0.8em;
+  right:0px;
+}*/
 </script>
 
 <style>
