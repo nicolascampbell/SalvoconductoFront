@@ -16,7 +16,7 @@
       </b-col>
     </b-row>
     <b-row  class="films" v-for=" film in films" :key="film.id">
-      <b-col>
+      <b-col style="  padding:0px;">
         <film-card :filmInfo="film"/>
       </b-col>
 
@@ -50,7 +50,6 @@ export default Vue.extend({
 #firstRow{
   background-image: url("../assets/3/2.jpg");
   background-position: bottom;
-  box-shadow: 0 0 10px black;
   }
 .films{
   margin-top:100px;
