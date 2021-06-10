@@ -1,7 +1,7 @@
 <template>
-  <b-container id="films_container" >
-    <b-row class="vh-100" fluid id="firstRow" align-v="center" no-gutters>
-      <b-col offset-lg="9">
+  <b-container id="films_container" fluid >
+    <b-row class="vh-100"  id="firstRow" align-v="center" no-gutters>
+      <b-col offset="1" offset-lg="9">
         <definition
           :title="'Films'"
           :subtitle="'[Films]'"
@@ -44,6 +44,7 @@ export default Vue.extend({
 <style scoped>
 #films_container{
   text-align: left;
+  padding:0px;
 }
 
 #firstRow{
