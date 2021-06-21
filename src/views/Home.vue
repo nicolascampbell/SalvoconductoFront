@@ -1,8 +1,10 @@
 <template>
   <b-container id="container">
     <b-row class="vh-100" align-v="center">
-      <b-col> </b-col>
-      <b-col>
+      <b-col lg="5" offset-lg="4"
+              md="9" offset-md="3"
+              sm="9" offset-sm="2"
+              offset="1">
         <definition
           :title="'Salvoconducto'"
           :subtitle="'[Sal·vo·con·duc·to]'"
@@ -17,7 +19,6 @@
           <about-me />
         </definition>
       </b-col>
-      <b-col></b-col>
     </b-row>
   </b-container>
 </template>
@@ -33,4 +34,5 @@ export default {
 }
 </script>
 <style>
+
 </style>
