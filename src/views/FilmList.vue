@@ -24,7 +24,6 @@
       <b-col offset="1" cols="10">
         <film-card :filmInfo="film"/>
       </b-col>
-
     </b-row>
   </b-container>
 </template>
@@ -64,5 +63,4 @@ export default Vue.extend({
 #films_container>*{
   margin-bottom: 5%;
 }
-
 </style>
