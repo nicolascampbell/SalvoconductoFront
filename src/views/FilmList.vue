@@ -15,8 +15,13 @@
         </definition>
       </b-col>
     </b-row>
-    <b-row  class="films" v-for=" film in films" :key="film.id" no-gutters>
-      <b-col style="  padding:0px;">
+    <b-row no-gutters style=" text-align: right;">
+      <b-col offset="9" cols="1">
+          <b-link style="color: rgb(61, 61, 61)" @click="changeOrder">Date</b-link>
+      </b-col>
+    </b-row>
+    <b-row v-for=" film in films" :key="film.id" no-gutters>
+      <b-col offset="1" cols="10">
         <film-card :filmInfo="film"/>
       </b-col>
 
@@ -38,12 +43,17 @@ export default Vue.extend({
       films: films.films,
     }
   },
-  methods: {},
+  methods: {
+    changeOrder:function(){
+      //maybe not super efficient but for now it works with the amount of films.
+      //maybe change  in the future in the way you traverse the array?
+      this.films.reverse();
+    }
+  },
 })
 </script>
 <style scoped>
 #films_container{
-  text-align: left;
   padding:0px;
 }
 
@@ -52,7 +62,7 @@ export default Vue.extend({
   background-position: bottom;
   }
 #films_container>*{
-  margin-bottom: 100px;
+  margin-bottom: 5%;
 }
 
 </style>
