@@ -16,8 +16,8 @@
           </definition>
       </b-col>
     </b-row>
-    <b-row id="rows" >
-      <b-col class="image" :offset="Math.round(image.relevance/4+Math.random()*2)" :cols="image.relevance*2+5" v-for="image in filterImg(img, filmInfo.id)" :key="image.id">
+    <b-row id="rows" align-h="center">
+      <b-col class="image" cols="10"   :md="image.relevance*2+4" v-for="image in filterImg(img, filmInfo.id)" :key="image.id">
         <photo-card key="current" :pic="image" />
       </b-col>
     </b-row>
@@ -84,7 +84,10 @@ export default Vue.extend({
 </script>
 <style scoped>
 .image{
-  margin-bottom: 20px;
-}
+  margin-bottom: 15px;
+  padding-right: 7.5px;
+  padding-left: 7.5px;
+  }
+
 
 </style>
