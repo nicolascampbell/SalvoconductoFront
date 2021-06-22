@@ -26,7 +26,7 @@ export default new Router({
     component: CollectionList
   },
   {
-    path: "/Films/:filmId",
+    path: "/Films/:filmid",
     name: "Film",
     component: Film,
     props:true,
