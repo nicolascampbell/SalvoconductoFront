@@ -1,11 +1,11 @@
 <template>
     <b-container>
       <b-row align-v="center">
-        <b-col class="photoContainer" offset-lg="3" lg="6">
+        <b-col class="photoContainer">
             <div @click="
               $router.push({
                 name: 'Film',
-                params: { filmId: filmInfo.id, filmSize: filmInfo.size },
+                params: { filmInfo: filmInfo, filmid:filmInfo.id},
               })"
                class="overlay">
                <h2 class="item" v-text="`${filmInfo.id}`"></h2>
