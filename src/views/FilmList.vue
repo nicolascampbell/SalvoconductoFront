@@ -68,6 +68,8 @@ export default Vue.extend({
 
 #firstRow{
   background-image: url("../assets/3/2.jpg");
+  background-size: cover;
+  background-repeat:no-repeat ;
   background-position: bottom;
   }
 #films_container>*{
