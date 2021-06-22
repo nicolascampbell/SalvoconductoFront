@@ -1,9 +1,6 @@
 <template>
   <div id="film_card">
-    <b-card :header="pic.title">
-      <b-card-img :src="getImg(pic)"></b-card-img>
-      <b-card-text v-text="pic.description"></b-card-text>
-    </b-card>
+    <b-img-lazy v-bind="mainProps" :src="getImg(pic)"></b-img-lazy>    
   </div>
 </template>
     
@@ -11,6 +8,18 @@
 import Vue from "vue"
 export default Vue.extend({
   name: "photo-card",
+  data(){
+    return{
+      mainProps: {
+          center: true,
+          fluidGrow: true,
+          blank: true,
+          blankColor: '#bbb',
+          width: 600,
+          height: 400,
+        }
+    }
+  },
   props: {
     pic: Object,
   },
