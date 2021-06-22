@@ -15,13 +15,17 @@
         </definition>
       </b-col>
     </b-row>
-    <b-row no-gutters style=" text-align: right;">
-      <b-col offset="9" cols="1">
-          <b-link style="color: rgb(61, 61, 61)" @click="changeOrder">Date</b-link>
+    <b-row no-gutters style=" text-align: center;">
+      <b-col id="pil" offset="5" cols="2" @click="changeOrder">
+           Date 
+          <b-icon-arrow-down font-scale="0.7" v-if="asc"></b-icon-arrow-down>
+          <b-icon-arrow-up font-scale="0.7" v-else></b-icon-arrow-up>
       </b-col>
     </b-row>
     <b-row v-for=" film in films" :key="film.id" no-gutters>
-      <b-col offset="1" cols="10">
+      <b-col offset-lg="3" lg="6"
+              offset-sm="2" sm="8"
+              offset="1" cols="10">
         <film-card :filmInfo="film"/>
       </b-col>
     </b-row>
@@ -32,14 +36,19 @@ import Vue from "vue"
 import definition from "../components/definition.vue"
 import filmCard from "../components/film_card.vue"
 import films from "../films.json"
+import { BIcon, BIconArrowUp, BIconArrowDown } from 'bootstrap-vue'
 export default Vue.extend({
   components: {
     definition,
     filmCard,
+    BIcon,
+    BIconArrowUp,
+    BIconArrowDown
   },
   data() {
     return {
       films: films.films,
+      asc:true,
     }
   },
   methods: {
@@ -47,6 +56,7 @@ export default Vue.extend({
       //maybe not super efficient but for now it works with the amount of films.
       //maybe change  in the future in the way you traverse the array?
       this.films.reverse();
+      this.asc=!this.asc;
     }
   },
 })
@@ -63,4 +73,15 @@ export default Vue.extend({
 #films_container>*{
   margin-bottom: 5%;
 }
+#pil{
+  border-radius:20px;
+  background-color:rgba(185, 91, 248, 0.699);
+  color: rgb(255, 255, 255); 
+  }
+
+#pil:hover{
+  background-color:rgba(215, 155, 255, 0.836);
+  cursor: pointer;
+}
+
 </style>
