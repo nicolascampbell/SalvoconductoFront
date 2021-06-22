@@ -1,6 +1,6 @@
 <template>
   <div id="film_card">
-    <b-img-lazy v-bind="mainProps" :src="getImg(pic)"></b-img-lazy>    
+    <b-img-lazy class="img" v-bind="mainProps" :src="getImg(pic)"></b-img-lazy>    
   </div>
 </template>
     
@@ -32,4 +32,15 @@ export default Vue.extend({
 })
 </script>
 <style>
+#film_card{
+	background: white;
+  cursor: pointer;
+
+
+}
+#film_card:hover> .img{
+  transform: scale(0.99); 
+}
+
+
 </style>
