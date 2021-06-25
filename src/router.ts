@@ -35,6 +35,10 @@ export default new Router({
     path: "/Collections/:collectionId",
     name: "Collection",
     component: Collection
-  },]
+  },],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
+  
 })
 
