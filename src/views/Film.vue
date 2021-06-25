@@ -16,10 +16,14 @@
           </definition>
       </b-col>
     </b-row>
-    <b-row id="rows" align-h="center">
-      <b-col class="image" cols="10"   :md="image.relevance*2+4" v-for="image in filterImg(img, filmInfo.id)" :key="image.id">
-        <photo-card key="current" :pic="image" />
-      </b-col>
+    <b-row id="rows" align-h="center"  v-viewer="{movable: false,
+                                                 keyboard: true,
+                                                 navbar: false,
+                                                 fullscreen:true,
+                                                 button:true}">
+        <b-col class="images" cols="10" :md="image.relevance*2+4"  v-for="image in filterImg(img, filmInfo.id)" :key="image.id">
+          <photo-card key="current" :pic="image" />
+        </b-col>
     </b-row>
   </b-container>
 </template>
@@ -27,9 +31,9 @@
 import photoCard from "../components/photo_card.vue"
 import images from "../images.json"
 import definition from "../components/definition.vue"
-
-import Vue from "vue"
-
+import Vue from 'vue'
+import 'viewerjs/dist/viewer.css'
+import { directive as viewer } from "v-viewer"
 type image={
   title: String
   id: String
@@ -50,6 +54,11 @@ export default Vue.extend({
     photoCard,
     definition,
   },
+  directives: {
+      viewer: viewer({
+        debug: true,
+      }),
+    },
   props: {
     filmInfo: {
       type: Object as () => film,
@@ -61,17 +70,6 @@ export default Vue.extend({
     }
   },
   methods: {
-    compare:function (a:image, b:image) {
-      if (a.relevance<b.relevance) {
-        return -1;
-      }
-      if (a.relevance>b.relevance) {
-        return 1;
-      }
-      // a must be equal to b
-      return 0;
-    }
-    ,
     //this will be done in the future by the backend
     filterImg: function (imagesArray, filmid):Array<image>{
       let images = imagesArray.filter(function (image) {
@@ -79,11 +77,15 @@ export default Vue.extend({
       })
       return images;
     },
+    show () {
+        const viewer = this.$el.querySelector('#rows').$viewer
+        viewer.show()
+      }
   },
 })
 </script>
 <style scoped>
-.image{
+.images{
   margin-bottom: 15px;
   padding-right: 7.5px;
   padding-left: 7.5px;
