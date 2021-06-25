@@ -1,6 +1,6 @@
 <template >
   <div id="menuDrop"  >
-    <menu-icon  @open="open" @close="close" :class="scrolled"/>
+    <menu-icon  @open="open" :extended="!openMenu" @close="close" :class="scrolled"/>
       <transition name="appear">
         <div id="menu" v-if="openMenu">
           <b-link class="item" to="/">
@@ -26,7 +26,6 @@ export default Vue.extend({
   data() {
     return {
       openMenu:false,
-      closeMenu:false,
       lastScrollPosition: 0,
       scrolled: {
         scrolled_up: false,
@@ -37,11 +36,9 @@ export default Vue.extend({
   methods: {
       open(){
         this.openMenu=true;
-        this.closeMenu=false;
       },
       close(){
         this.openMenu=false;
-        this.closeMenu=true;
       },
       handleScroll: function () {
       const currentScrollPosition =
@@ -55,6 +52,9 @@ export default Vue.extend({
       this.scrolled.scrolled_up =
         currentScrollPosition < this.lastScrollPosition;
       this.scrolled.scrolled_down = !this.scrolled.scrolled_up;
+      if(this.scrolled.scrolled_down){
+        this.close();
+      }
       // Set the current scroll position as the last scroll position
       this.lastScrollPosition = currentScrollPosition;
     },
@@ -70,12 +70,12 @@ export default Vue.extend({
 <style scoped>
 
 .scrolled_down {
-  transform: translateX(-300%);
+  transform: translateX(-100px);
   transition: all 0.2s cubic-bezier(.68,-0.55,.27,1.55);
   opacity: 0;
 }
 .scrolled_up {
-  transform: translateX(100%);
+  transform: translateX(0);
   transition: all 0.3s cubic-bezier(.68,-0.55,.27,1.55);
 }
 
@@ -93,6 +93,7 @@ export default Vue.extend({
   left:-28px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   text-align: center;
   width: 100px;
 }
@@ -104,11 +105,11 @@ export default Vue.extend({
   transition: all .3s cubic-bezier(.68,-0.55,.27,1.55);
 }
 .appear-leave-active {
-  transition: all .8s cubic-bezier(.68,-0.55,.27,1.55);
+  transition: all .3s cubic-bezier(.68,-0.55,.27,1.55);
 }
 .appear-enter, .appear-leave-to
 /* .app-enter-active-leave-active below version 2.1.8 */ {
-  transform: translateX(-10px);
+  transform: translateX(-100px);
   opacity: 0;
 }
 

@@ -1,10 +1,11 @@
 <template >
   <div
     @click="openCLick"
+    @open="closeClick"
     v-b-toggle.sidebar-1
     ref="dropdownMenu"
     :class="{ activate
-: clicked, deactivate: unclick }"
+: clicked, deactivate: unclick||extended }"
     id="container"
   >
     <div class="horizontal top"></div>
@@ -54,6 +55,9 @@ export default Vue.extend({
 
     },
     
+  },
+  props:{
+    extended:Boolean
   },
   created() {
     window.addEventListener("click", this.closeClick)
