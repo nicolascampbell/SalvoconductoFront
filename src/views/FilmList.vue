@@ -23,7 +23,7 @@
       </b-col>
     </b-row>
     <b-row v-for=" film in films" :key="film.id" no-gutters>
-      <b-col offset-lg="3" lg="6"
+      <b-col  offset-lg="3" lg="6"
               offset-sm="2" sm="8"
               offset="1" cols="10">
         <film-card :filmInfo="film"/>
@@ -64,6 +64,7 @@ export default Vue.extend({
 <style scoped>
 #films_container{
   padding:0px;
+  
 }
 
 #firstRow{
