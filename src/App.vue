@@ -1,17 +1,17 @@
 <template>
-  <div id="container" class="vh-100">
-    <menu-icon/>
+  <div id="container" class=" vh-100" >
+    <navbar id="navbar" />
     <router-view class="view"></router-view>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue"
-import menuIcon from "./components/menuDropdown.vue"
+import navbar from "./components/navbar.vue"
 export default Vue.extend({
   name: "app",
   components: {
-    "menu-icon": menuIcon,
+    "navbar": navbar,
   },
   data() {
     return {}
@@ -26,9 +26,13 @@ export default Vue.extend({
 </script>
 
 <style>
-div {
+#container {
   font-family: "Courier New", Courier, monospace;
 }
-
+#navbar{
+  width:150px;
+  height: 100px;
+  position:fixed;
+}
 
 </style>
