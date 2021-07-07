@@ -66,13 +66,6 @@ export default Vue.extend({
   padding:0px;
   
 }
-
-#firstRow{
-  background-image: url("../assets/3/2.jpg");
-  background-size: cover;
-  background-repeat:no-repeat ;
-  background-position: bottom;
-  }
 #films_container>*{
   margin-bottom: 5%;
 }
