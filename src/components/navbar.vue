@@ -1,32 +1,41 @@
 <template >
   <div id="navtoken">
     <transition name="appear">
-      <b-container id="nav" v-if="open">
-        <b-row>
-          <b-col cols="2" class="item">
-            <b-link to="/"> Home </b-link>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="2" class="item">
-            <b-link to="/Films"> Films </b-link>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col cols="2" class="item">
-            <b-link class="item" to="/Collections"> Collections </b-link>
-          </b-col>
-        </b-row>
-      </b-container>
-      </transition>
-
-      <div id="token" v-if="!open" @click="open=!open">
+      <div id="navbar" v-if="open">
+        <b-container id="menu" >
+          <b-row >
+            <b-col class="item" @click="$router.push({name:'CollectionList'})" >
+              <span> Collections </span>
+            </b-col>
+            <b-col class="item" @click="$router.push({name:'Home'})">
+              <span> Home </span>
+            </b-col>
+            <b-col class="item" style="padding-right=0;" @click="$router.push({name:'FilmList'})">
+              <span> Films </span>
+            </b-col>
+          </b-row>
+        </b-container>
+        <div class="mcap" @click="open=!open" >
+        </div>
       </div>
+      </transition>
+      <div class="back" v-if="this.$route.name!='Home'&&!open" @click="$router.go(-1)">
+        <b-icon-arrow-return-left id="arrow"></b-icon-arrow-return-left>
+      </div>
+      <div class="token" v-if="!open" @click="open=!open">
+        <b-icon-arrow-right id="arrow"></b-icon-arrow-right>
+      </div>
+       
   </div>
 </template>
 <script lang="ts">
 import Vue from "vue"
+import { BIconArrowRight, BIconArrowReturnLeft } from 'bootstrap-vue'
 export default Vue.extend({
+  components:{
+    BIconArrowRight,
+    BIconArrowReturnLeft
+  },
   data() {
     return {
       open: false,
@@ -37,22 +46,73 @@ export default Vue.extend({
 </script>
 <style scoped>
 
-#nav {
+#menu {
   text-align: center;
-  background-color: grey;
+  background-color: rgb(255, 255, 255);
+  border: black solid 1px;
+  border-right: 0.5px solid;
+  overflow-x: hidden;
+  font-size:1.2em;
 }
-#token{
-  width:10%;
-  height:100%;
-  background-color: rebeccapurple;
-  border-radius: 0px 20px 20px 0px;
+
+.item:hover{
   cursor: pointer;
+  color:blueviolet;
+  background-color: rgba(250, 235, 103, 0.5);
+
 }
-#token:hover{
-  background-color: rgb(145, 108, 182);
+.item:nth-child(2n){
+  background-color: rgb(231, 230, 230);
 }
-.item {
-  padding-bottom: 10px;
+.item:nth-child(2n):hover{
+  background-color: rgba(248, 233, 94, 0.5);
+}
+.mcap{
+    background-color: rebeccapurple;
+    min-width: 3%;
+    height: 40%;
+    border: black solid 1px;  
+    cursor: pointer;
+}
+.mcap:hover{
+  background-color: rgb(142, 97, 187);
+}
+#navbar{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.back{
+  width:8%;
+  height:100%;
+  border: black solid 1px;  
+  cursor: pointer;
+  border-left: transparent;
+  background-color: #fae844f8;
+}
+.back:hover{
+    background-color: rgba(235, 223, 123, 0.767);
+}
+.token{
+  width:7%;
+  height:90%;
+  background-color: rgba(115, 54, 177, 0.753);
+  border: black solid 1px;  
+  cursor: pointer;
+  border-left: transparent;
+}
+.token:hover{
+  background-color: rgb(111, 66, 156);
+
+}
+#arrow{
+  margin: 0;
+  margin-left: 5px;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);  
 }
 .appear-enter-active {
   transition: all .3s cubic-bezier(.68,-0.55,.27,1.55);

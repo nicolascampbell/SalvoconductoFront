@@ -30,8 +30,10 @@ export default Vue.extend({
   font-family: "Courier New", Courier, monospace;
 }
 #navbar{
-  width:150px;
-  height: 100px;
+  top:5%;
+  width:30%;
+  min-width: 10em;
+  height: 15%;
   position:fixed;
 }
 
