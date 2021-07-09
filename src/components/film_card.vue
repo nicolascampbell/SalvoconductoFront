@@ -1,5 +1,5 @@
 <template>
-    <b-container>
+    <b-container style="border:black solid 1px; ">
       <b-row align-v="center">
         <b-col class="photoContainer">
             <div @click="
@@ -69,8 +69,7 @@ export default {
   width: 50%;
   padding: 10px;
   color:rgb(255, 255, 255);
-  transform: translateX(-100px);
-  transition: all 0.5s cubic-bezier(.23,1,.32,1);
+  transition: all 2s cubic-bezier(.23,1,.32,1);
 
   opacity: 0;
   font-family: 'Varela', sans-serif;
@@ -84,7 +83,6 @@ export default {
 }
 .photoContainer:hover h2{
   opacity: 1;
-  transform: translateX(0px);
 }
 
 </style>
