@@ -16,7 +16,7 @@
       </b-col>
     </b-row>
     <b-row no-gutters style=" text-align: center;">
-      <b-col id="pil" offset="5" cols="2" @click="changeOrder">
+      <b-col id="pil" offset="10" cols="2" @click="changeOrder">
            Date 
           <b-icon-arrow-down font-scale="0.7" v-if="asc"></b-icon-arrow-down>
           <b-icon-arrow-up font-scale="0.7" v-else></b-icon-arrow-up>
@@ -70,9 +70,10 @@ export default Vue.extend({
   margin-bottom: 5%;
 }
 #pil{
-  border-radius:20px;
-  background-color:rgba(185, 91, 248, 0.699);
-  color: rgb(255, 255, 255); 
+  background-color:rgba(165, 74, 226, 0.829);
+  color:black; 
+  border:black solid 1px;
+  border-right: transparent;
   }
 
 #pil:hover{
