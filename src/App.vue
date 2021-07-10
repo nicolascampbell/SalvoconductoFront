@@ -28,6 +28,7 @@ export default Vue.extend({
 <style>
 #container {
   font-family: "Courier New", Courier, monospace;
+  overflow-x: hidden;
 }
 #navbar{
   top:5%;
