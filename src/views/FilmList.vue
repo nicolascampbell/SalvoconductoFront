@@ -1,7 +1,7 @@
 <template>
   <b-container id="films_container" fluid >
     <b-row class="vh-100" id="firstRow" align-v="center" no-gutters>
-      <b-col offset="1" offset-lg="9">
+      <b-col offset="1" offset-lg="7">
         <definition
           :title="'Films'"
           :subtitle="'[Films]'"
@@ -74,7 +74,7 @@ export default Vue.extend({
 }
 #firstRow{
   background-color:white;
-  border-bottom: black solid 1px;
+  border-bottom: black solid 0.1px;
 }
 #pil{
   background-color:rgba(165, 74, 226, 0.829);

@@ -3,8 +3,7 @@
     <b-row class="vh-100" align-v="center">
       <b-col lg="5" offset-lg="4"
               md="9" offset-md="3"
-              sm="9" offset-sm="2"
-              offset="1">
+              sm="9" offset-sm="2">
         <definition
           :title="'Salvoconducto'"
           :subtitle="'[Sal·vo·con·duc·to]'"

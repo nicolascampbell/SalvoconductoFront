@@ -1,7 +1,7 @@
 <template>
   <b-container id="films_container" >
     <b-row class="vh-100" align-v="center">
-      <b-col offset="1" offset-lg="6">
+      <b-col offset="1" offset-lg="7">
         <definition
             :title="`Film ${filmInfo.id}`"
             :subtitle="'[Film]'"
