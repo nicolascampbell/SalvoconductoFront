@@ -136,7 +136,7 @@ export default Vue.extend({
     background-color: rgba(235, 223, 123, 0.767);
 }
 .token{
-  width:7%;
+  width:6.5%;
   min-width:1.8em;
   height:85%;
   background-color: rgba(115, 54, 177, 0.753);
