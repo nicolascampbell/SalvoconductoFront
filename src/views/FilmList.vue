@@ -22,10 +22,10 @@
           <b-icon-arrow-up font-scale="0.7" v-else></b-icon-arrow-up>
       </b-col>
     </b-row>
-    <b-row class="row" v-for=" film in films" :key="film.id" no-gutters>
-      <b-col  offset-lg="3" lg="6"
-              offset-sm="2" sm="8"
-              offset="1" cols="10">
+    <b-row class="row" align-h="around" >
+      <b-col class="cols"  lg="5 "
+               sm="8"
+               cols="10"  v-for=" film in films" :key="film.id">
         <film-card :filmInfo="film"/>
       </b-col>
     </b-row>
@@ -68,6 +68,9 @@ export default Vue.extend({
 }
 .row:last-of-type{
   margin-bottom: 0!important;
+}
+.cols{
+  margin-bottom: 5%;
 }
 #films_container>*{
   margin-bottom: 5%;
