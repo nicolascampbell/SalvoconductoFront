@@ -16,13 +16,19 @@
           </definition>
       </b-col>
     </b-row>
-    <b-row id="rows" align-h="center"  v-viewer="{movable: false,
+    <b-row refs="rows" align-h="center"  v-viewer.rebuild="{movable: false,
                                                  keyboard: true,
                                                  navbar: false,
                                                  fullscreen:true,
-                                                 button:true}">
-        <b-col class="images" cols="10" :md="image.relevance*2+4"  v-for="image in filterImg(img, filmInfo.id)" :key="image.id">
-          <photo-card key="current" :pic="image" />
+                                                 button:true,
+                                                 rotatable: false,
+                                                 scalable:false}">
+        <b-col class="images"
+               cols="10" 
+               :md="image.relevance*2+4" 
+                v-for="image in filterImg(img, filmInfo.id)"
+                :key="image.id">
+          <photo-card :pic="image" />
         </b-col>
     </b-row>
   </b-container>
@@ -78,7 +84,7 @@ export default Vue.extend({
       return images;
     },
     show () {
-        const viewer = this.$el.querySelector('#rows').$viewer
+        const viewer = this.$refs.rows.viewer
         viewer.show()
       }
   },

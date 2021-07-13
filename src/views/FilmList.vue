@@ -63,8 +63,7 @@ export default Vue.extend({
 </script>
 <style scoped>
 #films_container{
-  padding:0px;
-  background-color:rgba(219, 213, 213, 0.699);
+  background-color: rgba(226, 226, 226, 0.74);
 }
 .row:last-of-type{
   margin-bottom: 0!important;
@@ -75,16 +74,11 @@ export default Vue.extend({
 #films_container>*{
   margin-bottom: 5%;
 }
-#firstRow{
-  background-color:white;
-  border-bottom: black solid 0.1px;
-}
 #pil{
   background-color:rgba(165, 74, 226, 0.829);
   color:black; 
   border:black solid 1px;
-  border-right: transparent;
-  }
+}
 
 #pil:hover{
   background-color:rgba(215, 155, 255, 0.836);
