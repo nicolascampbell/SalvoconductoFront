@@ -1,6 +1,6 @@
 <template>
   <div id="film_card">
-    <b-img-lazy class="img" v-bind="mainProps" :src="getImg(pic)"> </b-img-lazy>
+    <b-img  class="img" v-bind="mainProps" :src="getImg(pic)"> </b-img>
   </div>
 </template>
     
@@ -14,7 +14,7 @@ export default Vue.extend({
       mainProps: {
         center: true,
         fluidGrow: true,
-        blank: true,
+        blank: false,
         blankColor: "#bbb",
         width: 600,
         height: 400,
