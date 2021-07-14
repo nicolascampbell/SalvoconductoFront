@@ -35,6 +35,8 @@ export default Vue.extend({
   min-width: 10em;
   height: 15%;
   position:fixed;
+  z-index: 100  ;
+
 }
 
 </style>

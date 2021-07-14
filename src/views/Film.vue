@@ -22,7 +22,9 @@
                                                  fullscreen:true,
                                                  button:true,
                                                  rotatable: false,
-                                                 scalable:false}">
+                                                 scalable:false,
+                                                 title:0
+                                                 }">
         <b-col class="images"
                cols="10" 
                :md="image.relevance*2+4" 
@@ -40,6 +42,7 @@ import definition from "../components/definition.vue"
 import Vue from 'vue'
 import 'viewerjs/dist/viewer.css'
 import { directive as viewer } from "v-viewer"
+
 type image={
   title: String
   id: String
@@ -83,10 +86,7 @@ export default Vue.extend({
       })
       return images;
     },
-    show () {
-        const viewer = this.$refs.rows.viewer
-        viewer.show()
-      }
+    
   },
 })
 </script>

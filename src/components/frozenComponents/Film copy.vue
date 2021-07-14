@@ -16,7 +16,7 @@
 </template>
 <script lang="ts">
 import photoCard from "../components/photo_card.vue"
-import images from "../images.json"
+import images from "../../images.json"
 import navigateItems from "../components/navigateItems.vue"
 import Vue from "vue"
 

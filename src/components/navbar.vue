@@ -116,7 +116,7 @@ export default Vue.extend({
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-    z-index: 1;
+  z-index: 1;
 
 }
 .padd{
@@ -157,10 +157,10 @@ export default Vue.extend({
   transform: translateY(-50%);  
 }
 .appear-enter-active {
-  transition: all 0.8s ease-in;
+  transition: all 0.4s ease-in;
 }
 .appear-leave-active {
-  transition: all 0.5s ease-out;
+  transition: all 0.2s ease-out;
 }
 .appear-enter, .appear-leave-to
 /* .app-enter-active-leave-active below version 2.1.8 */ {
