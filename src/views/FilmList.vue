@@ -22,10 +22,12 @@
           <b-icon-arrow-up font-scale="0.7" v-else></b-icon-arrow-up>
       </b-col>
     </b-row>
-    <b-row class="row" align-h="around" >
-      <b-col class="cols"  lg="5 "
-               sm="8"
-               cols="10"  v-for=" film in films" :key="film.id">
+    <b-row class="row" align-h="around" no-gutters >
+      <b-col class="cols" 
+              md="5"
+              sm="9"
+              cols="11"
+              v-for=" film in films" :key="film.id"  >
         <film-card :filmInfo="film"/>
       </b-col>
     </b-row>
