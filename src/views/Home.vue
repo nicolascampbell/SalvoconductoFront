@@ -6,7 +6,7 @@
               sm="9" offset-sm="2">
         <definition
           :title="'Salvoconducto'"
-          :subtitle="'[Sal·vo·con·duc·to]'"
+          :subtitle="'[\Sal·vo·con·duc·to\]'"
           :type="'Website'"
           :definitions="[
             'A place to share what my eyes see.',
