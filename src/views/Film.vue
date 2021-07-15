@@ -26,7 +26,7 @@
                                                  title:0
                                                  }">
         <b-col class="images"
-               cols="10" 
+               cols="12" 
                :md="image.relevance*2+4" 
                 v-for="image in filterImg(img, filmInfo.id)"
                 :key="image.id">
