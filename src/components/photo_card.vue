@@ -1,5 +1,5 @@
 <template>
-  <div id="film_card">
+  <div id="photo_card">
     <b-img  class="img" v-bind="mainProps" :src="getImg(pic)"> </b-img>
   </div>
 </template>
@@ -33,11 +33,22 @@ export default Vue.extend({
 })
 </script>
 <style>
-#film_card {
-  background: white;
-  cursor: pointer;
+
+@media screen and (min-width: 768px) {
+  #photo_card {
+    background: white;
+    cursor: pointer;
+  }
+  #photo_card:hover{
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 }
-#film_card:hover {
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+@media screen and (max-width: 767px) {
+  #photo_card {
+    background: white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 }
+
 </style>
