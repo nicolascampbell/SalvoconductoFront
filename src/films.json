@@ -32,6 +32,17 @@
         "bw"
       ],
       "fotoCover": 3
+    },
+    {
+      "id": "5",
+      "description": "gergerarrived to work in a backery in a town called Lahnstein. It was also winter.",
+      "size": 22,
+      "year": "2018",
+      "place": "Lahnstein",
+      "tags": [
+        "bw"
+      ],
+      "fotoCover": 5
     }
   ]
 }
