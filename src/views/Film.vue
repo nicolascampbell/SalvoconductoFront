@@ -91,11 +91,20 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
-.images{
-  margin-bottom: 15px;
-  padding-right: 7.5px;
-  padding-left: 7.5px;
-  }
+@media screen and (min-width: 768px) {
+  .images{
+    margin-bottom: 15px;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+    }
+}
+@media screen and (max-width: 767px) {
+  .images{
+    margin-bottom: 30px;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+    }
+}
 
 
 </style>
