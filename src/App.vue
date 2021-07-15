@@ -36,13 +36,19 @@ export default Vue.extend({
     height: 6em;
     position:fixed;
     z-index: 100  ;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1;
+  
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   #navbar{
-    top:50%;
+    top:0;
     right:0px;
-     width:25em;
+    width:70%;
     height: 10em;
     position:fixed;
     z-index: 100  ;

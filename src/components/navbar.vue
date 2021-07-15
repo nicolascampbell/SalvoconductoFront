@@ -23,7 +23,7 @@
         <b-icon-arrow-return-left class="arrow"></b-icon-arrow-return-left>
       </div>
       <transition name="appear">
-        <div class="token" v-if="!open" @click.stop="open=!open" >
+        <div :class="{padd:this.$route.name!='Home', token:true}" v-if="!open" @click.stop="open=!open" >
           <b-icon-arrow-right class="arrow"></b-icon-arrow-right>
         </div>
       </transition>
@@ -84,7 +84,7 @@ export default Vue.extend({
     overflow-x: hidden;
     font-size:1.2em;
     border-left: transparent;
-
+    border-right: transparent;
   }
 
   .item:hover{
@@ -102,11 +102,9 @@ export default Vue.extend({
   .mcap{
       background-color: rebeccapurple;
       width: 0.7em;
-      height: 45%;
+      height: 3em;
       border: black solid 1px;  
       cursor: pointer;
-      border-left: transparent;
-
   }
   .mcap:hover{
     background-color: rgb(142, 97, 187);
@@ -117,11 +115,14 @@ export default Vue.extend({
     justify-content: flex-start;
     align-items: center;
     z-index: 1;
+    position:absolute;
+    width: 100%;  
   }
   .padd{
-    left:2em;
+    left: 2em!important;;
   }
   .back{
+    position: absolute; 
     width:2em;
     height:100%;
     border: black solid 1px;  
@@ -134,6 +135,7 @@ export default Vue.extend({
       background-color: rgba(235, 223, 123, 0.767);
   }
   .token{
+    position: absolute;
     width:1.8em;
     height:85%;
     background-color: rgba(115, 54, 177, 0.753);
@@ -166,7 +168,7 @@ export default Vue.extend({
     opacity:0.8;
   }
 } 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   
   #menu {
     text-align: center;
@@ -175,7 +177,6 @@ export default Vue.extend({
     overflow-x: hidden;
     font-size:1.2em;
     border-right: transparent;
-    border-left: transparent;
   }
 
   .item:hover{
@@ -197,13 +198,16 @@ export default Vue.extend({
       height: 3em;
       border: black solid 1px;  
       cursor: pointer;
+          border-right: transparent;
+
   }
   .mcap:hover{
     background-color: rgb(142, 97, 187);
   }
   #navmenu{
-    position: absolute;
-    top: 25%;
+    position:absolute;
+    width: 100%;  
+    top: 15%;
     display: flex;
     flex-direction: row-reverse;
     justify-content: left;
@@ -211,12 +215,10 @@ export default Vue.extend({
     z-index: 1;
     right: 0;
   }
-  .padd{
-    left:0em;
-  }
+  
   .back{
     position: absolute;
-    width:2em;
+    width:1.7em;
     height:45%;
     border: black solid 1px;  
     cursor: pointer;
@@ -230,7 +232,7 @@ export default Vue.extend({
   .token{
     top: 0;
     position: absolute;
-    width:1.8em;
+    width:1.9em;
     height:55%;
     background-color: rgba(115, 54, 177, 0.753);
     border: black solid 1px;  
