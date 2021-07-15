@@ -1,5 +1,5 @@
 <template>
-    <b-container style="border:black solid 1px; ">
+    <b-container>
       <b-row align-v="center">
         <b-col class="photoContainer">
             <div @click="
