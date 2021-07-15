@@ -1,7 +1,7 @@
 <template >
   <div id="navtoken" >
     <transition name="appear">
-      <div id="navbar" :class="{padd:this.$route.name!='Home'}" v-if="open">
+      <div id="navmenu" :class="{padd:this.$route.name!='Home'}" v-if="open">
         <b-container id="menu" >
           <b-row >
             <b-col class="item" @click="$router.push({name:'CollectionList'})" >
@@ -20,11 +20,11 @@
       </div>
       </transition>
       <div class="back" v-if="this.$route.name!='Home'" @click="$router.go(-1)" >
-        <b-icon-arrow-return-left id="arrow"></b-icon-arrow-return-left>
+        <b-icon-arrow-return-left class="arrow"></b-icon-arrow-return-left>
       </div>
       <transition name="appear">
         <div class="token" v-if="!open" @click.stop="open=!open" >
-          <b-icon-arrow-right id="arrow"></b-icon-arrow-right>
+          <b-icon-arrow-right class="arrow"></b-icon-arrow-right>
         </div>
       </transition>
        
@@ -76,95 +76,201 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
+@media screen and (min-width: 768px) {
+  #menu {
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: black solid 1px;
+    overflow-x: hidden;
+    font-size:1.2em;
+    border-left: transparent;
 
-#menu {
-  text-align: center;
-  background-color: rgb(255, 255, 255);
-  border: black solid 1px;
-  overflow-x: hidden;
-  font-size:1.2em;
-  border-left: transparent;
+  }
 
-}
+  .item:hover{
+    cursor: pointer;
+    color:blueviolet;
+    background-color: rgba(250, 235, 103, 0.5);
 
-.item:hover{
-  cursor: pointer;
-  color:blueviolet;
-  background-color: rgba(250, 235, 103, 0.5);
+  }
+  .item:nth-child(2n){
+    background-color: rgb(231, 230, 230);
+  }
+  .item:nth-child(2n):hover{
+    background-color: rgba(248, 233, 94, 0.5);
+  }
+  .mcap{
+      background-color: rebeccapurple;
+      width: 0.7em;
+      height: 45%;
+      border: black solid 1px;  
+      cursor: pointer;
+      border-left: transparent;
 
-}
-.item:nth-child(2n){
-  background-color: rgb(231, 230, 230);
-}
-.item:nth-child(2n):hover{
-  background-color: rgba(248, 233, 94, 0.5);
-}
-.mcap{
-    background-color: rebeccapurple;
-    min-width: 0.7em;
-    height: 45%;
+  }
+  .mcap:hover{
+    background-color: rgb(142, 97, 187);
+  }
+  #navmenu{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1;
+  }
+  .padd{
+    left:2em;
+  }
+  .back{
+    width:2em;
+    height:100%;
     border: black solid 1px;  
     cursor: pointer;
     border-left: transparent;
+    background-color: #fae844f8;
+    z-index: 2;
+  }
+  .back:hover{
+      background-color: rgba(235, 223, 123, 0.767);
+  }
+  .token{
+    width:1.8em;
+    height:85%;
+    background-color: rgba(115, 54, 177, 0.753);
+    border: black solid 1px;  
+    cursor: pointer;
+    border-left: transparent;
+  }
+  .token:hover{
+    background-color: rgb(111, 66, 156);
 
-}
-.mcap:hover{
-  background-color: rgb(142, 97, 187);
-}
-#navbar{
-  display:flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  z-index: 1;
+  }
 
-}
-.padd{
-  left:2em;
+  .arrow{
+    margin: 0;
+    margin-left: 5px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);  
+  }
+  .appear-enter-active {
+    transition: all 0.4s ease-in;
+  }
+  .appear-leave-active {
+    transition: all 0.2s ease-out;
+  }
+  .appear-enter, .appear-leave-to
+  /* .app-enter-active-leave-active below version 2.1.8 */ {
+    transform: translateX(-100%);
+    opacity:0.8;
+  }
+} 
+@media screen and (max-width: 768px) {
+  
+  #menu {
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: black solid 1px;
+    overflow-x: hidden;
+    font-size:1.2em;
+    border-right: transparent;
+    border-left: transparent;
+  }
 
-}
-.back{
-  min-width:2em;
-  height:100%;
-  border: black solid 1px;  
-  cursor: pointer;
-  border-left: transparent;
-  background-color: #fae844f8;
-  z-index: 2;
-}
-.back:hover{
-    background-color: rgba(235, 223, 123, 0.767);
-}
-.token{
-  width:6.5%;
-  min-width:1.8em;
-  height:85%;
-  background-color: rgba(115, 54, 177, 0.753);
-  border: black solid 1px;  
-  cursor: pointer;
-  border-left: transparent;
-}
-.token:hover{
-  background-color: rgb(111, 66, 156);
+  .item:hover{
+    cursor: pointer;
+    color:blueviolet;
+    background-color: rgba(250, 235, 103, 0.5);
 
-}
-#arrow{
-  margin: 0;
-  margin-left: 5px;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);  
-}
-.appear-enter-active {
-  transition: all 0.4s ease-in;
-}
-.appear-leave-active {
-  transition: all 0.2s ease-out;
-}
-.appear-enter, .appear-leave-to
-/* .app-enter-active-leave-active below version 2.1.8 */ {
-  transform: translateX(-100%);
-  opacity:0.8;
+  }
+  .item:nth-child(2n){
+    background-color: rgb(231, 230, 230);
+  }
+  .item:nth-child(2n):hover{
+    background-color: rgba(248, 233, 94, 0.5);
+  }
+  .mcap{
+      position:relative;  
+      background-color: rebeccapurple;
+      width: 0.6em;
+      height: 3em;
+      border: black solid 1px;  
+      cursor: pointer;
+  }
+  .mcap:hover{
+    background-color: rgb(142, 97, 187);
+  }
+  #navmenu{
+    position: absolute;
+    top: 25%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    align-items: center;
+    z-index: 1;
+    right: 0;
+  }
+  .padd{
+    left:0em;
+  }
+  .back{
+    position: absolute;
+    width:2em;
+    height:45%;
+    border: black solid 1px;  
+    cursor: pointer;
+    border-right: transparent;
+    background-color: #fae844f8;
+    z-index: 2;
+  }
+  .back:hover{
+      background-color: rgba(235, 223, 123, 0.767);
+  }
+  .token{
+    top: 0;
+    position: absolute;
+    width:1.8em;
+    height:55%;
+    background-color: rgba(115, 54, 177, 0.753);
+    border: black solid 1px;  
+    cursor: pointer;
+    border-right: transparent;
+  }
+  .token:hover{
+    background-color: rgb(111, 66, 156);
+  }
+
+  .token .arrow{
+    margin: 0;
+    margin-left: 5px;
+    position: relative;
+    top: 40%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); 
+    transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1); 
+  }
+  .arrow{
+    margin: 0;
+    margin-left: 5px;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); 
+  }
+  .appear-enter-active {
+    transition: all 0.4s ease-in;
+  }
+  .appear-leave-active {
+    transition: all 0.2s ease-out;
+  }
+  .appear-enter, .appear-leave-to
+  /* .app-enter-active-leave-active below version 2.1.8 */ {
+    transform: translateX(100%);
+    opacity:0.8;
+  }
 }
 </style>
