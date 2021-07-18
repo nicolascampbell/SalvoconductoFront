@@ -24,25 +24,25 @@
     },
     {
       "id": "4",
-      "description": "gergerarrived to work in a backery in a town called Lahnstein. It was also winter.",
-      "size": 22,
+      "description": "I was working in the bakery during the night and during the day tried to stay sane by walking around in nature.",
+      "size": 13,
       "year": "2018",
       "place": "Lahnstein",
       "tags": [
-        "bw"
+        "color"
       ],
-      "fotoCover": 3
+      "fotoCover": 7
     },
     {
       "id": "5",
-      "description": "gergerarrived to work in a backery in a town called Lahnstein. It was also winter.",
-      "size": 22,
+      "description": "Spring started to make its way into the year and so did the sun and the green leaves of the trees.",
+      "size": 18,
       "year": "2018",
       "place": "Lahnstein",
       "tags": [
-        "bw"
+        "color"
       ],
-      "fotoCover": 5
+      "fotoCover": 17 
     }
   ]
 }
