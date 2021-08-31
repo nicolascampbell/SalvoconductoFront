@@ -3,7 +3,7 @@
     <b-row class="vh-100" align-v="center">
       <b-col offset="1" offset-lg="7">
         <definition
-            :title="`Film ${filmInfo.id}`"
+            :title="`Film ${filmInfo._id}`"
             :subtitle="'[Film]'"
             :type="'Chronicle'"
             :definitions="[
@@ -28,8 +28,8 @@
         <b-col class="images"
                cols="12" 
                :md="image.relevance*2+4" 
-                v-for="image in filterImg(img, filmInfo.id)"
-                :key="image.id">
+                v-for="image in img"
+                :key="image.photoNr">
           <photo-card :pic="image" />
         </b-col>
     </b-row>
@@ -37,25 +37,20 @@
 </template>
 <script lang="ts">
 import photoCard from "../components/photo_card.vue"
-import images from "../images.json"
 import definition from "../components/definition.vue"
 import Vue from 'vue'
 import 'viewerjs/dist/viewer.css'
 import { directive as viewer } from "v-viewer"
+import axios from 'axios';
 
-type image={
-  title: String
-  id: String
-  description: String
-  relevance:Number  
-}
+
 type film = {
-  id: String,
+  _id: String,
   description: String,
   size: Number,
   year: String,
   place: String,
-  tags: Array<String>,
+  tags: Array<Object>,
   fotoCover: Number
 }
 export default Vue.extend({
@@ -68,26 +63,24 @@ export default Vue.extend({
         debug: true,
       }),
     },
-  props: {
-    filmInfo: {
-      type: Object as () => film,
-    }
-  },
   data() {
     return {
-      img: images.images,
+      img: [],
+      filmInfo: {
+      type: Object as () => film,
+      }
     }
   },
-  methods: {
-    //this will be done in the future by the backend
-    filterImg: function (imagesArray, filmid):Array<image>{
-      let images = imagesArray.filter(function (image) {
-        return image.id.includes(`${filmid}_`)
-      })
-      return images;
-    },
-    
-  },
+  async created() {
+    try {
+      const response = await axios.get(`http://localhost:3000/film/${this.$route.params.filmid}`);
+      console.log(response.data);
+      this.img = response.data.photo_list;
+      this.filmInfo =response.data.filmInfo[0];
+    } catch (e) {
+      console.log(e);
+    }
+  }
 })
 </script>
 <style scoped>

@@ -27,7 +27,7 @@
               md="5"
               sm="9"
               cols="11"
-              v-for=" film in films" :key="film.id"  >
+              v-for=" film in films" :key="film._id"  >
         <film-card :filmInfo="film"/>
       </b-col>
     </b-row>
@@ -37,7 +37,7 @@
 import Vue from "vue"
 import definition from "../components/definition.vue"
 import filmCard from "../components/film_card.vue"
-import films from "../films.json"
+import axios from 'axios';
 import { BIcon, BIconArrowUp, BIconArrowDown } from 'bootstrap-vue'
 export default Vue.extend({
   components: {
@@ -49,7 +49,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      films: films.films,
+      films: [],
       asc:true,
     }
   },
@@ -61,6 +61,15 @@ export default Vue.extend({
       this.asc=!this.asc;
     }
   },
+  async created() {
+    try {
+      const response = await axios.get(`http://localhost:3000/films`);
+      console.log(response.data);
+      this.films = response.data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
 })
 </script>
 <style scoped>
