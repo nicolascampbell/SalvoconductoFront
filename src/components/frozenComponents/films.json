@@ -1,0 +1,50 @@
+{
+  "films": [
+    {
+      "id": "2",
+      "description": "This film was taken in Barcelona in a Trip inbetween we moved from Uruguay to Germany. I think the film was expired thats the reason for the greenisch tones.",
+      "size": 17,
+      "year": "2018",
+      "place": "Barcelona",
+      "tags": [
+        "color"
+      ],
+      "fotoCover": 17
+    },
+    {
+      "id": "3",
+      "description": "This is my first Film in germany! Ihad just a arrived to work in a backery in a town called Lahnstein. It was also winter.",
+      "size": 22,
+      "year": "2018",
+      "place": "Lahnstein",
+      "tags": [
+        "bw"
+      ],
+      "fotoCover": 21
+    },
+    {
+      "id": "4",
+      "description": "I was working in the bakery during the night and during the day tried to stay sane by walking around in nature.",
+      "size": 13,
+      "year": "2018",
+      "place": "Lahnstein",
+      "tags": [
+        "color"
+      ],
+      "fotoCover": 7
+    },
+    {
+      "id": "5",
+      "description": "Spring started to make its way into the year and so did the sun and the green leaves of the trees.",
+      "size": 18,
+      "year": "2018",
+      "place": "Lahnstein",
+      "tags": [
+        "color"
+      ],
+      "fotoCover": 16
+    }
+  ]
+}
+
+
