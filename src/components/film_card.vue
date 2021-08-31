@@ -5,10 +5,10 @@
             <div @click="
               $router.push({
                 name: 'Film',
-                params: { filmInfo: filmInfo, filmid:filmInfo.id},
+                params: { filmInfo: filmInfo, filmid:filmInfo._id},
               })"
                class="overlay">
-               <h2 class="item" v-text="`Film ${filmInfo.id}`"></h2>
+               <h2 class="item" v-text="`Film ${filmInfo._id}`"></h2>
             </div>
             <b-img-lazy v-bind="mainProps" id="image" :src="coverSrc(filmInfo)" > </b-img-lazy>
         </b-col>
@@ -17,7 +17,7 @@
 </template>
 <script lang="ts">
 type film = {
-  id: String,
+  _id: String,
   description: String,
   size: Number,
   year: String,
@@ -46,7 +46,8 @@ export default {
 
   methods: {
     coverSrc(info:film) {
-      return require(`../assets/${info.id}/${info.fotoCover}.jpg`)
+      console.log(info)
+      return require(`../assets/${info._id}/${info.fotoCover}.jpg`)
     },
   },
 }

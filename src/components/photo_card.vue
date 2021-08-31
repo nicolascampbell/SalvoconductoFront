@@ -6,7 +6,14 @@
     
 <script lang="ts">
 import Vue from "vue"
-
+type image={
+  title: String
+  _id: String
+  filmNr:Number
+  photoNr:Number
+  description: String
+  relevance:Number  
+}
 export default Vue.extend({
   name: "photo-card",
   data() {
@@ -22,12 +29,13 @@ export default Vue.extend({
     }
   },
   props: {
-    pic: Object,
+    pic: {
+      type: Object as () => image,
+      }
   },
   methods: {
-    getImg:function(pic) {
-      let path = pic.id.split("_");
-      return require(`../assets/${path[0]}/${path[1]}.jpg`);
+    getImg:function() {
+      return require(`../assets/${this.pic.filmNr}/${this.pic.photoNr}.jpg`);
     },
   },
 })
