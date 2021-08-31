@@ -63,7 +63,7 @@ export default Vue.extend({
   },
   async created() {
     try {
-      const response = await axios.get(`http://localhost:3000/films`);
+      const response = await axios.get(`https://salvoconductoback.herokuapp.com/films`);
       console.log(response.data);
       this.films = response.data;
     } catch (e) {
