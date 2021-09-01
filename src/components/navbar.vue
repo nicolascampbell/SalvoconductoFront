@@ -10,7 +10,7 @@
             <b-col class="item" @click="$router.push({name:'Home'})">
               <span> Home </span>
             </b-col>
-            <b-col class="item" style="padding-right=0;" @click="$router.push({name:'FilmList'})">
+            <b-col class="item" style="padding-right=0;" @click="$router.push('Films')">
               <span> Films </span>
             </b-col>
           </b-row>
