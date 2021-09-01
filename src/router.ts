@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import FilmList from './views/FilmList.vue'
-import CollectionList from './views/CollectionList.vue'
-import Film from './views/Film.vue'
-import Collection from './views/Collection.vue'
+const Home = () => import('./views/Home.vue');
+const FilmList = () => import('./views/FilmList.vue');
+const CollectionList = () => import('./views/CollectionList.vue');
+const Film = () => import('./views/Film.vue');
+const Collection = () => import('./views/Collection.vue');
 
 Vue.use(Router);
 
