@@ -38,12 +38,11 @@ import Vue from "vue"
 import definition from "../components/definition.vue"
 import filmCard from "../components/film_card.vue"
 import axios from 'axios';
-import { BIcon, BIconArrowUp, BIconArrowDown } from 'bootstrap-vue'
+import { BIconArrowUp, BIconArrowDown } from 'bootstrap-vue'
 export default Vue.extend({
   components: {
     definition,
     filmCard,
-    BIcon,
     BIconArrowUp,
     BIconArrowDown
   },
