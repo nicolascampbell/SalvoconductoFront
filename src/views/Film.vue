@@ -16,7 +16,7 @@
           </definition>
       </b-col>
     </b-row>
-    <b-row refs="rows" align-h="center"  v-viewer.rebuild="{movable: false,
+    <b-row align-h="center"  v-viewer.rebuild="{movable: false,
                                                  keyboard: true,
                                                  navbar: false,
                                                  fullscreen:true,
