@@ -46,10 +46,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             # Stop running container
-            docker stop $(echo $DOCKER_IMAGE)
-
-            # Remove old container
-            docker rm $(echo $DOCKER_IMAGE)
+            docker kill $(echo $DOCKER_IMAGE)
 
             # Run a new container from a new image
             docker run -d \
@@ -58,7 +55,7 @@ jobs:
             -p 80:8080 \
             --rm \
             --name $(echo $DOCKER_IMAGE) \
-            $(echo $DOCKER_REPO):$(echo $GITHUB_SHA | head -c7) $(echo $COMMAND)
+            $(echo $DOCKER_REPO)
 
  
  
