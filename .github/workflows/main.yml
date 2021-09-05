@@ -44,9 +44,10 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.PORT }}
+          shell: bash
           script: |
             # Stop running container
-            docker kill $(echo $DOCKER_IMAGE)
+            docker kill  $DOCKER_IMAGE
 
             # Run a new container from a new image
             docker run -d \
@@ -54,8 +55,8 @@ jobs:
             --restart always \
             -p 80:8080 \
             --rm \
-            --name $(echo $DOCKER_IMAGE) \
-            $(echo $DOCKER_REPO)
+            --name  $DOCKER_IMAGE\
+            $DOCKER_REPO
 
  
  
