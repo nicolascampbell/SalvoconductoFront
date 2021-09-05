@@ -52,9 +52,11 @@ jobs:
             docker rm $(echo $DOCKER_IMAGE)
 
             # Run a new container from a new image
-            docker run -d -it\
+            docker run -d \
+            -it \
             --restart always \
-            -p 80:8080 --rm\
+            -p 80:8080 \
+            --rm \
             --name $(echo $DOCKER_IMAGE) \
             $(echo $DOCKER_REPO):$(echo $GITHUB_SHA | head -c7) $(echo $COMMAND)
 
