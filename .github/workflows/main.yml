@@ -44,10 +44,9 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.PORT }}
-          shell: bash
           script: |
             # Stop running container
-            docker kill  $DOCKER_IMAGE
+            docker kill salvo-front
 
             # Run a new container from a new image
             docker run -d -it -p 80:8080 --rm --name salvo-front thaymonkey/salvo-front
