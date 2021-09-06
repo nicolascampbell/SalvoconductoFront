@@ -5,7 +5,7 @@
               md="9" offset-md="3"
               sm="9" offset-sm="2">
         <definition
-          :title="'Salvoconducto0000'"
+          :title="'Salvoconducto'"
           :subtitle="'[Sal·vo·con·duc·to]'"
           :type="'Website'"
           :definitions="[

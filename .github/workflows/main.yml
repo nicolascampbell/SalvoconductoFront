@@ -52,7 +52,7 @@ jobs:
             #Pull new image
             docker pull thaymonkey/salvo-front:main
             # Run a new container from a new image
-            docker run -d -it -p 8080:80 --rm --name salvo-front thaymonkey/salvo-front
+            docker run -d -it -p 8080:80 --rm --name salvo-front thaymonkey/salvo-front:main
 
 
  
