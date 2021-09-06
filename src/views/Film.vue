@@ -73,7 +73,7 @@ export default Vue.extend({
   },
   async created() {
     try {
-      const response = await axios.get(`http://localhost:3000/film/${this.$route.params.filmid}`);
+      const response = await axios.get(`http://salvoconducto.net:3000/film/${this.$route.params.filmid}`);
       console.log(response.data);
       this.img = response.data.photo_list;
       this.filmInfo =response.data.filmInfo[0];
