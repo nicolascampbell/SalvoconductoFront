@@ -47,9 +47,12 @@ jobs:
           script: |
             # Stop running container
             docker kill salvo-front
-
+            # Delete exited containers
+            docker container prune -f
+            #Pull new image
+            docker pull thaymonkey/salvo-front:main
             # Run a new container from a new image
-            docker run -d -it -p 8080:80 --name --rm salvo-front thaymonkey/salvo-front
+            docker run -d -it -p 8080:80 --rm --name salvo-front thaymonkey/salvo-front
 
 
  
