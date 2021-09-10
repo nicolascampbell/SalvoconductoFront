@@ -7,10 +7,10 @@
 <script lang="ts">
 import Vue from "vue"
 type image={
-  title: String
+  title:String
+  index: Number
   _id: String
-  filmNr:Number
-  photoNr:Number
+  film:Number
   description: String
   relevance:Number  
 }
@@ -35,7 +35,7 @@ export default Vue.extend({
   },
   methods: {
     getImg:function() {
-      return require(`../assets/${this.pic.filmNr}/${this.pic.photoNr}.jpg`);
+      return require(`../assets/${this.pic.film}/${this.pic.index}.jpg`);
     },
   },
 })

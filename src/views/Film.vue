@@ -29,7 +29,7 @@
                cols="12" 
                :md="image.relevance*2+4" 
                 v-for="image in img"
-                :key="image.photoNr">
+                :key="image.index">
           <photo-card :pic="image" />
         </b-col>
     </b-row>
@@ -51,7 +51,8 @@ type film = {
   year: String,
   place: String,
   tags: Array<Object>,
-  fotoCover: Number
+  photoCover: Number,
+  photos:Array<Object>
 }
 export default Vue.extend({
   components: {
@@ -74,9 +75,10 @@ export default Vue.extend({
   async created() {
     try {
       const response = await axios.get(`http://salvoconducto.net:3000/film/${this.$route.params.filmid}`);
-      console.log(response.data);
-      this.img = response.data.photo_list;
-      this.filmInfo =response.data.filmInfo[0];
+      this.img = response.data.photos;
+      console.log("images: "+response.data.photos);
+      this.filmInfo =response.data;
+      console.log("Film: "+response.data);
     } catch (e) {
       console.log(e);
     }

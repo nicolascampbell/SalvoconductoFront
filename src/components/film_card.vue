@@ -5,7 +5,7 @@
             <div @click="
               $router.push({
                 name: 'Film',
-                params: { filmInfo: filmInfo, filmid:filmInfo._id},
+                params: { filmid:filmInfo._id},
               })"
                class="overlay">
                <h2 class="item" v-text="`Film ${filmInfo._id}`"></h2>
@@ -16,19 +16,16 @@
     </b-container>
 </template>
 <script lang="ts">
-type film = {
+type filmCard = {
   _id: String,
-  description: String,
-  size: Number,
   year: String,
   place: String,
-  tags: Array<String>,
-  fotoCover: Number
+  photoCover: Number
 }
 export default {
   props: {
     filmInfo: {
-      type: Object as () => film,
+      type: Object as () => filmCard,
     }
   },
   data() {
@@ -45,9 +42,9 @@ export default {
   },
 
   methods: {
-    coverSrc(info:film) {
+    coverSrc(info:filmCard) {
       console.log(info)
-      return require(`../assets/${info._id}/${info.fotoCover}.jpg`)
+      return require(`../assets/${info._id}/${info.photoCover}.jpg`)
     },
   },
 }
