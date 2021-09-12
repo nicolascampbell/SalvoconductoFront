@@ -36,9 +36,10 @@ export default {
 }
 </script>
 <style scoped>
-
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
 ::v-deep #about-me-modal{
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Courier Prime', monospace;
+  font-weight: 600;
 }
 
 a {
