@@ -1,21 +1,21 @@
 <template>
   <div id="photo_card">
-    <b-img-lazy  class="img" v-bind="mainProps" :src="getImg(pic)"> </b-img-lazy>
+    <b-img-lazy v-bind="mainProps" :src="getPhotoSrc()"> </b-img-lazy>
   </div>
 </template>
     
 <script lang="ts">
 import Vue from "vue"
-type image={
-  title:String
-  index: Number
-  _id: String
-  film:Number
-  description: String
-  relevance:Number  
-}
+import{Photo} from '@/customTypes'
+
 export default Vue.extend({
-  name: "photo-card",
+  name: "photoCard",
+  props: {
+    photo: {
+      type: Object as () => Photo,
+      required: true,
+      }
+  },
   data() {
     return {
       mainProps: {
@@ -28,14 +28,9 @@ export default Vue.extend({
       },
     }
   },
-  props: {
-    pic: {
-      type: Object as () => image,
-      }
-  },
   methods: {
-    getImg:function() {
-      return require(`../assets/${this.pic.film}/${this.pic.index}.jpg`);
+    getPhotoSrc:function() {
+      return require(`../assets/${this.photo.film}/${this.photo.index}.jpg`);
     },
   },
 })
