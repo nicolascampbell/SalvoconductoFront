@@ -1,7 +1,7 @@
 <template>
   <b-container id="films_container" fluid>
     <b-row class="vh-100" id="firstRow" align-v="center" no-gutters>
-      <b-col offset="1" offset-lg="7">
+      <b-col offset="1" offset-md="3" offset-lg="7">
         <definition
           :title="'Films'"
           :subtitle="'[Films]'"

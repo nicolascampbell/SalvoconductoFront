@@ -1,9 +1,10 @@
 <template>
-  <b-container id="container">
+  <b-container id="container" >
     <b-row class="vh-100" align-v="center">
-      <b-col lg="5" offset-lg="4"
-              md="9" offset-md="3"
-              sm="9" offset-sm="2">
+      <b-col lg="4" offset-lg="4"
+              md="6" offset-md="3"
+              sm="8" offset-sm="3"
+              cols="9" offset="1" >
         <definition
           :title="'Salvoconducto'"
           :subtitle="'[Sal·vo·con·duc·to]'"
@@ -33,6 +34,8 @@ export default {
   },
 }
 </script>
-<style>
-
+<style scoped>
+  #container{
+    max-width: 100%;
+  }
 </style>
