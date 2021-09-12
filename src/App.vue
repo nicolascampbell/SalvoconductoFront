@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import Vue from "vue"
-import navbar from "./components/navbar.vue"
+import navbar from "./components/nav-menu.vue"
 export default Vue.extend({
   name: "app",
   components: {
@@ -17,17 +17,11 @@ export default Vue.extend({
     return {}
   },
 })
-/**#footer{
-  position: fixed;
-  bottom: 0px;
-  font-size: 0.8em;
-  right:0px;
-}*/
 </script>
 
 <style>
 #container {
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Courier New", "Courier", "monospace"!important;
 }
 @media screen and (min-width: 768px) {
   #navbar{
@@ -59,8 +53,4 @@ export default Vue.extend({
     z-index: 1;
   }
 }
-
-
-
-
 </style>
