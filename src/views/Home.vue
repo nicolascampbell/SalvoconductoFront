@@ -22,10 +22,11 @@
   </b-container>
 </template>
 <script lang="ts">
-import aboutMe from "../components/about_me_modal.vue"
+import aboutMe from "../components/about-me-modal.vue"
 import definition from "../components/definition.vue"
 
 export default {
+  name:'Home',
   components: {
     aboutMe,
     definition,
