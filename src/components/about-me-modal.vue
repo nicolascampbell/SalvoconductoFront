@@ -19,8 +19,11 @@
             'I got an Olympus Trip 35 as a gift before moving to Germany, that is how it all started.',
             'Even though I started to take pictures to save what I like, now they are in some way a documentary of my life.'
           ]"
-          :withSlot="false"
+          :withSlot="true"
         >
+         <span>You can find more about how this page is made 
+           <a href="https://github.com/nicolascampbell" target="_blank" rel="noopener noreferrer">here</a>!
+          </span>
       </definition>
     </b-modal>
   </div>
@@ -43,10 +46,9 @@ export default {
 }
 
 a {
-  position: absolute;
-  display: inline-block;
   overflow: hidden;
   font-weight: 600!important;
+  text-decoration: none;
   background: linear-gradient(to right, rgb(65, 23, 107), rebeccapurple 50%, rgb(145, 85, 201) 50%);
   background-clip: text;
   -webkit-background-clip: text;
