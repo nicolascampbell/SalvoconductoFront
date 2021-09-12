@@ -1,6 +1,6 @@
 <template>
   <b-container id="container" >
-    <b-row class="vh-100" align-v="center">
+    <b-row class="vh-100" align-v="center" no-gutters>
       <b-col lg="4" offset-lg="4"
               md="6" offset-md="3"
               sm="8" offset-sm="3"
@@ -35,7 +35,4 @@ export default {
 }
 </script>
 <style scoped>
-  #container{
-    max-width: 100%;
-  }
 </style>
