@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 id="title" class="text-left">{{title}}</h1>
+    <h2 id="title" class="text-left">{{title}}</h2>
     <h6 id="subtitle" class="text-left">{{subtitle}}</h6>
     <p class="text-left">{{type}}</p>
     <ol class="text-left">
