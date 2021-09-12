@@ -4,14 +4,15 @@
     <h6 id="subtitle" class="text-left">{{subtitle}}</h6>
     <p class="text-left">{{type}}</p>
     <ol class="text-left">
-      <li v-for="defs in definitions"> {{defs}}</li>
+      <li v-for="(defs,index) in definitions" :key="index"> {{defs}}</li>
       <li v-if="withSlot"><slot></slot></li>
     </ol>
   </div>
 </template>
 <script lang="ts">
+
 export default {
-    components: {},
+    name: 'definition',
     props:{
         title:String,
         subtitle:String,
@@ -26,8 +27,7 @@ export default {
   color: rgb(71, 70, 70);
   display: inline-block;
 }
-#subtitle,
-p {
+#subtitle,p {
   color: rgb(109, 106, 106);
 }
 ol li::marker {

@@ -23,6 +23,7 @@
 import definition from "../components/definition.vue"
 
 export default {
+  name:'NotFound',
   components: {
     definition,
   },

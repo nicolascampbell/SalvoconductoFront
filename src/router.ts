@@ -38,7 +38,7 @@ export default new Router({
     component: Collection
   },
   {
-    path: '/:catchAll(.*)', 
+    path: '/:catchAll(.*)?',
     name: "NotFound",
     component: NotFound
   },],

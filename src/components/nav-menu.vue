@@ -1,39 +1,49 @@
 <template >
   <div id="navtoken" >
+
     <transition name="appear">
       <div id="navmenu" :class="{padd:this.$route.name!='Home'}" v-if="open">
         <b-container id="menu" >
+
           <b-row >
+
             <b-col class="item" @click="$router.push({name:'CollectionList'})" >
               <span> Collections </span>
             </b-col>
             <b-col class="item" @click="$router.push({name:'Home'})">
               <span> Home </span>
             </b-col>
-            <b-col class="item" style="padding-right=0;" @click="$router.push('Films')">
+            <b-col class="item" style="padding-right=0;" @click="$router.push({name:'FilmList'})">
               <span> Films </span>
             </b-col>
+
           </b-row>
+
         </b-container>
-        <div class="mcap" @click="open=!open" >
-        </div>
+        <div class="mcap" @click="open=!open"></div>
       </div>
-      </transition>
-      <div class="back" v-if="this.$route.name!='Home'" @click="$router.go(-1)" >
-        <b-icon-arrow-return-left class="arrow"></b-icon-arrow-return-left>
+    </transition>
+
+    <div class="back" v-if="this.$route.name!='Home'" @click="$router.push({name:previousRoutes[$route.name]})" >
+      <b-icon-arrow-return-left class="arrow"></b-icon-arrow-return-left>
+    </div>
+
+    <transition name="appear">
+      <div :class="{padd:this.$route.name!='Home', token:true}" v-if="!open" @click.stop="open=!open" >
+        <b-icon-arrow-right class="arrow"></b-icon-arrow-right>
       </div>
-      <transition name="appear">
-        <div :class="{padd:this.$route.name!='Home', token:true}" v-if="!open" @click.stop="open=!open" >
-          <b-icon-arrow-right class="arrow"></b-icon-arrow-right>
-        </div>
-      </transition>
+    </transition>
        
   </div>
 </template>
 <script lang="ts">
 import Vue from "vue"
 import { BIconArrowRight, BIconArrowReturnLeft } from 'bootstrap-vue'
+
+import{previousRoutes} from '../navigationRoutes'
+
 export default Vue.extend({
+  name:'navMenu',
   components:{
     BIconArrowRight,
     BIconArrowReturnLeft
@@ -42,7 +52,9 @@ export default Vue.extend({
     return {
       open: false,
       lastScrollPosition: 0,
+      previousRoutes:previousRoutes
     }
+    
   },
   methods: {
     handleScroll: function () {
@@ -85,6 +97,9 @@ export default Vue.extend({
     font-size:1.2em;
     border-left: transparent;
     border-right: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(43, 43, 43);
+
   }
 
   .item:hover{
