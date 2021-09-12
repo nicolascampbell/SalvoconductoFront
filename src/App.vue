@@ -20,10 +20,13 @@ export default Vue.extend({
 </script>
 
 <style>
-#container {
-  font-family: "Courier New", "Courier", "monospace"!important;
-}
+
 @media screen and (min-width: 768px) {
+  @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+  #container{
+    font-family: 'Courier Prime', monospace;
+  }
+  
   #navbar{
     top:5%;
     width:25em;
@@ -35,10 +38,13 @@ export default Vue.extend({
     justify-content: flex-start;
     align-items: center;
     z-index: 1;
-  
   }
 }
 @media screen and (max-width: 767px) {
+  @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+  #container{
+    font-family: 'Courier Prime', monospace;
+  }
   #navbar{
     top:0;
     right:0px;
