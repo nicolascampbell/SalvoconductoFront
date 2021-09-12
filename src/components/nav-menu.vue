@@ -1,6 +1,5 @@
 <template >
   <div id="navtoken" >
-
     <transition name="appear">
       <div id="navmenu" :class="{padd:this.$route.name!='Home'}" v-if="open">
         <b-container id="menu" >
@@ -90,39 +89,17 @@ export default Vue.extend({
 <style scoped>
 @media screen and (min-width: 768px) {
   #menu {
-    text-align: center;
     background-color: rgb(255, 255, 255);
     border: black solid 1px;
     overflow-x: hidden;
-    font-size:1.2em;
     border-left: transparent;
     border-right: transparent;
+
+    text-align: center;
+    font-size:1.2em;
     font-family: Arial, Helvetica, sans-serif;
     color:rgb(43, 43, 43);
-
-  }
-
-  .item:hover{
-    cursor: pointer;
-    color:blueviolet;
-    background-color: rgba(250, 235, 103, 0.5);
-
-  }
-  .item:nth-child(2n){
-    background-color: rgb(231, 230, 230);
-  }
-  .item:nth-child(2n):hover{
-    background-color: rgba(248, 233, 94, 0.5);
-  }
-  .mcap{
-      background-color: rebeccapurple;
-      width: 0.7em;
-      height: 3em;
-      border: black solid 1px;  
-      cursor: pointer;
-  }
-  .mcap:hover{
-    background-color: rgb(142, 97, 187);
+    letter-spacing: 2px;
   }
   #navmenu{
     display:flex;
@@ -133,8 +110,28 @@ export default Vue.extend({
     position:absolute;
     width: 100%;  
   }
-  .padd{
-    left: 2em!important;;
+
+  .item:hover{
+    cursor: pointer;
+    color:blueviolet;
+    background-color: rgba(250, 235, 103, 0.5);
+  }
+  .item:nth-child(2n){
+    background-color: rgb(231, 230, 230);
+  }
+  .item:nth-child(2n):hover{
+    background-color: rgba(248, 233, 94, 0.5);
+  }
+
+  .mcap{
+      background-color: rebeccapurple;
+      width: 0.7em;
+      height: 3em;
+      border: black solid 1px;  
+      cursor: pointer;
+  }
+  .mcap:hover{
+    background-color: rgb(142, 97, 187);
   }
   .back{
     position: absolute; 
@@ -143,24 +140,26 @@ export default Vue.extend({
     border: black solid 1px;  
     cursor: pointer;
     border-left: transparent;
-    background-color: #fae844f8;
+    background-color: #fae844;
     z-index: 2;
   }
   .back:hover{
-      background-color: rgba(235, 223, 123, 0.767);
+      background-color: rgb(253, 241, 136);
   }
   .token{
     position: absolute;
     width:1.8em;
     height:85%;
-    background-color: rgba(115, 54, 177, 0.753);
+    background-color: rgb(137, 81, 192);
     border: black solid 1px;  
     cursor: pointer;
     border-left: transparent;
   }
   .token:hover{
-    background-color: rgb(111, 66, 156);
-
+    background-color: rgb(157, 96, 218);
+  }
+  .padd{
+    left: 2em!important;;
   }
 
   .arrow{
@@ -186,19 +185,33 @@ export default Vue.extend({
 @media screen and (max-width: 767px) {
   
   #menu {
-    text-align: center;
     background-color: rgb(255, 255, 255);
     border: black solid 1px;
     overflow-x: hidden;
-    font-size:1.2em;
     border-right: transparent;
+  
+    text-align: center;
+    font-size:1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(43, 43, 43);
+    letter-spacing: 2px;
+  }
+  #navmenu{
+    position:absolute;
+    width: 100%;  
+    top: 15%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    align-items: center;
+    z-index: 1;
+    right: 0;
   }
 
   .item:hover{
     cursor: pointer;
     color:blueviolet;
     background-color: rgba(250, 235, 103, 0.5);
-
   }
   .item:nth-child(2n){
     background-color: rgb(231, 230, 230);
@@ -213,49 +226,36 @@ export default Vue.extend({
       height: 3em;
       border: black solid 1px;  
       cursor: pointer;
-          border-right: transparent;
-
+      border-right: transparent;
   }
   .mcap:hover{
     background-color: rgb(142, 97, 187);
   }
-  #navmenu{
-    position:absolute;
-    width: 100%;  
-    top: 15%;
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: left;
-    align-items: center;
-    z-index: 1;
-    right: 0;
-  }
-  
   .back{
     position: absolute;
-    width:1.7em;
+    width:1.5em;
     height:45%;
     border: black solid 1px;  
     cursor: pointer;
     border-right: transparent;
-    background-color: #fae844f8;
+    background-color: #fce831d2;
     z-index: 2;
   }
   .back:hover{
-      background-color: rgba(235, 223, 123, 0.767);
+      background-color: rgba(247, 231, 93, 0.767)
   }
   .token{
     top: 0;
     position: absolute;
-    width:1.9em;
+    width:1.7em;
     height:55%;
-    background-color: rgba(115, 54, 177, 0.753);
+    background-color: rgba(137, 81, 192, 0.800);
     border: black solid 1px;  
     cursor: pointer;
     border-right: transparent;
   }
   .token:hover{
-    background-color: rgb(111, 66, 156);
+    background-color: rgb(157, 96, 218, 0.800);
   }
 
   .token .arrow{
