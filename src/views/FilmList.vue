@@ -15,11 +15,11 @@
         </definition>
       </b-col>
     </b-row>
-    <b-row no-gutters class="row" style=" text-align: center;">
-      <b-col id="pil" offset="10" cols="2" @click="changeOrder">
-           Date 
-          <b-icon-arrow-down font-scale="0.7" v-if="asc"></b-icon-arrow-down>
-          <b-icon-arrow-up font-scale="0.7" v-else></b-icon-arrow-up>
+    <b-row no-gutters class="row" align-v="center" style="text-align: center;">
+      <b-col id="pill" offset="5" cols="2" :class="{'pillOn':asc,'pillOff':!asc}" @click="changeOrder">
+           Date  
+          <b-icon-arrow-down font-scale="0.8"  v-if="asc"></b-icon-arrow-down>
+          <b-icon-arrow-up font-scale="0.8" v-else></b-icon-arrow-up>
       </b-col>
     </b-row>
     <b-row class="row" align-h="around" no-gutters >
@@ -28,18 +28,21 @@
               sm="9"
               cols="11"
               v-for=" film in films" :key="film._id"  >
-        <film-card :filmInfo="film"/>
+        <film-card :filmCard="film"/>
       </b-col>
     </b-row>
   </b-container>
 </template>
 <script lang="ts">
 import Vue from "vue"
-import definition from "../components/definition.vue"
-import filmCard from "../components/film_card.vue"
 import axios from 'axios';
 import { BIconArrowUp, BIconArrowDown } from 'bootstrap-vue'
+
+import definition from "../components/definition.vue"
+import filmCard from "../components/film-card.vue"
+
 export default Vue.extend({
+  name:'FilmList',
   components: {
     definition,
     filmCard,
@@ -63,10 +66,14 @@ export default Vue.extend({
   async created() {
     try {
       const response = await axios.get(`http://salvoconducto.net:3000/films`);
-      console.log(response.data);
-      this.films = response.data;
+      if(response.data==null){
+        this.$router.push({name: 'NotFound'});
+      }else{
+        this.films = response.data;
+      }
     } catch (e) {
       console.log(e);
+      this.$router.push({name: 'NotFound'});
     }
   }
 })
@@ -84,15 +91,26 @@ export default Vue.extend({
 #films_container>*{
   margin-bottom: 5%;
 }
-#pil{
-  background-color:rgba(165, 74, 226, 0.829);
+#pill{
   color:black; 
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 5px 5px 0px 0px;
   border:black solid 1px;
 }
-
-#pil:hover{
-  background-color:rgba(215, 155, 255, 0.836);
+#pill:hover{
   cursor: pointer;
+}
+.pillOn{
+  background-color: #fae844f8;
+}
+.pillOff{
+  background-color: rgb(145, 107, 182);
+}
+.pillOn:hover{
+  background-color: #f3e77ef8;
+}
+.pillOff:hover{
+  background-color: rgb(190, 153, 226);
 }
 
 </style>
