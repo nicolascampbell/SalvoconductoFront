@@ -26,6 +26,7 @@ export default {
 #title {
   color: rgb(71, 70, 70);
   display: inline-block;
+  font-size: 2.1em;
 }
 #subtitle,p {
   color: rgb(109, 106, 106);
