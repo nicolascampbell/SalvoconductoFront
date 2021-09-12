@@ -1,5 +1,5 @@
 <template>
-  <b-container id="films_container" fluid >
+  <b-container id="films_container" fluid>
     <b-row class="vh-100" id="firstRow" align-v="center" no-gutters>
       <b-col offset="1" offset-lg="7">
         <definition
@@ -15,102 +15,113 @@
         </definition>
       </b-col>
     </b-row>
-    <b-row no-gutters class="row" align-v="center" style="text-align: center;">
-      <b-col id="pill" offset="5" cols="2" :class="{'pillOn':asc,'pillOff':!asc}" @click="changeOrder">
-           Date  
-          <b-icon-arrow-down font-scale="0.8"  v-if="asc"></b-icon-arrow-down>
-          <b-icon-arrow-up font-scale="0.8" v-else></b-icon-arrow-up>
+    <b-row no-gutters class="row" align-v="center" style="text-align: center">
+      <b-col
+        id="pill"
+        offset="4"
+        cols="4"
+        offset-sm="5"
+        sm="2"
+        :class="{ pillOn: asc, pillOff: !asc }"
+        @click="changeOrder"
+      >
+        Date
+        <b-icon-arrow-down font-scale="0.8" v-if="asc"></b-icon-arrow-down>
+        <b-icon-arrow-up font-scale="0.8" v-else></b-icon-arrow-up>
       </b-col>
     </b-row>
-    <b-row class="row" align-h="around" no-gutters >
-      <b-col class="cols" 
-              md="5"
-              sm="9"
-              cols="11"
-              v-for=" film in films" :key="film._id"  >
-        <film-card :filmCard="film"/>
+    <b-row class="row" align-h="around" no-gutters>
+      <b-col
+        class="cols"
+        cols="11"
+        md="5"
+        v-for="film in films"
+        :key="film._id"
+      >
+        <film-card :filmCard="film" />
       </b-col>
     </b-row>
   </b-container>
 </template>
 <script lang="ts">
 import Vue from "vue"
-import axios from 'axios';
-import { BIconArrowUp, BIconArrowDown } from 'bootstrap-vue'
+import axios from "axios"
+import { BIconArrowUp, BIconArrowDown } from "bootstrap-vue"
 
 import definition from "../components/definition.vue"
 import filmCard from "../components/film-card.vue"
 
 export default Vue.extend({
-  name:'FilmList',
+  name: "FilmList",
   components: {
     definition,
     filmCard,
     BIconArrowUp,
-    BIconArrowDown
+    BIconArrowDown,
   },
   data() {
     return {
       films: [],
-      asc:true,
+      asc: true,
     }
   },
   methods: {
-    changeOrder:function(){
+    changeOrder: function () {
       //maybe not super efficient but for now it works with the amount of films.
       //maybe change  in the future in the way you traverse the array?
-      this.films.reverse();
-      this.asc=!this.asc;
-    }
+      this.films.reverse()
+      this.asc = !this.asc
+    },
   },
   async created() {
     try {
-      const response = await axios.get(`http://salvoconducto.net:3000/films`);
-      if(response.data==null){
-        this.$router.push({name: 'NotFound'});
-      }else{
-        this.films = response.data;
+      const response = await axios.get(`http://salvoconducto.net:3000/films`)
+      if (response.data == null) {
+        this.$router.push({ name: "NotFound" })
+      } else {
+        this.films = response.data
       }
     } catch (e) {
-      console.log(e);
-      this.$router.push({name: 'NotFound'});
+      console.log(e)
+      this.$router.push({ name: "NotFound" })
     }
-  }
+  },
 })
 </script>
 <style scoped>
-#films_container{
+#films_container {
   background-color: rgba(226, 226, 226, 0.74);
 }
-.row:last-of-type{
-  margin-bottom: 0!important;
+.row:last-of-type {
+  margin-bottom: 0 !important;
 }
-.cols{
+.cols {
   margin-bottom: 5%;
 }
-#films_container>*{
+#films_container > * {
   margin-bottom: 5%;
 }
-#pill{
-  color:black; 
+#pill {
+  color: black;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 5px 5px 0px 0px;
-  border:black solid 1px;
+  border: black solid 1px;
+  letter-spacing: 2px;
+  padding: 3px;
 }
-#pill:hover{
+#pill:hover {
   cursor: pointer;
 }
-.pillOn{
+.pillOn {
   background-color: #fae844f8;
 }
-.pillOff{
+.pillOff {
   background-color: rgb(145, 107, 182);
 }
-.pillOn:hover{
+.pillOn:hover {
   background-color: #f3e77ef8;
 }
-.pillOff:hover{
+.pillOff:hover {
   background-color: rgb(190, 153, 226);
 }
-
 </style>
