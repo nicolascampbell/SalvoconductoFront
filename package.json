@@ -8,10 +8,12 @@
     "build-report": "vue-cli-service build --report"
   },
   "dependencies": {
+    "@guillaumebriday/vue-scroll-progress-bar": "^1.0.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
+    "gsap": "^3.7.1",
     "v-viewer": "^1.6.4",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.3",
