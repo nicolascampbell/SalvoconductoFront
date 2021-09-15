@@ -125,7 +125,7 @@ export default Vue.extend({
   }
 
   .mcap{
-      background-color: rebeccapurple;
+      background-color: rgb(145, 107, 182);
       width: 0.7em;
       height: 3em;
       border: black solid 1px;  
@@ -141,7 +141,7 @@ export default Vue.extend({
     border: black solid 1px;  
     cursor: pointer;
     border-left: transparent;
-    background-color: #fae844;
+    background-color: #fae844f8;
     z-index: 2;
   }
   .back:hover{
@@ -151,13 +151,13 @@ export default Vue.extend({
     position: absolute;
     width:1.8em;
     height:85%;
-    background-color: rgb(137, 81, 192);
+    background-color: rgb(145, 107, 182);
     border: black solid 1px;  
     cursor: pointer;
     border-left: transparent;
   }
   .token:hover{
-    background-color: rgb(157, 96, 218);
+    background-color: rgb(190, 153, 226);
   }
   .padd{
     left: 2em!important;;
@@ -222,7 +222,7 @@ export default Vue.extend({
   }
   .mcap{
       position:relative;  
-      background-color: rebeccapurple;
+      background-color: rgb(145, 107, 182);
       width: 0.6em;
       height: 3em;
       border: black solid 1px;  
@@ -230,7 +230,7 @@ export default Vue.extend({
       border-right: transparent;
   }
   .mcap:hover{
-    background-color: rgb(142, 97, 187);
+    background-color: rgb(190, 153, 226,0.800);
   }
   .back{
     position: absolute;
@@ -239,24 +239,24 @@ export default Vue.extend({
     border: black solid 1px;  
     cursor: pointer;
     border-right: transparent;
-    background-color: #fce831d2;
+    background-color: #fae844de;
     z-index: 2;
   }
   .back:hover{
-      background-color: rgba(247, 231, 93, 0.767)
+      background-color: #f3e77ee1;
   }
   .token{
     top: 0;
     position: absolute;
     width:1.7em;
     height:55%;
-    background-color: rgba(137, 81, 192, 0.800);
+    background-color: rgb(145, 107, 182,0.800);
     border: black solid 1px;  
     cursor: pointer;
     border-right: transparent;
   }
   .token:hover{
-    background-color: rgb(157, 96, 218, 0.800);
+    background-color: rgb(190, 153, 226,0.800);
   }
 
   .token .arrow{
