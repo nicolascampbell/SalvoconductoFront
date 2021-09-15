@@ -1,5 +1,5 @@
 <template >
-  <div>
+  <div id="film">
   <b-container id="films_container"  >
     <b-row class="vh-100" align-v="center">
       <b-col offset="1" offset-md="3" offset-xl="7">
@@ -31,6 +31,16 @@
         <photo-card :photo="photo"/>
       </b-col>
     </b-row>
+    <b-row  class="row" align-v="center" style=" margin: 5%;">
+      <b-col
+        offset="4"
+        cols="4"
+        offset-sm="5"
+        sm="2"
+      >
+      <scrollTop/>
+      </b-col>
+    </b-row>
   </b-container>
   <photo-gallery v-if="isNotMobile()" :photos="film.photos" :index="index" @modalClose="index=-1"/>
   </div>
@@ -43,13 +53,15 @@ import photoCard from '../components/photo-card.vue'
 import definition from '../components/definition.vue'
 import photoGallery from '../components/photo-gallery.vue'
 import { Film, Photo } from '@/customTypes'
+import scrollTop from '../components/scrollTop.vue'
 
 export default Vue.extend({
   name:'Film',
   components: {
     photoCard,
     definition,
-    photoGallery
+    photoGallery,
+    scrollTop
   },
   data() {
     return {
@@ -88,6 +100,11 @@ export default Vue.extend({
 </script>
 <style scoped>
 @media screen and (min-width: 768px) {
+  /*This takes out scrollbar in film. height:100%; is essential*/
+  #film{
+    
+    overflow-y:scroll;
+  }
   .images {
     margin-bottom: 15px;
     padding-right: 7.5px;
@@ -97,6 +114,7 @@ export default Vue.extend({
   
 }
 @media screen and (max-width: 767px) {
+  
   .images {
     margin-bottom: 30px;
     padding-right: 7.5px;
