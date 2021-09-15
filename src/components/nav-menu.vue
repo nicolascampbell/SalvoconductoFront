@@ -51,6 +51,7 @@ export default Vue.extend({
     return {
       open: false,
       lastScrollPosition: 0,
+      //TODO: check if this is necessary
       previousRoutes:previousRoutes
     }
     
