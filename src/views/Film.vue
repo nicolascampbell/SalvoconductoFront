@@ -1,5 +1,6 @@
-<template>
-  <b-container id="films_container">
+<template >
+  <div>
+  <b-container id="films_container"  >
     <b-row class="vh-100" align-v="center">
       <b-col offset="1" offset-md="3" offset-xl="7">
         <definition
@@ -18,16 +19,6 @@
     </b-row>
     <b-row
       align-h="center"
-      v-viewer.rebuild="{
-        movable: false,
-        keyboard: true,
-        navbar: false,
-        fullscreen: true,
-        button: true,
-        rotatable: false,
-        scalable: false,
-        title: 0,
-      }"
     >
       <b-col
         class="images"
@@ -35,38 +26,47 @@
         :md="photo.relevance * 2 + 4"
         v-for="photo in film.photos"
         :key="photo.index"
+        @click="changeIndex(photo)" 
       >
-        <photo-card :photo="photo" />
+        <photo-card :photo="photo"/>
       </b-col>
     </b-row>
   </b-container>
+  <photo-gallery v-if="isNotMobile()" :photos="film.photos" :index="index" @modalClose="index=-1"/>
+  </div>
 </template>
-<script lang="ts">
-import Vue from "vue"
-import "viewerjs/dist/viewer.css"
-import { directive as viewer } from "v-viewer"
-import axios from "axios"
+<script lang='ts'>
+import Vue from 'vue'
+import axios from 'axios'
 
-import photoCard from "../components/photo-card.vue"
-import definition from "../components/definition.vue"
-import { Film, Photo } from "@/customTypes"
+import photoCard from '../components/photo-card.vue'
+import definition from '../components/definition.vue'
+import photoGallery from '../components/photo-gallery.vue'
+import { Film, Photo } from '@/customTypes'
 
 export default Vue.extend({
   name:'Film',
   components: {
     photoCard,
     definition,
-  },
-  directives: {
-    viewer: viewer({
-      debug: true,
-    }),
+    photoGallery
   },
   data() {
     return {
       film: {
         type: Object as () => Film,
       },
+      index:-1,
+    }
+  },
+  methods:{
+    changeIndex:function(photo:Photo){
+      this.index=photo.index.valueOf()-1;
+    },
+    //we wanna use this modal component if the device is not a phone.
+    //in phones is just not worth it.
+    isNotMobile:function(){
+      return !window.matchMedia("(max-width: 767px)").matches
     }
   },
   async created() {
@@ -93,6 +93,8 @@ export default Vue.extend({
     padding-right: 7.5px;
     padding-left: 7.5px;
   }
+  
+  
 }
 @media screen and (max-width: 767px) {
   .images {
