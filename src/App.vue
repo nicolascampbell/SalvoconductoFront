@@ -25,7 +25,11 @@ export default Vue.extend({
   @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
   #container{
     font-family: 'Courier Prime', monospace;
-  }
+      scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+    overflow-y:scroll;
+    overflow-x:hidden;
+    }
   
   #navbar{
     top:5%;
