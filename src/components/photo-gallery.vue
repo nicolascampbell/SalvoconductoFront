@@ -22,7 +22,7 @@
         @after-leave="afterLeavePhoto">
         <div class="modal-content" v-if="openPhoto" @click.stop>
           <div id="photo-slide">
-            <img :src="getPhotoSrc(photoToDisplay)" width="1200" height="800"/>
+            <b-img :src="getPhotoSrc(photoToDisplay)" fluid/>
           </div>
         </div>
       </transition>
@@ -173,7 +173,7 @@ export default Vue.extend({
   position: relative;
   background-color: #fefefe;
   padding: 0;
-  width: 90%;
+  width: 80%;
   max-width: 1200px;
   top: 50%;
   left: 50%;
