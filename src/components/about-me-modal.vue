@@ -44,8 +44,7 @@ export default {
   font-family: 'Courier Prime', monospace;
   font-weight: 600;
 }
-
-a {
+a{
   overflow: hidden;
   font-weight: 600!important;
   text-decoration: none;
@@ -61,13 +60,20 @@ a:hover {
   background-position: 0 100%;
 }
 
+/*This is to edirt button of modal. we need active otherwise if i press it and not hover over it then it turns blue* */
 ::v-deep .btn:last-of-type{
-  background-color: #fae844f8;
+  background-color: var(--yellow);
   border: black solid 1px;
   color:black;
   font-family: Arial, Helvetica, sans-serif;
 }
-::v-deep .btn:last-of-type:hover{
-  background-color: rgb(145, 107, 182);
+::v-deep .btn:last-of-type:active{
+  background-color: var(--purple);
 }
+::v-deep .btn:last-of-type:hover{
+  background-color: var(--purple);
+}
+
+  
+
 </style>
