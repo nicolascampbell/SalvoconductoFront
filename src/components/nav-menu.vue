@@ -3,32 +3,32 @@
     <transition name="appear">
       <div id="navmenu" :class="{padd:this.$route.name!='Home'}" v-if="open">
         <b-container id="menu" >
-
+          
           <b-row >
-
-            <b-col class="item" @click="$router.push({name:'CollectionList'})" >
+            <b-col class="item" @click="goToNextRoute('CollectionList')" >
               <span> Collections </span>
             </b-col>
-            <b-col class="item" @click="$router.push({name:'Home'})">
+            <b-col class="item" @click="goToNextRoute('Home')">
               <span> Home </span>
             </b-col>
-            <b-col class="item" style="padding-right=0;" @click="$router.push({name:'FilmList'})">
+            <b-col class="item" style="padding-right=0;" @click="goToNextRoute('FilmList')">
               <span> Films </span>
             </b-col>
-
           </b-row>
 
         </b-container>
-        <div class="mcap" @click="open=!open"></div>
+        <!--This here is the a little "decorative" cap Btn but is also purple-->
+        <div id="menuCapBtn" class="purpleButton" @click="open=!open"></div>
       </div>
     </transition>
 
-    <div class="back" v-if="this.$route.name!='Home'" @click="$router.push({name:previousRoutes[$route.name]})" >
+    <!--This here is the Back Button, only appears when we are not in Home-->
+    <div id="backBtn" class="yellowButton" v-if="this.$route.name!='Home'"  @click="goToNextRoute(previousRoutes[$route.name])" >
       <b-icon-arrow-return-left class="arrow"></b-icon-arrow-return-left>
     </div>
-
+    <!--This here is the Menu Button-->
     <transition name="appear">
-      <div :class="{padd:this.$route.name!='Home', token:true}" v-if="!open" @click.stop="open=!open" >
+      <div :class="{padd:this.$route.name!='Home',purpleButton:true}" id="menuBtn" v-if="!open" @click.stop="open=!open" >
         <b-icon-arrow-right class="arrow"></b-icon-arrow-right>
       </div>
     </transition>
@@ -67,7 +67,7 @@ export default Vue.extend({
         return;
       }
       // Here we determine whether we need to show or hide the navbar
-        this.$data.open=false;
+      this.$data.open=false;
       
       // Set the current scroll position as the last scroll position
       this.lastScrollPosition = currentScrollPosition;
@@ -75,19 +75,65 @@ export default Vue.extend({
     documentClick:function(){
       this.open = false;
         
+    },
+    goToNextRoute(next:string){
+      const currentRoute=this.$router.currentRoute.name!;
+      //Checks if the current rou
+      if(currentRoute!=next){
+        this.$router.push({name:next});
+      }
     }
   },
   created() {
     window.addEventListener("scroll", this.handleScroll);
-    document.addEventListener('click', this.documentClick)
+    document.addEventListener('click', this.documentClick);
   },
   destroyed() {
     window.removeEventListener("scroll", this.handleScroll);
-    document.addEventListener('click', this.documentClick)
+    document.addEventListener('click', this.documentClick);
   },
 })
 </script>
 <style scoped>
+.purpleButton{
+  background-color: var(--purple);
+  position: absolute;
+  border: black solid 1px;  
+  cursor: pointer;
+}
+.purpleButton:hover{
+  background-color: var(--purpleHover)!important;
+}
+.yellowButton{
+  background-color: var(--yellow);
+  position: absolute;
+  border: black solid 1px;  
+  cursor: pointer;
+}
+.yellowButton:hover{
+  background-color: var(--yellowHover);
+}
+
+.arrow{
+    margin: 0;
+    margin-left: 5px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); 
+}
+/**This following classes are for the items in the Menu */
+.item:hover{
+  cursor: pointer;
+  color:blueviolet;
+  background-color: rgba(250, 235, 103, 0.5);
+}
+.item:nth-child(2n){
+  background-color: rgb(231, 230, 230);
+} 
+.item:nth-child(2n):hover{
+  background-color: rgba(248, 233, 94, 0.5);
+}
 @media screen and (min-width: 768px) {
   #menu {
     background-color: rgb(255, 255, 255);
@@ -95,7 +141,6 @@ export default Vue.extend({
     overflow-x: hidden;
     border-left: transparent;
     border-right: transparent;
-
     text-align: center;
     font-size:1.2em;
     font-family: Arial, Helvetica, sans-serif;
@@ -111,65 +156,25 @@ export default Vue.extend({
     position:absolute;
     width: 100%;  
   }
-
-  .item:hover{
-    cursor: pointer;
-    color:blueviolet;
-    background-color: rgba(250, 235, 103, 0.5);
-  }
-  .item:nth-child(2n){
-    background-color: rgb(231, 230, 230);
-  }
-  .item:nth-child(2n):hover{
-    background-color: rgba(248, 233, 94, 0.5);
-  }
-
-  .mcap{
-      background-color: rgb(145, 107, 182);
-      width: 0.7em;
-      height: 3em;
-      border: black solid 1px;  
-      cursor: pointer;
-  }
-  .mcap:hover{
-    background-color: rgb(142, 97, 187);
-  }
-  .back{
-    position: absolute; 
-    width:2em;
-    height:100%;
-    border: black solid 1px;  
-    cursor: pointer;
-    border-left: transparent;
-    background-color: #fae844f8;
-    z-index: 2;
-  }
-  .back:hover{
-      background-color: rgb(253, 241, 136);
-  }
-  .token{
-    position: absolute;
+  #menuBtn{
     width:1.8em;
     height:85%;
-    background-color: rgb(145, 107, 182);
-    border: black solid 1px;  
-    cursor: pointer;
     border-left: transparent;
   }
-  .token:hover{
-    background-color: rgb(190, 153, 226);
+  #backBtn{
+    width:2em;
+    height:100%;
+    border-left: transparent;
+    z-index: 2;
+  }
+  #menuCapBtn{
+    position: relative; 
+    background-color: var(--purple);
+    width: 0.7em;
+    height: 3em;
   }
   .padd{
     left: 2em!important;;
-  }
-
-  .arrow{
-    margin: 0;
-    margin-left: 5px;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);  
   }
   .appear-enter-active {
     transition: all 0.4s ease-in;
@@ -178,13 +183,12 @@ export default Vue.extend({
     transition: all 0.2s ease-out;
   }
   .appear-enter, .appear-leave-to
-  /* .app-enter-active-leave-active below version 2.1.8 */ {
+  /* This is when the icon is on the left!*/ {
     transform: translateX(-100%);
     opacity:0.8;
   }
 } 
-@media screen and (max-width: 767px) {
-  
+@media screen and (max-width: 767px) {  
   #menu {
     background-color: rgb(255, 255, 255);
     border: black solid 1px;
@@ -208,58 +212,26 @@ export default Vue.extend({
     z-index: 1;
     right: 0;
   }
-
-  .item:hover{
-    cursor: pointer;
-    color:blueviolet;
-    background-color: rgba(250, 235, 103, 0.5);
+  #menuBtn{
+    top: 0;
+    width:1.7em;
+    height:55%;
+    border-right: transparent;
   }
-  .item:nth-child(2n){
-    background-color: rgb(231, 230, 230);
+  #backBtn{
+    width:1.5em;
+    height:45%;
+    z-index: 2;
   }
-  .item:nth-child(2n):hover{
-    background-color: rgba(248, 233, 94, 0.5);
-  }
-  .mcap{
+  #menuCapBtn{
       position:relative;  
       background-color: rgb(145, 107, 182);
       width: 0.6em;
       height: 3em;
-      border: black solid 1px;  
-      cursor: pointer;
       border-right: transparent;
   }
-  .mcap:hover{
-    background-color: rgb(190, 153, 226,0.800);
-  }
-  .back{
-    position: absolute;
-    width:1.5em;
-    height:45%;
-    border: black solid 1px;  
-    cursor: pointer;
-    border-right: transparent;
-    background-color: #fae844de;
-    z-index: 2;
-  }
-  .back:hover{
-      background-color: #f3e77ee1;
-  }
-  .token{
-    top: 0;
-    position: absolute;
-    width:1.7em;
-    height:55%;
-    background-color: rgb(145, 107, 182,0.800);
-    border: black solid 1px;  
-    cursor: pointer;
-    border-right: transparent;
-  }
-  .token:hover{
-    background-color: rgb(190, 153, 226,0.800);
-  }
-
-  .token .arrow{
+  /**This is the menu arrow, the normal one */
+  #menuBtn .arrow{
     margin: 0;
     margin-left: 5px;
     position: relative;
@@ -271,14 +243,6 @@ export default Vue.extend({
     -webkit-transform: scaleX(-1);
     -ms-transform: scaleX(-1); 
   }
-  .arrow{
-    margin: 0;
-    margin-left: 5px;
-    position: relative;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%); 
-  }
   .appear-enter-active {
     transition: all 0.4s ease-in;
   }
@@ -286,7 +250,7 @@ export default Vue.extend({
     transition: all 0.2s ease-out;
   }
   .appear-enter, .appear-leave-to
-  /* .app-enter-active-leave-active below version 2.1.8 */ {
+  /* This is when the icon is on the right!*/  {
     transform: translateX(100%);
     opacity:0.8;
   }
