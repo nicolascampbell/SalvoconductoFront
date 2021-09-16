@@ -30,7 +30,7 @@
         <b-icon-sort-up font-scale="0.8" v-else></b-icon-sort-up>
       </b-col>
     </b-row>
-    <b-row class="row" align-h="around" no-gutters>
+    <b-row class="row" align-h="around" no-gutters v-if="loadedSources">
       <b-col
         class="cols"
         cols="11"
@@ -48,7 +48,7 @@
         offset-sm="5"
         sm="2"
       >
-      <scrollTop/>
+      <btn-scroll-top/>
       </b-col>
     </b-row>
     
@@ -61,7 +61,7 @@ import { BIconSortUp, BIconSortDown } from "bootstrap-vue"
 
 import definition from "../components/definition.vue"
 import filmCard from "../components/film-card.vue"
-import scrollTop from '../components/scrollTop.vue'
+import btnScrollTop from '../components/button-scroll-top.vue'
 
 export default Vue.extend({
   name: "FilmList",
@@ -70,12 +70,13 @@ export default Vue.extend({
     filmCard,
     BIconSortUp,
     BIconSortDown,
-    scrollTop
+    btnScrollTop
   },
   data() {
     return {
       films: [],
       asc: true,
+      loadedSources:false
     }
   },
   methods: {
@@ -86,13 +87,14 @@ export default Vue.extend({
       this.asc = !this.asc
     },
   },
-  async created() {
+  async beforeMount() {
     try {
       const response = await axios.get(`http://salvoconducto.net:3000/films`)
       if (response.data == null) {
         this.$router.push({ name: "NotFound" })
       } else {
-        this.films = response.data
+        this.films = response.data;
+        this.loadedSources=true;  
       }
     } catch (e) {
       console.log(e)
@@ -127,15 +129,15 @@ export default Vue.extend({
   cursor: pointer;
 }
 .pillOn {
-  background-color: #fae844f8;
+  background-color: var(--yellow);
 }
 .pillOff {
-  background-color: rgb(145, 107, 182);
+  background-color: var(--purple);
 }
 .pillOn:hover {
-  background-color: #f3e77ef8;
+  background-color: var(--yellowHover);
 }
 .pillOff:hover {
-  background-color: rgb(190, 153, 226);
+  background-color: var(--purpleHover);
 }
 </style>
