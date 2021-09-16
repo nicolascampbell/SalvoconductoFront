@@ -30,7 +30,7 @@
         <b-icon-sort-up font-scale="0.8" v-else></b-icon-sort-up>
       </b-col>
     </b-row>
-    <b-row class="row" align-h="around" no-gutters>
+    <b-row class="row" align-h="around" no-gutters v-if="loadedSources">
       <b-col
         class="cols"
         cols="11"
@@ -76,6 +76,7 @@ export default Vue.extend({
     return {
       films: [],
       asc: true,
+      loadedSources:false
     }
   },
   methods: {
@@ -86,13 +87,14 @@ export default Vue.extend({
       this.asc = !this.asc
     },
   },
-  async created() {
+  async beforeMount() {
     try {
       const response = await axios.get(`http://salvoconducto.net:3000/films`)
       if (response.data == null) {
         this.$router.push({ name: "NotFound" })
       } else {
-        this.films = response.data
+        this.films = response.data;
+        this.loadedSources=true;  
       }
     } catch (e) {
       console.log(e)
