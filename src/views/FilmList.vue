@@ -48,7 +48,7 @@
         offset-sm="5"
         sm="2"
       >
-      <scrollTop/>
+      <btn-scroll-top/>
       </b-col>
     </b-row>
     
@@ -61,7 +61,7 @@ import { BIconSortUp, BIconSortDown } from "bootstrap-vue"
 
 import definition from "../components/definition.vue"
 import filmCard from "../components/film-card.vue"
-import scrollTop from '../components/scrollTop.vue'
+import btnScrollTop from '../components/button-scroll-top.vue'
 
 export default Vue.extend({
   name: "FilmList",
@@ -70,7 +70,7 @@ export default Vue.extend({
     filmCard,
     BIconSortUp,
     BIconSortDown,
-    scrollTop
+    btnScrollTop
   },
   data() {
     return {
@@ -127,15 +127,15 @@ export default Vue.extend({
   cursor: pointer;
 }
 .pillOn {
-  background-color: #fae844f8;
+  background-color: var(--yellow);
 }
 .pillOff {
-  background-color: rgb(145, 107, 182);
+  background-color: var(--purple);
 }
 .pillOn:hover {
-  background-color: #f3e77ef8;
+  background-color: var(--yellowHover);
 }
 .pillOff:hover {
-  background-color: rgb(190, 153, 226);
+  background-color: var(--purpleHover);
 }
 </style>

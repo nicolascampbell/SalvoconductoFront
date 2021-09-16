@@ -38,7 +38,7 @@
         offset-sm="5"
         sm="2"
       >
-      <scrollTop/>
+      <btn-scroll-top/>
       </b-col>
     </b-row>
   </b-container>
@@ -53,7 +53,7 @@ import photoCard from '../components/photo-card.vue'
 import definition from '../components/definition.vue'
 import photoGallery from '../components/photo-gallery.vue'
 import { Film, Photo } from '@/customTypes'
-import scrollTop from '../components/scrollTop.vue'
+import btnScrollTop from '../components/button-scroll-top.vue'
 
 export default Vue.extend({
   name:'Film',
@@ -61,7 +61,7 @@ export default Vue.extend({
     photoCard,
     definition,
     photoGallery,
-    scrollTop
+    btnScrollTop
   },
   data() {
     return {

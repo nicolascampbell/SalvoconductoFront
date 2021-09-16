@@ -23,6 +23,12 @@ export default Vue.extend({
 
 @media screen and (min-width: 768px) {
   @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+  :root{
+    --purple:rgb(145, 107, 182);
+    --yellow:#fae844f8;
+    --purpleHover:rgb(190, 153, 226);
+    --yellowHover:#f3e77ef8;
+  }
   #container{
     font-family: 'Courier Prime', monospace;
   }
@@ -42,6 +48,12 @@ export default Vue.extend({
 }
 @media screen and (max-width: 767px) {
   @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+  :root{
+    --purple:rgb(145, 107, 182,0.800);
+    --yellow:#fae844de;
+    --purpleHover:rgb(190, 153, 226,0.800);
+    --yellowHover:#f3e77ee1;
+  }
   #container{
     font-family: 'Courier Prime', monospace;
   }
