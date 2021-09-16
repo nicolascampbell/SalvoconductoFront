@@ -42,7 +42,7 @@
       </b-col>
     </b-row>
   </b-container>
-  <photo-gallery v-if="isNotMobile()" :photos="film.photos" :index="index" @modalClose="index=-1"/>
+  <photo-gallery v-if="isNotPhone" :photos="film.photos" :index="index" @modalClose="index=-1"/>
   </div>
 </template>
 <script lang='ts'>
@@ -69,17 +69,26 @@ export default Vue.extend({
         type: Object as () => Film,
       },
       index:-1,
+      isNotPhone:false
     }
   },
   methods:{
-    changeIndex:function(photo:Photo){
-      this.index=photo.index.valueOf()-1;
+    changeIndex:function(photo:Photo){   
+      this.isNotMobile();
+      if(this.isNotPhone){
+        this.index=photo.index.valueOf()-1;
+      }
     },
     //we wanna use this modal component if the device is not a phone.
     //in phones is just not worth it.
     isNotMobile:function(){
-      return !window.matchMedia("(max-width: 767px)").matches
+      console.log("Checked if it is a phone!")
+      this.isNotPhone= !window.matchMedia("(max-width: 767px)").matches
     }
+    
+  },
+  mounted(){
+    this.isNotMobile();
   },
   async created() {
     try {
