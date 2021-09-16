@@ -26,8 +26,8 @@
         @click="changeOrder"
       >
         Date
-        <b-icon-arrow-down font-scale="0.8" v-if="asc"></b-icon-arrow-down>
-        <b-icon-arrow-up font-scale="0.8" v-else></b-icon-arrow-up>
+        <b-icon-sort-down font-scale="0.8" v-if="asc"></b-icon-sort-down>
+        <b-icon-sort-up font-scale="0.8" v-else></b-icon-sort-up>
       </b-col>
     </b-row>
     <b-row class="row" align-h="around" no-gutters>
@@ -41,23 +41,36 @@
         <film-card :filmCard="film" />
       </b-col>
     </b-row>
+    <b-row  class="row" align-v="center" style="text-align: center">
+      <b-col
+        offset="4"
+        cols="4"
+        offset-sm="5"
+        sm="2"
+      >
+      <scrollTop/>
+      </b-col>
+    </b-row>
+    
   </b-container>
 </template>
 <script lang="ts">
 import Vue from "vue"
 import axios from "axios"
-import { BIconArrowUp, BIconArrowDown } from "bootstrap-vue"
+import { BIconSortUp, BIconSortDown } from "bootstrap-vue"
 
 import definition from "../components/definition.vue"
 import filmCard from "../components/film-card.vue"
+import scrollTop from '../components/scrollTop.vue'
 
 export default Vue.extend({
   name: "FilmList",
   components: {
     definition,
     filmCard,
-    BIconArrowUp,
-    BIconArrowDown,
+    BIconSortUp,
+    BIconSortDown,
+    scrollTop
   },
   data() {
     return {
@@ -91,9 +104,10 @@ export default Vue.extend({
 <style scoped>
 #films_container {
   background-color: rgba(226, 226, 226, 0.74);
+  overflow-y: scroll;
 }
 .row:last-of-type {
-  margin-bottom: 0 !important;
+  margin-bottom: 5%;
 }
 .cols {
   margin-bottom: 5%;

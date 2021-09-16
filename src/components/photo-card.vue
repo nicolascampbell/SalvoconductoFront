@@ -1,6 +1,6 @@
 <template>
   <div id="photo_card">
-    <b-img-lazy v-bind="mainProps" :src="getPhotoSrc()"> </b-img-lazy>
+    <b-img-lazy v-bind="mainProps" :src="getPhotoSrc()"/>
   </div>
 </template>
     

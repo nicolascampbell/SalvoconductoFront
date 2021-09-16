@@ -23,3 +23,11 @@ export type Photo={
   description: String
   relevance:Number  
 }
+export let empty_photo:{
+  title:""
+  index: -1
+  _id: "-1"
+  film:-1
+  description: ""
+  relevance:-1  
+}
