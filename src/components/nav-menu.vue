@@ -24,12 +24,16 @@
 
     <!--This here is the Back Button, only appears when we are not in Home-->
     <div id="backBtn" class="yellowButton" v-if="this.$route.name!='Home'"  @click="goToNextRoute(previousRoutes[$route.name])" >
-      <b-icon-arrow-return-left class="arrow"></b-icon-arrow-return-left>
+      <div class="arrow">
+        <icon-base ><icon-arrow-return-left/></icon-base>
+      </div>
     </div>
     <!--This here is the Menu Button-->
     <transition name="appear">
       <div :class="{padd:this.$route.name!='Home',purpleButton:true}" id="menuBtn" v-if="!open" @click.stop="open=!open" >
-        <b-icon-arrow-right class="arrow"></b-icon-arrow-right>
+        <div class="arrow">
+           <icon-base ><icon-arrow-right/></icon-base>
+        </div>
       </div>
     </transition>
        
@@ -37,15 +41,18 @@
 </template>
 <script lang="ts">
 import Vue from "vue"
-import { BIconArrowRight, BIconArrowReturnLeft } from 'bootstrap-vue'
 
 import{previousRoutes} from '../navigationRoutes'
+import IconBase from './icon-base.vue'
+import IconArrowRight from './Icons/icon-arrow-right.vue'
+import IconArrowReturnLeft from './Icons/icon-arrow-return-left.vue'
 
 export default Vue.extend({
   name:'navMenu',
   components:{
-    BIconArrowRight,
-    BIconArrowReturnLeft
+    IconBase,
+    IconArrowRight,
+    IconArrowReturnLeft
   },
   data() {
     return {

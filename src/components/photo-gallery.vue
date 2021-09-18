@@ -13,7 +13,9 @@
     @wheel.prevent
     @touchmove.prevent
     @scroll.prevent >
-      <b-icon-x @click.stop="closeModal()" id="closeIcon" ></b-icon-x>
+      <div @click.stop="closeModal()" id="closeIcon">
+        <icon-base :width="50" :height="50"> <icon-x/></icon-base>
+      </div>
       <transition 
         name="photo-appear"
         @before-enter="beforeEnterPhoto"
@@ -32,15 +34,16 @@
 <script lang="ts">
 import Vue from 'vue'
 import gsap from 'gsap'
-import { BIconX } from "bootstrap-vue"
-
 
 import{Photo,empty_photo} from '@/customTypes'
+import IconBase from './icon-base.vue'
+import IconX from './Icons/icon-x.vue'
 
 export default Vue.extend({
   name:'photoGallery',
   components:{
-    BIconX
+    IconBase,
+    IconX
   },
   props:{
     index:Number,

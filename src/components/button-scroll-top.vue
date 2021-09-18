@@ -1,14 +1,17 @@
 <template>
-  <span @click="scrollToTop()" id="toTop"><b-icon-arrow90deg-up font-scale="1" /></span>
+  <div @click="scrollToTop()" id="toTop">
+    <icon-base><icon-arrow-90deg-up/></icon-base>
+  </div>
 </template>
 
 <script>
-import {  BIconArrow90degUp } from "bootstrap-vue"
-
+import IconBase from './icon-base.vue'
+import IconArrow90degUp from './Icons/icon-arrow-90deg-up.vue'
 export default {
   name:'buttonScrollTop',
   components:{
-    BIconArrow90degUp
+    IconBase,
+    IconArrow90degUp
   },
   methods:{
     scrollToTop() {

@@ -26,8 +26,8 @@
         @click="changeOrder"
       >
         Date
-        <b-icon-sort-down font-scale="0.8" v-if="asc"></b-icon-sort-down>
-        <b-icon-sort-up font-scale="0.8" v-else></b-icon-sort-up>
+        <icon-base   v-if="asc"><icon-sort-down/></icon-base>
+        <icon-base   v-else><icon-sort-up/></icon-base>
       </b-col>
     </b-row>
     <b-row class="row" align-h="around" no-gutters v-if="loadedSources">
@@ -57,20 +57,24 @@
 <script lang="ts">
 import Vue from "vue"
 import axios from "axios"
-import { BIconSortUp, BIconSortDown } from "bootstrap-vue"
 
 import definition from "../components/definition.vue"
 import filmCard from "../components/film-card.vue"
 import btnScrollTop from '../components/button-scroll-top.vue'
+
+import IconBase from '../components/icon-base.vue'
+import IconSortDown from '../components/Icons/icon-sort-down.vue'
+import IconSortUp from '../components/Icons/icon-sort-up.vue'
 
 export default Vue.extend({
   name: "FilmList",
   components: {
     definition,
     filmCard,
-    BIconSortUp,
-    BIconSortDown,
-    btnScrollTop
+    btnScrollTop,
+    IconBase,
+    IconSortDown,
+    IconSortUp
   },
   data() {
     return {
