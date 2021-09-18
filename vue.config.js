@@ -1,4 +1,9 @@
 
 module.exports = {
-    publicPath: '/'
+    publicPath: '/',
+    pluginOptions: {
+      webpackBundleAnalyzer: {
+        openAnalyzer: true
+      }
+    }
   }
