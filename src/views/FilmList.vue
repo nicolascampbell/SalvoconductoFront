@@ -16,18 +16,12 @@
       </b-col>
     </b-row>
     <b-row no-gutters class="row" align-v="center" style="text-align: center">
-      <b-col
-        id="pill"
+      <b-col 
         offset="4"
         cols="4"
         offset-sm="5"
-        sm="2"
-        :class="{ pillOn: asc, pillOff: !asc }"
-        @click="changeOrder"
-      >
-        Date
-        <icon-base   v-if="asc"><icon-sort-down/></icon-base>
-        <icon-base   v-else><icon-sort-up/></icon-base>
+        sm="2">
+        <btn-sort label="Date" :asc="asc" @changeOrder="changeOrder()"/>
       </b-col>
     </b-row>
     <b-row class="row" align-h="around" no-gutters v-if="loadedSources">
@@ -61,10 +55,7 @@ import axios from "axios"
 import definition from "../components/definition.vue"
 import filmCard from "../components/film-card.vue"
 import btnScrollTop from '../components/button-scroll-top.vue'
-
-import IconBase from '../components/icon-base.vue'
-import IconSortDown from '../components/Icons/icon-sort-down.vue'
-import IconSortUp from '../components/Icons/icon-sort-up.vue'
+import btnSort from '../components/button-sort.vue'
 
 export default Vue.extend({
   name: "FilmList",
@@ -72,9 +63,7 @@ export default Vue.extend({
     definition,
     filmCard,
     btnScrollTop,
-    IconBase,
-    IconSortDown,
-    IconSortUp
+    btnSort,
   },
   data() {
     return {
@@ -121,27 +110,5 @@ export default Vue.extend({
 #films_container > * {
   margin-bottom: 5%;
 }
-#pill {
-  color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius: 5px 5px 0px 0px;
-  border: black solid 1px;
-  letter-spacing: 2px;
-  padding: 3px;
-}
-#pill:hover {
-  cursor: pointer;
-}
-.pillOn {
-  background-color: var(--yellow);
-}
-.pillOff {
-  background-color: var(--purple);
-}
-.pillOn:hover {
-  background-color: var(--yellowHover);
-}
-.pillOff:hover {
-  background-color: var(--purpleHover);
-}
+
 </style>
