@@ -1,0 +1,54 @@
+@media screen and (min-width: 768px) {
+  #menu {
+    background-color: rgb(255, 255, 255);
+    border: black solid 1px;
+    overflow-x: hidden;
+    border-left: transparent;
+    border-right: transparent;
+    text-align: center;
+    font-size:1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(43, 43, 43);
+    letter-spacing: 2px;
+  }
+  #navmenu{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1;
+    position:absolute;
+    width: 100%;  
+  }
+  #menuBtn{
+    width:1.8em;
+    height:85%;
+    border-left: transparent;
+  }
+  #backBtn{
+    width:2em;
+    height:100%;
+    border-left: transparent;
+    z-index: 2;
+  }
+  #menuCapBtn{
+    position: relative; 
+    background-color: var(--purple);
+    width: 0.7em;
+    height: 3em;
+  }
+  .padd{
+    left: 2em!important;;
+  }
+  .appear-enter-active {
+    transition: all 0.4s ease-in;
+  }
+  .appear-leave-active {
+    transition: all 0.2s ease-out;
+  }
+  .appear-enter, .appear-leave-to
+  /* This is when the icon is on the left!*/ {
+    transform: translateX(-100%);
+    opacity:0.8;
+  }
+} 
