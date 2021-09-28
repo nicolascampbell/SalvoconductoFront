@@ -14,7 +14,7 @@
   #navmenu{
     position:absolute;
     width: 100%;  
-    top: 15%;
+    top: 10%;
     display: flex;
     flex-direction: row-reverse;
     justify-content: left;
@@ -43,7 +43,7 @@
   /**This is the menu arrow, the normal one */
   #menuBtn .arrow{
     margin: 0;
-    margin-left: 5px;
+    margin-right: 5px;
     position: relative;
     top: 40%;
     -ms-transform: translateY(-50%);
