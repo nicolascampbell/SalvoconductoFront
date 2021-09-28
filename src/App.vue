@@ -1,5 +1,5 @@
 <template>
-  <div id="container" class=" vh-100" >
+  <div id="container" >
     <navbar id="navbar" />
     <router-view class="view"></router-view>
   </div>
