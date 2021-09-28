@@ -5,11 +5,11 @@
         <b-container id="menu" >
           
           <b-row >
-            <b-col class="item" @click="goToNextRoute('CollectionList')" >
-              <span> Collections </span>
-            </b-col>
             <b-col class="item" @click="goToNextRoute('Home')">
               <span> Home </span>
+            </b-col>
+            <b-col class="item" @click="goToNextRoute('CollectionList')" >
+              <span> Collections </span>
             </b-col>
             <b-col class="item" style="padding-right=0;" @click="goToNextRoute('FilmList')">
               <span> Films </span>
