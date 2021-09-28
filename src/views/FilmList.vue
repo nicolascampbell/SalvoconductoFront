@@ -1,5 +1,5 @@
 <template>
-  <b-container id="films_container" fluid>
+  <b-container id="films_container" fluid >
     <b-row class="vh-100" id="firstRow" align-v="center" no-gutters>
       <b-col offset="1" offset-md="3" offset-lg="7">
         <definition
@@ -68,7 +68,7 @@ export default Vue.extend({
   data() {
     return {
       films: [],
-      asc: true,
+      asc: false,
       loadedSources:false
     }
   },
@@ -76,8 +76,8 @@ export default Vue.extend({
     changeOrder: function () {
       //maybe not super efficient but for now it works with the amount of films.
       //maybe change  in the future in the way you traverse the array?
-      this.films.reverse()
-      this.asc = !this.asc
+      this.films.reverse();
+      this.asc = !this.asc;
     },
   },
   async beforeMount() {
@@ -86,7 +86,7 @@ export default Vue.extend({
       if (response.data == null) {
         this.$router.push({ name: "NotFound" })
       } else {
-        this.films = response.data;
+        this.films = response.data.reverse();
         this.loadedSources=true;  
       }
     } catch (e) {
@@ -105,8 +105,9 @@ export default Vue.extend({
   margin-bottom: 5%;
 }
 .cols {
-  margin-bottom: 5%;
+  margin-bottom: 7%;
 }
+
 #films_container > * {
   margin-bottom: 5%;
 }
