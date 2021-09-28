@@ -1,8 +1,8 @@
 <template>
   <div id="film" v-if="loadedSources">
-    <b-container id="films_container"  >
+    <b-container id="film-container" fluid>
       <b-row class="vh-100" align-v="center">
-        <b-col offset="1" offset-md="3" offset-xl="7">
+        <b-col offset="1" offset-md="3" offset-xl="7" xl="3" >
           <definition
             :title="`Film ${film._id}`"
             :subtitle="'[Film]'"
@@ -17,32 +17,33 @@
           </definition>
         </b-col>
       </b-row>
-      <b-row
-        align-h="center"
-      >
-        <b-col
-          class="images"
-          cols="12"
-          :md="photo.relevance * 2 + 4"
-          v-for="photo in film.photos"
-          :key="photo.index"
-          @click="changeIndex(photo)" 
+      <b-row >
+        <div
+          id="images-container"
         >
-          <photo-card :photo="photo"/>
-        </b-col>
+          <div
+            :class="{'small-image':photo.relevance<=1,'image':true}"
+            v-for="photo in film.photos"
+            :key="photo.index"
+            @click="changeIndex(photo)"
+            :style="`width:${getPhotoWidth(photo.relevance)}%!important;`"
+            >
+            <photo-card 
+            :photo="photo"/>
+          </div>
+          
+        </div>
       </b-row>
       <b-row  class="row" align-v="center" style=" margin: 5%;">
         <b-col
           offset="4"
           cols="4"
-          offset-sm="5"
-          sm="2"
+          
         >
         <btn-scroll-top/>
         </b-col>
       </b-row>
     </b-container>
-    <photo-gallery v-if="isNotPhone" :photos="film.photos" :index="index" @modalClose="index=-1"/>
   </div>
 </template>
 <script lang='ts'>
@@ -51,7 +52,6 @@ import axios from 'axios'
 
 import photoCard from '../components/photo-card.vue'
 import definition from '../components/definition.vue'
-import photoGallery from '../components/photo-gallery.vue'
 import { Film, Photo } from '@/customTypes'
 import btnScrollTop from '../components/button-scroll-top.vue'
 
@@ -60,7 +60,6 @@ export default Vue.extend({
   components: {
     photoCard,
     definition,
-    photoGallery,
     btnScrollTop
   },
   data() {
@@ -69,8 +68,8 @@ export default Vue.extend({
         type: Object as () => Film,
       },
       index:-1,
-      isNotPhone:false,
-      loadedSources:false
+      loadedSources:false,
+      isNotPhone:true,
     }
   },
   methods:{
@@ -80,10 +79,29 @@ export default Vue.extend({
         this.index=photo.index.valueOf()-1;
       }
     },
-    //we wanna use this modal component if the device is not a phone.
+    //Not so useful without imageviewer! we wanna use this modal component if the device is not a phone.
     //in phones is just not worth it.
     isNotMobile:function(){
-      this.isNotPhone= !window.matchMedia("(max-width: 767px)").matches
+      this.isNotPhone= !window.matchMedia("(max-width: 767px)").matches;
+    },
+    getPhotoWidth(relevance){
+      if(!this.isNotPhone){
+        return 100;
+      }
+      if(relevance==0){
+        return 30;
+      }else if(relevance==1){
+        return 45;
+      }else if(relevance==2){
+        return 70;
+      }else{
+        return 100;
+      }
+    },
+    getRandomMargin(relevance){
+     if(relevance<=1){
+        return Math.random()*20;
+      }
     }
     
   },
@@ -109,26 +127,50 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
+@media screen and (min-width: 767px) {
+  #film-container{
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+  #images-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    row-gap: 30vh;
+    column-gap: 30px;
+    width:100%;
+  }
 
-@media screen and (min-width: 768px) {
-  /*This takes out scrollbar in film. height:100%; is essential*/
-  #film{
-    overflow-y:scroll;
+  .small-image:nth-child(3n){
+    margin-top:100px;
   }
-  .images {
-    margin-bottom: 15px;
-    padding-right: 7.5px;
-    padding-left: 7.5px;
+  .small-image:nth-child(5n){
+    margin-right:auto;
   }
-  
-  
 }
 @media screen and (max-width: 767px) {
-  
-  .images {
-    margin-bottom: 30px;
-    padding-right: 7.5px;
-    padding-left: 7.5px;
+  #film-container{
+    padding-right: 7%;
+    padding-left: 7%;
+  }
+  #images-container{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    row-gap: 50vh;
+    width:100%;
+  }
+  .image{
+    width:100%!important;
   }
 }
+@media screen and (max-width: 767px) and (orientation : landscape) {
+  #film-container{
+    padding-right: 20%;
+    padding-left: 20%;
+  }
+  
+}
+
+
 </style>
