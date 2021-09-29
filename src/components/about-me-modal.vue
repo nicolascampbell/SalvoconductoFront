@@ -17,7 +17,8 @@
             'I come from Uruguay.',
             'I started to take pictures in 2018.',
             'I got an Olympus Trip 35 as a gift before moving to Germany, that is how it all started.',
-            'Even though I started to take pictures to save what I like, now they are in some way a documentary of my life.'
+            'Even though I started to take pictures to save what I like, now they are in some way a documentary of my life for myself.',
+            'Please let me know if you find mistakes or errors, they know how to hide too well.'
           ]"
           :withSlot="true"
         >
