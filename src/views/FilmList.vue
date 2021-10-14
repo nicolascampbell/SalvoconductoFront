@@ -53,7 +53,7 @@ import Vue from "vue"
 import axios from "axios"
 
 import definition from "../components/definition.vue"
-import filmCard from "../components/film-card.vue"
+import filmCard from "../components/card-film.vue"
 import btnScrollTop from '../components/button-scroll-top.vue'
 import btnSort from '../components/button-sort.vue'
 

@@ -1,10 +1,6 @@
 <template>
   <div
     id="btnSort"
-    offset="4"
-    cols="4"
-    offset-sm="5"
-    sm="2"
     :class="{ btnSortOn: asc, btnSortOff: !asc }"
     @click="changeOrder()"
     v-if="label"

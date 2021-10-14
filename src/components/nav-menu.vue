@@ -23,7 +23,7 @@
     </transition>
 
     <!--This here is the Back Button, only appears when we are not in Home-->
-    <div id="backBtn" class="yellowButton" v-if="this.$route.name!='Home'"  @click="goToNextRoute(previousRoutes[$route.name])" >
+    <div v-if="this.$route.name!='Home'" id="backBtn" class="yellowButton"   @click="goToNextRoute(previousRoutes[$route.name])" >
       <div class="arrow">
         <icon-base ><icon-arrow-return-left/></icon-base>
       </div>

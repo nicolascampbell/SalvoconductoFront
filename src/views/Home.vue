@@ -23,7 +23,7 @@
   </b-container>
 </template>
 <script lang="ts">
-import aboutMe from "../components/about-me-modal.vue"
+import aboutMe from "../components/modal-about-me.vue"
 import definition from "../components/definition.vue"
 
 export default {
