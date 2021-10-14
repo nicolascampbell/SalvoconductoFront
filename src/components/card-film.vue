@@ -9,10 +9,9 @@
       "
       class="overlay"
     >
-      <h2 class="item" v-text="`Film ${filmCard._id}`"></h2>
+      <h3 v-text="`Film ${filmCard._id}`"></h3>
     </div>
-    <b-img-lazy v-bind="mainProps" id="image" :src="getCoverSrc()">
-    </b-img-lazy>
+    <b-img-lazy v-bind="mainProps" class="photo" :src="getCoverSrc()"/>
   </div>
 </template>
 <script lang="ts">
@@ -30,11 +29,10 @@ export default Vue.extend({
     return {
       mainProps: {
         center: true,
-        fluidGrow: true,
+        fluid: true,
         blank: true,
         blankColor: "#bbb",
-        width: "100%",
-        height: "100%",
+        height: '100%',
       },
     }
   },
@@ -51,30 +49,20 @@ export default Vue.extend({
   position: absolute;
   display: flex;
   transition: all 0.3s ease;
-  opacity: 0;
   width: 100%;
   height: 100%;
-  background-color: #0000009a;
-  text-align: center;
+  text-align: left;
+  cursor: pointer;
 }
-.overlay h2 {
-  margin: auto;
-  width: 50%;
+.overlay h3 {
+  position:absolute;
+  top:0;
   padding: 10px;
   color: rgb(255, 255, 255);
   transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
-
-  opacity: 0;
+  background-color:var(--purpleHover);
   font-family: "Varela", sans-serif;
+  box-shadow: 5px 5px var(--yellowHover);
 }
-.photoContainer {
-  padding: 0px;
-}
-.photoContainer:hover .overlay {
-  opacity: 1;
-  cursor: pointer;
-}
-.photoContainer:hover h2 {
-  opacity: 1;
-}
+
 </style>

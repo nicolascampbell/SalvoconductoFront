@@ -3,7 +3,7 @@ node_modules
 /dist
 keys
 .pub
-
+*.xmp
 
 # local env files
 .env.local
