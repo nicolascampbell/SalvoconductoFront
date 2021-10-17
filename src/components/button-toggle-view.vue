@@ -6,13 +6,26 @@
     :class="{ btnTViewOn: view, btnTViewOff: !view }"
   >
     {{label}}
+    <icon-base v-if="!view">
+      <icon-presentation/>
+    </icon-base>
+    <icon-base v-else>
+      <icon-grid/>
+    </icon-base>
   </div>
 </template>
 
-<script>
-
+<script lang="ts">
+import IconBase from '../components/icon-base.vue'
+import IconPresentation from '../components/Icons/icon-presentation.vue'
+import IconGrid from '../components/Icons/icon-grid.vue'
 export default {
   name: 'buttonToggleView',
+  components: {
+    IconBase,
+    IconPresentation,
+    IconGrid
+  },
   data(){
     return{
       view:false
@@ -25,6 +38,7 @@ export default {
     changeView:function(){
       this.view=!this.view;
       this.$emit("changeView");
+      
     }
   }
 }
