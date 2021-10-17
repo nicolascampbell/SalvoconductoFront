@@ -1,16 +1,10 @@
-<template>
-  <div class="photoContainer">
-    <div
-      @click="
+<template> 
+  <div class="photo-container overlay" @click="
         $router.push({
           name: 'Film',
           params: { filmid: filmCard._id },
-        })
-      "
-      class="overlay"
-    >
-      <h3 v-text="`Film ${filmCard._id}`"></h3>
-    </div>
+        })">
+    <span v-text="`FILM  ${filmCard._id}`"></span>
     <b-img-lazy v-bind="mainProps" class="photo" :src="getCoverSrc()"/>
   </div>
 </template>
@@ -32,7 +26,6 @@ export default Vue.extend({
         fluid: true,
         blank: true,
         blankColor: "#bbb",
-        height: '100%',
       },
     }
   },
@@ -46,23 +39,38 @@ export default Vue.extend({
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
 .overlay {
-  position: absolute;
-  display: flex;
+  position: relative;
   transition: all 0.3s ease;
   width: 100%;
   height: 100%;
-  text-align: left;
+  text-align: center;
   cursor: pointer;
 }
-.overlay h3 {
-  position:absolute;
+
+.overlay span {
+  position:relative ;
   top:0;
-  padding: 10px;
-  color: rgb(255, 255, 255);
+  padding: 0.2em;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
   transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
-  background-color:var(--purpleHover);
+  background-color:var(--yellow);
   font-family: "Varela", sans-serif;
-  box-shadow: 5px 5px var(--yellowHover);
+  writing-mode: vertical-rl;
+  -webkit-text-orientation: upright;
+  text-orientation: upright;
+  border:black solid 1px;
+  margin-left: 0.5em;
+}
+.photo{
+  position:relative;
+  box-shadow: -5px 1px var(--yellowHover);
+}
+.photo-container{
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap:nowrap;
+  justify-content: flex-end;
 }
 
 </style>
