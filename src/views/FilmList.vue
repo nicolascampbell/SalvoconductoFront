@@ -24,10 +24,10 @@
         <btn-sort label="Date" :asc="asc" @changeOrder="changeOrder()"/>
       </b-col>
     </b-row>
-    <b-row class="row" align-h="around" no-gutters v-if="loadedSources">
+    <b-row class="row" :class="{around:!isMobile(),start:isMobile()}" no-gutters v-if="loadedSources">
       <b-col
         class="cols"
-        cols="11"
+        cols="10"
         md="5"
         v-for="film in films"
         :key="film._id"
@@ -79,6 +79,9 @@ export default Vue.extend({
       this.films.reverse();
       this.asc = !this.asc;
     },
+    isMobile:function(){
+      return window.matchMedia("(max-width: 767px)").matches;
+    },
   },
   async beforeMount() {
     try {
@@ -110,6 +113,12 @@ export default Vue.extend({
 
 #films_container > * {
   margin-bottom: 5%;
+}
+.around{
+  justify-content: space-around;
+}
+.start{
+  justify-content: flex-start;
 }
 
 </style>
