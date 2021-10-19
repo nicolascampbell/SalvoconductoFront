@@ -24,10 +24,10 @@
         <btn-sort label="Date" :asc="asc" @changeOrder="changeOrder()"/>
       </b-col>
     </b-row>
-    <b-row class="row" :class="{around:!isMobile(),start:isMobile()}" no-gutters v-if="loadedSources">
+    <b-row class="around row" no-gutters v-if="loadedSources">
       <b-col
         class="cols"
-        cols="10"
+        cols="11"
         md="5"
         v-for="film in films"
         :key="film._id"
@@ -100,6 +100,12 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
+@media screen and (min-width: 767px) {
+  #film-container{
+    padding-right: 4em;
+    padding-left: 4em;
+  }
+}
 #films_container {
   background-color: rgba(226, 226, 226, 0.74);
   overflow-y: scroll;
@@ -116,9 +122,6 @@ export default Vue.extend({
 }
 .around{
   justify-content: space-around;
-}
-.start{
-  justify-content: flex-start;
 }
 
 </style>
