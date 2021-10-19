@@ -4,7 +4,7 @@
           name: 'Film',
           params: { filmid: filmCard._id },
         })">
-    <span v-text="`FILM  ${filmCard._id}`"></span>
+    <div class="film-info"> &ensp;FILM  {{filmCard._id}} &ensp;<span> {{filmCard.year}}</span></div>
     <b-img-lazy v-bind="mainProps" class="photo" :src="getCoverSrc()"/>
   </div>
 </template>
@@ -39,38 +39,49 @@ export default Vue.extend({
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
 .overlay {
-  position: relative;
-  transition: all 0.3s ease;
-  width: 100%;
-  height: 100%;
-  text-align: center;
   cursor: pointer;
 }
-
-.overlay span {
-  position:relative ;
-  top:0;
-  padding: 0.2em;
-  font-size: 1em;
-  color: rgb(0, 0, 0);
-  transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
-  background-color:var(--yellow);
-  font-family: "Varela", sans-serif;
-  writing-mode: vertical-rl;
-  -webkit-text-orientation: upright;
-  text-orientation: upright;
-  border:black solid 1px;
-  margin-left: 0.5em;
+.film-info span {
+  color:var(--purple)!important;
 }
 .photo{
-  position:relative;
   box-shadow: -5px 1px var(--yellowHover);
 }
-.photo-container{
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap:nowrap;
-  justify-content: flex-end;
-}
 
+@media screen and (min-width: 1001px) {
+  .film-info {
+    position:relative ;
+    top:0;
+    padding: 0.2em;
+    font-size: 1em;
+    color: rgb(0, 0, 0);
+    transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
+    background-color:var(--yellow);
+    font-family: "Varela", sans-serif;
+    writing-mode: vertical-rl;
+    -webkit-text-orientation: upright;
+    text-orientation: upright;
+    border:black solid 1px;
+    margin-left: 0.5em;
+    text-align: center;
+  } 
+  .photo-container{
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .film-info {
+    font-size: 1em;
+    color: rgb(0, 0, 0);
+    transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
+    background-color:var(--yellow);
+    font-family: "Varela", sans-serif;
+    border:black solid 1px;
+  }
+  .photo-container{
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>
