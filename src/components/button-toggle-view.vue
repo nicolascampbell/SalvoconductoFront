@@ -16,10 +16,12 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue"
+
 import IconBase from '../components/icon-base.vue'
 import IconPresentation from '../components/Icons/icon-presentation.vue'
 import IconGrid from '../components/Icons/icon-grid.vue'
-export default {
+export default  Vue.extend({
   name: 'buttonToggleView',
   components: {
     IconBase,
@@ -41,7 +43,7 @@ export default {
       
     }
   }
-}
+});
 </script>
 
 <style scoped>
