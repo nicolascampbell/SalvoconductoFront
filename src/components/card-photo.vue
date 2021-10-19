@@ -1,7 +1,7 @@
 <template>
   <div class="photo_card">
     <a :href="getPhotoSrc()" target="_blank" rel="noopener noreferrer">
-      <b-img-lazy v-bind="mainProps" :src="getPhotoSrc()" />
+      <b-img-lazy class="img" v-bind="mainProps" :src="getPhotoSrc()" />
     </a>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default Vue.extend({
     return {
       mainProps: {
         center: true,
-        fluidGrow: true,
+        fluid: true,
         blank: false,
         blankColor: "#bbb",
       },
@@ -35,10 +35,13 @@ export default Vue.extend({
   },
 })
 </script>
-<style>
+<style scoped>
+
 .photo_card {
   background: white;
   cursor: pointer;
   object-fit: cover;
+  z-index: 100;
 }
+
 </style>

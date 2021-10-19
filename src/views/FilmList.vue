@@ -24,7 +24,7 @@
         <btn-sort label="Date" :asc="asc" @changeOrder="changeOrder()"/>
       </b-col>
     </b-row>
-    <b-row class="row" align-h="around" no-gutters v-if="loadedSources">
+    <b-row class="around row" no-gutters v-if="loadedSources">
       <b-col
         class="cols"
         cols="11"
@@ -53,7 +53,7 @@ import Vue from "vue"
 import axios from "axios"
 
 import definition from "../components/definition.vue"
-import filmCard from "../components/film-card.vue"
+import filmCard from "../components/card-film.vue"
 import btnScrollTop from '../components/button-scroll-top.vue'
 import btnSort from '../components/button-sort.vue'
 
@@ -79,6 +79,9 @@ export default Vue.extend({
       this.films.reverse();
       this.asc = !this.asc;
     },
+    isMobile:function(){
+      return window.matchMedia("(max-width: 767px)").matches;
+    },
   },
   async beforeMount() {
     try {
@@ -97,6 +100,12 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
+@media screen and (min-width: 767px) {
+  #film-container{
+    padding-right: 4em;
+    padding-left: 4em;
+  }
+}
 #films_container {
   background-color: rgba(226, 226, 226, 0.74);
   overflow-y: scroll;
@@ -110,6 +119,9 @@ export default Vue.extend({
 
 #films_container > * {
   margin-bottom: 5%;
+}
+.around{
+  justify-content: space-around;
 }
 
 </style>
