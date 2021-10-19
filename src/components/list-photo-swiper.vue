@@ -3,7 +3,8 @@
     <swiper @progress="progress" class="swiper" :options="swiperOption">
       <swiper-slide 
         v-for="photo in photos"
-        :key="photo.index">
+        :key="photo.index"
+      >
         <photo-card :photo="photo" class="swiper-lazy"/>
         <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
 
@@ -39,8 +40,9 @@ export default Vue.extend({
   },
   data() {
     return {
-      swiperOption: {
-        lazy: true,
+      swiperOption: { 
+        lazy:true,
+        spaceBetween: 20,
         pagination: {
           el: ".swiper-pagination",
           type: "progressbar",
@@ -62,7 +64,9 @@ export default Vue.extend({
       }else if(a.classList.contains("swiper-pagination-progressbar-filled")){
         a.classList.remove("swiper-pagination-progressbar-filled")
       }
-    }
+    },
+
+    
   },
   created(){
     if(this.navigation){
@@ -77,28 +81,34 @@ export default Vue.extend({
 </script>
 
 <style>
-#images-container-swiper {
-  height: 100vh;
-  width: 100%;
-}
-.swiper-pagination-progressbar-fill{
-  background:var(--purple)!important;
-}
-.swiper-pagination-progressbar-filled{
-  background:var(--yellow)!important;
-}
-.swiper-lazy-preloader{
-  --swiper-preloader-color:var(--purpleHover);
-}
+  @media screen and (min-width: 767px),(orientation: landscape){
+    #images-container-swiper{
+      transform:scale(0.85)
+    }
+  }
+  @media screen and (orientation: landscape){
+    #images-container-swiper{
+      transform:scale(0.80)
+    }
+  }
+  .swiper-pagination-progressbar-fill{
+    background:var(--purple)!important;
+  }
+  .swiper-pagination-progressbar-filled{
+    background:var(--yellow)!important;
+  }
+  .swiper-lazy-preloader{
+    --swiper-preloader-color:var(--purpleHover);
+  }
 
-.swiper {
-  height:100%;
-  width:100%;
-}
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-}
+  .swiper{
+    height:auto;
+  }
+  .swiper-slide {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    background-color: rgba(226, 226, 226, 0.123);
+  }
 </style>
