@@ -23,11 +23,11 @@
           cols="4"
           offset-sm="5"
           sm="2">
-          <button-toggle-view @changeView="desktopView=!desktopView" label="Change View" />
+          <button-toggle-view @changeView="desktopView=!desktopView;" label="Change View to " />
         </b-col>
       </b-row>
-      <b-row align-v="center" style="margin-top:20px">
-        <b-col >
+      <b-row align-v="center" :class="{'image-galery-row':!desktopView}" no-gutters>
+        <b-col :class="{'image-galery-col':!desktopView}">
           <list-photo-swiper v-if="isMobile()||!desktopView" :photos="film.photos" :navigation="!isMobile()&&!desktopView"/>
           <list-photo-desktop v-else :photos="film.photos"/>
         </b-col>
@@ -71,7 +71,7 @@ export default Vue.extend({
       },
       index:-1,
       loadedSources:false,
-      desktopView:true
+      desktopView:true&&!window.matchMedia("(max-width: 767px)").matches
     }
   },
   methods:{
@@ -99,23 +99,34 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
+
 @media screen and (min-width: 767px) {
   #film-container{
-    padding-right: 10%;
-    padding-left: 10%;
+    padding-right: 4em;
+    padding-left: 4em;
   }
-
+  .image-galery-col{
+    padding: 0% 5% 5px 5%;
+  }
+  .image-galery-row{
+    width:100%;
+    height: 100%;
+  }
 }
 @media screen and (max-width: 767px) {
   #film-container{
     padding-right: 7%;
     padding-left: 7%;
   }
+  .image-galery-row{
+    width:100%;
+    height: 100vh;
+  }
 }
 @media screen and (max-width: 767px) and (orientation : landscape) {
   #film-container{
-    padding-right: 20%;
-    padding-left: 20%;
+    padding-right: 10%;
+    padding-left: 10%;
   }
 }
 
