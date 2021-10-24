@@ -83,7 +83,7 @@ export default Vue.extend({
   async beforeMount() {
     try {
       const response = await axios.get(
-        `http://salvoconducto.net:3000/film/${this.$route.params.filmid}`,
+        `https://salvoconducto.net/api/film/${this.$route.params.filmid}`,
       )
       if(response.data==null){
         this.$router.push({name: 'NotFound'});

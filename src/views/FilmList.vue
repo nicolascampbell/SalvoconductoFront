@@ -85,7 +85,7 @@ export default Vue.extend({
   },
   async beforeMount() {
     try {
-      const response = await axios.get(`http://salvoconducto.net:3000/films`)
+      const response = await axios.get(`https://salvoconducto.net/api/films`)
       if (response.data == null) {
         this.$router.push({ name: "NotFound" })
       } else {
