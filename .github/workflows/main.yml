@@ -47,6 +47,10 @@ jobs:
           script: |
             # Pull new image
             docker-compose pull salvo-front
+            # Stop salvo-front container
+            docker-compose stop salvo-front
+            # Remove paused containers
+            docker-compose rm
             # Run a new container from a new image
             docker-compose up -d salvo-front
             # Delete hanging Images
