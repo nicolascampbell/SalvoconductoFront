@@ -45,14 +45,12 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            # Stop running container
-            docker kill salvo-front
-            # Delete exited containers
-            docker container prune -f
-            #Pull new image
-            docker pull thaymonkey/salvo-front:main
+            # Pull new image
+            docker-compose pull salvo-front
             # Run a new container from a new image
-            docker run -d -it -p 80:80 --rm --name salvo-front thaymonkey/salvo-front:main
+            docker-compose up -d salvo-front
+            # Delete hanging Images
+            docker image prune -f
 
 
  
