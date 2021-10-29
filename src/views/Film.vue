@@ -1,5 +1,5 @@
 <template>
-  <div id="film" v-if="loadedSources">
+  <div id="film" v-if="loadedSources" >
     <b-container id="film-container" fluid>
       <b-row class="vh-100" align-v="center">
         <b-col offset="1" offset-md="3"  offset-xl="6" xl="5" >
@@ -17,13 +17,23 @@
           </definition>
         </b-col>
       </b-row>
-      <b-row v-if="!isMobile()" no-gutters  style="text-align: center">
+      <b-row   align-h="around" style="text-align: center">
         <b-col 
-          offset="4"
-          cols="4"
-          offset-sm="5"
-          sm="2">
+          cols="3"
+          lg="1"
+          >
+          <button-prev-film :disable="previous[$route.params.filmid]?false:true" :prevId="previous[$route.params.filmid]||''"/>
+        </b-col>
+        <b-col v-if="!isMobile()"
+         cols="2" 
+          >
           <button-toggle-view @changeView="desktopView=!desktopView;" label="Change View to " />
+        </b-col>
+        <b-col
+          cols="3"
+          lg="1"
+          >
+          <button-next-film :disable="next[$route.params.filmid]?false:true" :nextId="next[$route.params.filmid]||''" />
         </b-col>
       </b-row>
       <b-row align-v="center" :class="{'image-galery-row':!desktopView}" no-gutters>
@@ -32,13 +42,24 @@
           <list-photo-desktop v-else :photos="film.photos"/>
         </b-col>
       </b-row>
-      <b-row v-if="!isMobile()&&desktopView" class="row" align-v="center" style=" margin: 5%;">
+      <b-row v-if="!isMobile()&&desktopView" class="row"  align-h="around" style=" margin-top: 5%;text-align: center">
+        <b-col 
+          cols="3"
+          md="1"
+          >
+          <button-prev-film :disable="previous[$route.params.filmid]?false:true" :prevId="previous[$route.params.filmid]||''"/>
+        </b-col>
         <b-col
-          offset="4"
           cols="4"
-          
+          sm="2"
         >
-        <btn-scroll-top/>
+          <btn-scroll-top/>
+        </b-col>
+        <b-col 
+          cols="3"
+          md="1"
+          >
+          <button-next-film :disable="next[$route.params.filmid]?false:true" :nextId="next[$route.params.filmid]||''" />
         </b-col>
       </b-row>
     </b-container>
@@ -54,6 +75,11 @@ import btnScrollTop from '../components/button-scroll-top.vue'
 import ListPhotoDesktop from '../components/list-photo-desktop.vue'
 import listPhotoSwiper from '@/components/list-photo-swiper.vue'
 import buttonToggleView from '../components/button-toggle-view.vue'
+import buttonNextFilm from '../components/button-next-film.vue'
+import buttonPrevFilm from '../components/button-prev-film.vue'
+
+import {previous} from '@/films'
+import {next} from '@/films'
 
 export default Vue.extend({
   name:'Film',
@@ -62,7 +88,9 @@ export default Vue.extend({
     btnScrollTop,
     ListPhotoDesktop,
     listPhotoSwiper,
-    buttonToggleView
+    buttonToggleView,
+    buttonNextFilm,
+    buttonPrevFilm
   },
   data() {
     return {
@@ -71,7 +99,9 @@ export default Vue.extend({
       },
       index:-1,
       loadedSources:false,
-      desktopView:true&&!window.matchMedia("(max-width: 767px)").matches
+      desktopView:true&&!window.matchMedia("(max-width: 767px)").matches,
+      previous:previous,
+      next:next
     }
   },
   methods:{
