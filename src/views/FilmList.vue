@@ -82,7 +82,7 @@ export default Vue.extend({
         let film = this.films[Math.floor(Math.random() * this.films.length)]
         this.$router.push({
           name: "Film",
-          params: { filmid: film._id },
+          params: { filmid: film["_id"] },
         })
       }
     },
