@@ -68,6 +68,7 @@ export default Vue.extend({
   .photo-container{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: flex-end;
   }
 }
 @media screen and (max-width: 1000px) {
