@@ -101,7 +101,7 @@ export default Vue.extend({
 </script>
 <style scoped>
 @media screen and (min-width: 767px) {
-  #film-container{
+  #films_container{
     padding-right: 4em;
     padding-left: 4em;
   }
