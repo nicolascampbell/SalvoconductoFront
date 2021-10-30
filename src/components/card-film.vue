@@ -4,8 +4,9 @@
           name: 'Film',
           params: { filmid: filmCard._id },
         })">
-    <div class="film-info"> &ensp;FILM  {{filmCard._id}} &ensp;<span> {{filmCard.year}}</span></div>
+    <div class="film-info"> &ensp;FILM  {{filmCard._id}} &ensp;<span> {{filmCard.year}} </span></div>
     <b-img-lazy v-bind="mainProps" class="photo" :src="getCoverSrc()"/>
+    
   </div>
 </template>
 <script lang="ts">
@@ -42,6 +43,7 @@ export default Vue.extend({
   cursor: pointer;
 }
 .film-info span {
+  transition: all 2s ease-in-out;
   color:var(--purple)!important;
 }
 .photo{
@@ -55,7 +57,7 @@ export default Vue.extend({
     padding: 0.2em;
     font-size: 1em;
     color: rgb(0, 0, 0);
-    transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 2s ease-in-out;
     background-color:var(--yellow);
     font-family: "Varela", sans-serif;
     writing-mode: vertical-rl;
@@ -64,6 +66,12 @@ export default Vue.extend({
     border:black solid 1px;
     margin-left: 0.5em;
     text-align: center;
+  } 
+  .photo-container:hover .film-info {
+    background-color:var(--purple);
+  }
+  .photo-container:hover .film-info span{
+    color:var(--yellow)!important;
   } 
   .photo-container{
     display: flex;
@@ -75,7 +83,7 @@ export default Vue.extend({
   .film-info {
     font-size: 1em;
     color: rgb(0, 0, 0);
-    transition: all 2s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: all 2s ease-in-out;
     background-color:var(--yellow);
     font-family: "Varela", sans-serif;
     border:black solid 1px;
