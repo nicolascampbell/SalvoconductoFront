@@ -44,7 +44,7 @@ export default new Router({
   },],
   scrollBehavior (to, from, savedPosition) {
     //So that when you go to another route it shows you the start of the page
-    return { x: 0, y: 0 }
+    return { x: 0, y: 10 }
   }
   
 })
