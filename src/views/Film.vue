@@ -1,7 +1,7 @@
 <template>
   <div id="film" v-if="loadedSources" >
     <b-container id="film-container" fluid>
-      <b-row class="vh-100" align-v="center">
+      <b-row class="vh-100" align-v="end">
         <b-col offset="1" offset-md="3"  offset-xl="6" xl="5" >
           <definition
             :title="`Film ${film._id}`"
@@ -15,6 +15,9 @@
             :withSlot="false"
           >
           </definition>
+        </b-col>
+        <b-col cols="2" offset="5" align-self="end" style="text-align: center;padding-bottom:30px" >
+          <button-go-down/>
         </b-col>
       </b-row>
       <b-row   align-h="around" style="text-align: center">
@@ -77,6 +80,7 @@ import listPhotoSwiper from '@/components/list-photo-swiper.vue'
 import buttonToggleView from '../components/button-toggle-view.vue'
 import buttonNextFilm from '../components/button-next-film.vue'
 import buttonPrevFilm from '../components/button-prev-film.vue'
+import ButtonGoDown from '../components/button-go-down.vue'
 
 import {previous} from '@/films'
 import {next} from '@/films'
@@ -90,7 +94,8 @@ export default Vue.extend({
     listPhotoSwiper,
     buttonToggleView,
     buttonNextFilm,
-    buttonPrevFilm
+    buttonPrevFilm,
+    ButtonGoDown
   },
   data() {
     return {

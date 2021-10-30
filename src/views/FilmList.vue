@@ -1,7 +1,7 @@
 <template>
   <b-container id="films_container" fluid>
-    <b-row class="vh-100" id="firstRow" align-v="center" no-gutters>
-      <b-col offset="1" offset-md="3" offset-lg="7">
+    <b-row class="vh-100" no-gutters>
+      <b-col  offset="1" offset-md="3" offset-lg="7" align-self="end">
         <definition
           :title="'Films'"
           :subtitle="'[Films]'"
@@ -13,6 +13,9 @@
           :withSlot="false"
         >
         </definition>
+      </b-col>
+      <b-col cols="2" offset="5" align-self="end" style="text-align: center;padding-bottom:30px" >
+        <button-go-down/>
       </b-col>
     </b-row>
     <b-row no-gutters class="row"  style="text-align: center">
@@ -50,6 +53,7 @@ import filmCard from "../components/card-film.vue"
 import btnScrollTop from "../components/button-scroll-top.vue"
 import btnSort from "../components/button-sort.vue"
 import ButtonShuffleFilm from "@/components/button-shuffle-film.vue"
+import ButtonGoDown from '../components/button-go-down.vue'
 
 export default Vue.extend({
   name: "FilmList",
@@ -59,6 +63,7 @@ export default Vue.extend({
     btnScrollTop,
     btnSort,
     ButtonShuffleFilm,
+    ButtonGoDown
   },
   data() {
     return {

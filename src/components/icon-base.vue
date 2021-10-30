@@ -3,7 +3,7 @@
   <svg xmlns="http://www.w3.org/2000/svg" 
     :width="width" 
     :height="height" 
-    viewBox="0 0 16 16" 
+    :viewBox="`0 0 16 16`" 
     role="presentation"
   >
     <g :fill="iconColor">
@@ -36,5 +36,6 @@ svg {
   display: inline-block;
   vertical-align: baseline;
   margin-bottom: -2px; /* yes, I'm that particular about formatting */
+  transition: all 0.8s ease-in-out;
 }
 </style>
