@@ -60,7 +60,7 @@ export default Vue.extend({
   #navbar{
     top:0;
     right:0px;
-    width:70%;
+    width:100%;
     height: 10em;
     position:absolute;
     z-index: 100  ;
