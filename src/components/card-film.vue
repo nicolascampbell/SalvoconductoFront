@@ -5,7 +5,7 @@
           params: { filmid: filmCard._id },
         })">
     <div class="film-info"> &ensp;FILM  {{filmCard._id}} &ensp;<span> {{filmCard.year}} </span></div>
-    <b-img-lazy v-bind="mainProps" class="photo" :src="getCoverSrc()"/>
+    <b-img-lazy v-bind="mainProps" class="photo" :src="getCoverSrc()" :alt="`Cover photo for film ${filmCard._id}`"/>
     
   </div>
 </template>
