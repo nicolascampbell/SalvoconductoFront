@@ -44,6 +44,7 @@ export default {
 ::v-deep #about-me-modal{
   font-family: 'Courier Prime', monospace;
   font-weight: 600;
+  background-color: var(--yellow);
 }
 a{
   overflow: hidden;
@@ -56,6 +57,7 @@ a{
   background-size: 200% 100%;
   background-position: 100%;
   transition: background-position 400ms ease;
+  
 }
 a:hover {
   background-position: 0 100%;
