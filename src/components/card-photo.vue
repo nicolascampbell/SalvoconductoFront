@@ -1,7 +1,7 @@
 <template>
   <div class="photo_card">
     <a :href="getPhotoSrc()" target="_blank" rel="noopener noreferrer">
-      <b-img-lazy class="img" v-bind="mainProps" :src="getPhotoSrc()" />
+      <b-img-lazy class="img" v-bind="mainProps" :src="getPhotoSrc()" :alt="`Photo ${photo.index}`" />
     </a>
   </div>
 </template>
