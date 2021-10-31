@@ -154,8 +154,8 @@ export default Vue.extend({
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-/**This following classes are for the items in the Menu */
-.item:nth-child(n):hover {
+/**This selects the b-cols */
+#menu >*>*:hover{
   cursor: pointer;
   color: blueviolet;
   background-color: rgba(248, 233, 94, 0.5);

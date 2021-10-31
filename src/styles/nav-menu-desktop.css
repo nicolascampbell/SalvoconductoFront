@@ -20,12 +20,12 @@
     width: 100%;  
   }
   #menuBtn{
-    width:1.8em;
+    width:2em;
     height:85%;
     border-left: transparent;
   }
   #backBtn{
-    width:2em;
+    width:2.2em;
     height:100%;
     border-left: transparent;
     z-index: 2;
@@ -39,7 +39,7 @@
 
   }
   .padd{
-    left: 2em!important;;
+    left: 2.2em!important;;
   }
   .appear-enter-active {
     transition: all 0.4s ease-in;
@@ -53,7 +53,7 @@
     opacity:0.8;
   }
   .yellowButton:hover{
-    background-color: var(--yellowHover);
+    background-color: var(--yellowHover)!important;
   }
   .purpleButton:hover{
     background-color: var(--purpleHover)!important;
