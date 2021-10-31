@@ -1,0 +1,21 @@
+.yellow-button{
+  border: black solid 1px;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 3px;
+}
+@media screen and (min-width: 767px) {  
+  .yellow-button {
+    background-color: var(--yellow);
+    cursor: pointer;
+  }
+  .yellow-button:hover {
+    background-color: var(--yellowHover);
+  }
+}
+@media screen and (max-width: 767px) {  
+  .yellow-button {
+    background-color: var(--yellow);
+    cursor: pointer;
+  }
+}

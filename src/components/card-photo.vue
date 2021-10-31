@@ -1,7 +1,7 @@
 <template>
-  <div class="photo_card">
+  <div class="photo-card">
     <a :href="getPhotoSrc()" target="_blank" rel="noopener noreferrer">
-      <b-img-lazy class="img" v-bind="mainProps" :src="getPhotoSrc()" :alt="`Photo ${photo.index} of film.`" />
+      <b-img-lazy v-bind="mainProps" :src="getPhotoSrc()" :alt="`Photo ${photo.index} of film.`" />
     </a>
   </div>
 </template>
@@ -36,12 +36,10 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
-
-.photo_card {
+.photo-card {
   background: white;
   cursor: pointer;
   object-fit: cover;
   z-index: 100;
 }
-
 </style>

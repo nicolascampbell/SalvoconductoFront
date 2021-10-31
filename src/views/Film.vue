@@ -1,5 +1,6 @@
 <template>
-  <div id="film" v-if="loadedSources">
+  <!--TODO add loading thing-->
+  <div v-if="loadedSources">
     <b-container id="film-container" fluid>
       <b-row id="first-row" align-v="center">
         <b-col offset="1" offset-md="3" offset-xl="6" xl="5">
@@ -81,14 +82,13 @@ import Vue from "vue"
 import axios from "axios"
 
 import definition from "../components/definition.vue"
-import { Film, Photo } from "@/customTypes"
+import { Film } from "@/customTypes"
 import btnScrollTop from "../components/button-scroll-top.vue"
 import ListPhotoDesktop from "../components/list-photo-desktop.vue"
 import listPhotoSwiper from "@/components/list-photo-swiper.vue"
 import buttonToggleView from "../components/button-toggle-view.vue"
 import buttonNextFilm from "../components/button-next-film.vue"
 import buttonPrevFilm from "../components/button-prev-film.vue"
-import ButtonGoDown from "../components/button-go-down.vue"
 
 import { previous } from "@/films"
 import { next } from "@/films"
@@ -103,7 +103,6 @@ export default Vue.extend({
     buttonToggleView,
     buttonNextFilm,
     buttonPrevFilm,
-    ButtonGoDown,
   },
   data() {
     return {

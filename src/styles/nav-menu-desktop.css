@@ -3,14 +3,14 @@
     background-color: rgb(255, 255, 255);
     border: black solid 1px;
     overflow-x: hidden;
-    border-left: transparent;
+    border-left: transparent!important;
     text-align: center;
     font-size:1.2em;
     font-family: Arial, Helvetica, sans-serif;
     color:rgb(43, 43, 43);
     letter-spacing: 2px;
   }
-  #navmenu{
+  #nav-menu{
     display:flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -19,23 +19,22 @@
     position:absolute;
     width: 100%;  
   }
-  #menuBtn{
+  #button-menu{
     width:2em;
     height:85%;
-    border-left: transparent;
+    border-left: transparent!important;
   }
-  #backBtn{
+  #button-back{
     width:2.2em;
     height:100%;
-    border-left: transparent;
+    border-left: transparent!important;
     z-index: 2;
   }
-  #menuCapBtn{
+  #button-menu-side{
     position: relative; 
-    background-color: var(--purple);
     width: 0.7em;
     height: 3em;
-    border-left: transparent;
+    border-left: transparent!important;
 
   }
   .padd{
@@ -52,12 +51,6 @@
     transform: translateX(-100%);
     opacity:0.8;
   }
-  .yellowButton:hover{
-    background-color: var(--yellowHover)!important;
-  }
-  .purpleButton:hover{
-    background-color: var(--purpleHover)!important;
-  }  
   
   #item-home{
     border:white solid 2px;

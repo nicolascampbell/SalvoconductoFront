@@ -1,6 +1,6 @@
 <template>
   <div
-    id="btnGoDown"
+    id="button-scroll-down"
     @click="scrollDown()"
     :class="visitedClass"
   >
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style scoped>
-  #btnGoDown {
+  #button-scroll-down {
     color: rgb(71, 70, 70);
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 5px 5px 0px 0px;

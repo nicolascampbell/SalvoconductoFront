@@ -1,7 +1,9 @@
 <template>
   <div
-    id="btnGoToRandomFilm"
+    v-b-tooltip.hover title="Go to random film!"
+    id="button-go-to-random-film"
     @click="goToRandomFilm()"
+    class="yellow-button"
   >
     <icon-shuffle/>
   </div>
@@ -23,18 +25,11 @@ export default {
 </script>
 
 <style scoped>
-  #btnGoToRandomFilm {
-    color: black;
-    background-color: var(--yellow);
-    font-family: Arial, Helvetica, sans-serif;
+  @import "../styles/yellow-button.css";
+  
+  #button-go-to-random-film {
     border-radius: 5px 5px 0px 0px;
-    border: black solid 1px;
     letter-spacing: 2px;
-    padding: 3px;
-  }
-  #btnGoToRandomFilm:hover {
-    cursor: pointer;
-    background-color: var(--yellowHover);
   }
  
 

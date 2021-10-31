@@ -20,6 +20,9 @@ export default Vue.extend({
 </script>
 
 <style>
+@import "./styles/yellow-button.css";
+@import "./styles/purple-button.css";
+
 
 @media screen and (min-width: 768px) {
   @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');

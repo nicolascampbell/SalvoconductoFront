@@ -1,8 +1,9 @@
 <template>
   <div
-    id="btnPrevFilm"
+    v-b-tooltip.hover :title="disable?'There are no older films!':'Go to next film.'  "
+    id="button-prev-film"
     @click="disable?'':prevFilm()"
-    :class="{ btnPrevFilmEnabled: !disable, btnPrevFilmDisabled: disable }"
+    :class="{ 'yellow-button': !disable, 'button-prev-film-disabled': disable }"
   >
     <icon-base>
       <icon-arrow-left/>
@@ -37,23 +38,18 @@ export default  Vue.extend({
 </script>
 
 <style scoped>
-  #btnPrevFilm {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
+  @import "../styles/yellow-button.css";
+
+  #button-prev-film {
     border-radius: 5px 5px 0px 0px;
-    border: black solid 1px;
     letter-spacing: 2px;
-    padding: 3px;
     margin-bottom: 100px;
   }
-  .btnPrevFilmEnabled {
-    background-color: var(--yellow);
-    cursor: pointer;
-  }
-  .btnPrevFilmEnabled:hover {
-    background-color: var(--yellowHover);
-  }
-  .btnPrevFilmDisabled{
+  .button-prev-film-disabled{
+    border: black solid 1px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 3px;
     background-color:rgb(173, 173, 173);
   }
 

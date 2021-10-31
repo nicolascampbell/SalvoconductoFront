@@ -19,7 +19,7 @@
   #item-collections{
     border:white solid 2px;
   } 
-  #navmenu{
+  #nav-menu{
     position:absolute;
     width: 80%;  
     top: 20%;
@@ -30,30 +30,29 @@
     z-index: 1;
     right: 0;
   }
-  #menuBtn{
+  #button-menu{
     top: 22.5%;
     width:2.2em;
     height:55%;
-    border-right: transparent;
+    border-right: transparent!important;
   }
-  #backBtn{
+  #button-back{
     width:2em;
     height:50%;
     z-index: 2;
     top:25%;
     left:0;
-    border-left:transparent;
+    border-left:transparent!important;
 
   }
-  #menuCapBtn{
+  #button-menu-side{
     position:relative;  
-    background-color: rgb(145, 107, 182);
     width: 0.6em;
     height: 3em;
-    border-right: transparent;
+    border-right: transparent!important;
   }
   /**This is the menu arrow, the normal one */
-  #menuBtn .arrow{
+  #button-menu .arrow{
     margin: 0;
     margin-right: 5px;
     position: relative;

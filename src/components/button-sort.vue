@@ -1,7 +1,8 @@
 <template>
-  <div
-    id="btnSort"
-    :class="{ btnSortOn: asc, btnSortOff: !asc }"
+  <div 
+    v-b-tooltip.hover title="Order the films according to date."
+    id="button-sort"
+    :class="{ 'yellow-button': asc, 'purple-button': !asc }"
     @click="changeOrder()"
     v-if="label"
   >
@@ -39,28 +40,13 @@ export default {
 </script>
 
 <style scoped>
-  #btnSort {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
+  @import "../styles/yellow-button.css";
+  @import "../styles/purple-button.css";
+
+  #button-sort {
     border-radius: 5px 5px 0px 0px;
-    border: black solid 1px;
     letter-spacing: 2px;
-    padding: 3px;
   }
-  #btnSort:hover {
-    cursor: pointer;
-  }
-  .btnSortOn {
-    background-color: var(--yellow);
-  }
-  .btnSortOff {
-    background-color: var(--purple);
-  }
-  .btnSortOn:hover {
-    background-color: var(--yellowHover);
-  }
-  .btnSortOff:hover {
-    background-color: var(--purpleHover);
-  }
+
 
 </style>

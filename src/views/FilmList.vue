@@ -1,5 +1,5 @@
 <template>
-  <b-container id="films_container" fluid>
+  <b-container id="films-container" fluid>
     <b-row id="first-row"  no-gutters>
       <b-col  offset="1" offset-md="3" offset-lg="7" align-self="center">
         <definition
@@ -50,7 +50,6 @@ import filmCard from "../components/card-film.vue"
 import btnScrollTop from "../components/button-scroll-top.vue"
 import btnSort from "../components/button-sort.vue"
 import ButtonShuffleFilm from "@/components/button-shuffle-film.vue"
-import ButtonGoDown from '../components/button-go-down.vue'
 
 export default Vue.extend({
   name: "FilmList",
@@ -60,7 +59,6 @@ export default Vue.extend({
     btnScrollTop,
     btnSort,
     ButtonShuffleFilm,
-    ButtonGoDown
   },
   data() {
     return {
@@ -110,12 +108,12 @@ export default Vue.extend({
   height: 80vh;
 }
 @media screen and (min-width: 767px) {
-  #films_container {
+  #films-container {
     padding-right: 4em;
     padding-left: 4em;
   }
 }
-#films_container {
+#films-container {
   background-color: rgba(226, 226, 226, 0.74);
   overflow-y: scroll;
 }
@@ -126,7 +124,7 @@ export default Vue.extend({
   margin-bottom: 7%;
 }
 
-#films_container > * {
+#films-container > * {
   margin-bottom: 5%;
 }
 .around {

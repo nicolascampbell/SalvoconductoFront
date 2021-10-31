@@ -1,5 +1,5 @@
 <template>
-  <b-container id="container">
+  <b-container>
     <b-row class="vh-100" align-v="center">
       <b-col lg="5" offset-lg="4"
               md="9" offset-md="3"

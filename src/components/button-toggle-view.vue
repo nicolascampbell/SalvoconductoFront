@@ -1,9 +1,10 @@
 <template>
   <div
-    id="btnTView"
+    v-b-tooltip.hover title="Change how you look through images!"
+    id="button-toggle-view"
     @click="changeView()"
     v-if="label"
-    :class="{ btnTViewOn: view, btnTViewOff: !view }"
+    :class="{ 'yellow-button': view, 'purple-button': !view }"
   >
     {{label}}
     <icon-base v-if="!view">
@@ -47,29 +48,13 @@ export default  Vue.extend({
 </script>
 
 <style scoped>
-  #btnTView {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
+  @import "../styles/yellow-button.css";
+  @import "../styles/purple-button.css";  
+  
+  #button-toggle-view {
     border-radius: 5px 5px 0px 0px;
-    border: black solid 1px;
     letter-spacing: 2px;
-    padding: 3px;
     margin-bottom: 100px;
-  }
-  #btnTView:hover {
-    cursor: pointer;
-  }
-  .btnTViewOn {
-    background-color: var(--yellow);
-  }
-  .btnTViewOff {
-    background-color: var(--purple);
-  }
-  .btnTViewOn:hover {
-    background-color: var(--yellowHover);
-  }
-  .btnTViewOff:hover {
-    background-color: var(--purpleHover);
   }
 
 </style>

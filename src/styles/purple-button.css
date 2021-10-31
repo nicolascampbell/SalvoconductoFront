@@ -1,0 +1,21 @@
+.purple-button{
+  border: black solid 1px;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 3px;
+}
+@media screen and (min-width: 767px) {  
+  .purple-button {
+    background-color: var(--purple);
+    cursor: pointer;
+  }
+  .purple-button:hover {
+    background-color: var(--purpleHover);
+  }
+}
+@media screen and (max-width: 767px) {  
+  .purple-button {
+    background-color: var(--purple);
+    cursor: pointer;
+  }
+}

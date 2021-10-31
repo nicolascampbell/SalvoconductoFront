@@ -1,5 +1,9 @@
 <template>
-  <div @click="scrollToTop()" id="toTop">
+  <div 
+    v-b-tooltip.hover title="Go back to top."
+    @click="scrollToTop()"
+    id="button-scroll-to-top"
+    class="purple-button">
     <icon-base><icon-arrow-90deg-up/></icon-base>
   </div>
 </template>
@@ -25,25 +29,15 @@ export default {
 </script>
 
 <style scoped>
-#toTop{
-  display:block;
-  color: black;
-  font-family: Arial, Helvetica, sans-serif;
-  border-radius:  0px 0px 5px 5px;
-  border: black solid 1px;
-  letter-spacing: 2px;
-  padding: 3px;
-  background-color: var(--purple);
-  text-align: center
-}
-#toTop:hover {
-  background-color: var(--purpleHover);
-  cursor: pointer;
-}
-#toTop:active {
-  background-color: var(--yellow);
-}
+  @import "../styles/purple-button.css";
 
-
-
+  #button-scroll-to-top{
+    display:block;
+    border-radius:  0px 0px 5px 5px;
+    letter-spacing: 2px;
+    text-align: center
+  }
+  #button-scroll-to-top:active {
+    background-color: var(--yellow);
+  }
 </style>

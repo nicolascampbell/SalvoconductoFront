@@ -1,9 +1,9 @@
-<template >
-  <div id="navtoken">
+<template>
+  <div>
     <transition name="appear">
       <div
-        id="navmenu"
-        :class="{ padd: this.$route.name != 'Home' }"
+        id="nav-menu"
+        :class="{ 'padd': this.$route.name != 'Home' }"
         v-if="open"
       >
         <b-container id="menu">
@@ -19,34 +19,34 @@
             <b-col
               cols="6"
               md="6"
-              id="item-films"
-              style="padding-right=0;"
-              @click="goToNextRoute('FilmList')"
+              id="item-collections"
+              @click="goToNextRoute('CollectionList')"
             >
-              <span> Films </span>
+              <span> Collections </span>
             </b-col>
             <b-col
               offset="6"
               cols="6"
               offset-md="0"
               md="6"
-              id="item-collections"
-              @click="goToNextRoute('CollectionList')"
+              id="item-films"
+              style="padding-right=0;"
+              @click="goToNextRoute('FilmList')"
             >
-              <span> Collections </span>
+              <span> Films </span>
             </b-col>
           </b-row>
         </b-container>
         <!--This here is the a little "decorative" cap Btn but is also purple-->
-        <div id="menuCapBtn" class="purpleButton" @click="open = !open"></div>
+        <div id="button-menu-side" class="purple-button" @click="open = !open"></div>
       </div>
     </transition>
 
     <!--This here is the Back Button, only appears when we are not in Home-->
     <div
       v-if="this.$route.name != 'Home'"
-      id="backBtn"
-      class="yellowButton"
+      id="button-back"
+      class="yellow-button"
       @click="goToNextRoute(previousRoutes[$route.name])"
     >
       <div class="arrow">
@@ -56,13 +56,13 @@
     <!--This here is the Menu Button-->
     <transition name="appear">
       <div
-        :class="{ padd: this.$route.name != 'Home', purpleButton: true }"
-        id="menuBtn"
+        :class="{ padd: this.$route.name != 'Home', 'purple-button':true }"
+        id="button-menu"
         v-if="!open"
         @click.stop="open = !open"
       >
         <div class="arrow">
-          <icon-base><icon-arrow-right /></icon-base>
+          <icon-base><icon-arrow-right/></icon-base>
         </div>
       </div>
     </transition>
@@ -77,7 +77,7 @@ import IconArrowRight from "./Icons/icon-arrow-right.vue"
 import IconArrowReturnLeft from "./Icons/icon-arrow-return-left.vue"
 
 export default Vue.extend({
-  name: "navMenu",
+  name: "nav-menu",
   components: {
     IconBase,
     IconArrowRight,
@@ -129,49 +129,41 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
-@import "../styles/nav-menu-desktop.css";
-@import "../styles/nav-menu-mobile.css";
+  @import "../styles/nav-menu-desktop.css";
+  @import "../styles/nav-menu-mobile.css";
+  @import "../styles/yellow-button.css";
+  @import "../styles/purple-button.css";  
 
-.purpleButton {
-  background-color: var(--purple);
-  position: absolute;
-  border: black solid 1px;
-  cursor: pointer;
-}
-
-.yellowButton {
-  background-color: var(--yellow);
-  position: absolute;
-  border: black solid 1px;
-  cursor: pointer;
-}
-
-.arrow {
-  margin: 0;
-  margin-left: 5px;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-/**This selects the b-cols */
-#menu >*>*:hover{
-  cursor: pointer;
-  color: blueviolet;
-  background-color: rgba(248, 233, 94, 0.5);
-}
-#item-home,
-#item-films,
-#item-collections {
-  padding:5px
-}
-#item-home {
-  background-color: #e9e9e9;
-}
-#item-films {
-  background-color: #f0f0f0;
-}
-#item-collections {
-  background-color: #f5f5f5;
-}
+  #button-back, #button-menu{
+    position: absolute;
+  }
+  
+  .arrow {
+    margin: 0;
+    margin-left: 5px;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  /**This selects the b-cols */
+  #menu >*>*:hover{
+    cursor: pointer;
+    color: blueviolet;
+    background-color: rgba(248, 233, 94, 0.5);
+  }
+  #item-home,
+  #item-films,
+  #item-collections {
+    padding:5px
+  }
+  #item-home {
+    background-color: #e9e9e9;
+  }
+  #item-collections {
+    background-color: #f0f0f0;
+  }
+   #item-films {
+    background-color: #f5f5f5;
+  }
 </style>
