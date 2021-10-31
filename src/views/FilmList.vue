@@ -1,7 +1,7 @@
 <template>
   <b-container id="films_container" fluid>
-    <b-row class="vh-100" no-gutters>
-      <b-col  offset="1" offset-md="3" offset-lg="7" align-self="end">
+    <b-row id="first-row"  no-gutters>
+      <b-col  offset="1" offset-md="3" offset-lg="7" align-self="center">
         <definition
           :title="'Films'"
           :subtitle="'[Films]'"
@@ -13,9 +13,6 @@
           :withSlot="false"
         >
         </definition>
-      </b-col>
-      <b-col cols="2" offset="5" align-self="end" style="text-align: center;padding-bottom:30px" >
-        <button-go-down/>
       </b-col>
     </b-row>
     <b-row no-gutters class="row"  style="text-align: center">
@@ -109,6 +106,9 @@ export default Vue.extend({
 })
 </script>
 <style scoped>
+#first-row {
+  height: 80vh;
+}
 @media screen and (min-width: 767px) {
   #films_container {
     padding-right: 4em;
