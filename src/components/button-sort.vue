@@ -18,10 +18,11 @@
 </template>
 
 <script lang='ts'>
+import Vue from 'vue'
 import IconBase from '../components/icon-base.vue'
 import IconSortDown from '../components/Icons/icon-sort-down.vue'
 import IconSortUp from '../components/Icons/icon-sort-up.vue'
-export default {
+export default Vue.extend({
   name: 'ButtonSort',
   components: {
     IconBase,
@@ -33,11 +34,12 @@ export default {
     label: { type: String, default: 'Date' }
   },
   methods: {
-    changeOrder: function () :void {
+    // eslint-disable-next-line no-use-before-define
+    changeOrder: function () {
       this.$emit('changeOrder')
     }
   }
-}
+})
 </script>
 
 <style scoped>

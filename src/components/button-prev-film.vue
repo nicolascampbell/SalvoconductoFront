@@ -28,7 +28,8 @@ export default Vue.extend({
     prevId: { type: String, default: '' }
   },
   methods: {
-    prevFilm: function ()  :void{
+    // eslint-disable-next-line no-use-before-define
+    prevFilm: function () {
       this.$router.push({
         name: 'Film',
         params: { filmid: this.prevId }

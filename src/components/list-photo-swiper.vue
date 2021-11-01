@@ -70,16 +70,11 @@ export default Vue.extend({
         keyboard: {
           enabled: true,
           onlyInViewport: false
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
         }
-      }
-    }
-  },
-  created () {
-    if (this.navigation) {
-      this.swiperOption['navigation'] =
-      {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
       }
     }
   },

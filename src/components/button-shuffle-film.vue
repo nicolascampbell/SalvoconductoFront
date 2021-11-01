@@ -11,18 +11,20 @@
 </template>
 
 <script lang='ts'>
+import Vue from 'vue'
 import IconShuffle from './Icons/icon-shuffle.vue'
-export default {
+export default Vue.extend({
   name: 'ButtonShuffleFilm',
   components: {
     IconShuffle
   },
   methods: {
-    goToRandomFilm: function () :void {
+    // eslint-disable-next-line no-use-before-define
+    goToRandomFilm: function () {
       this.$emit('goToRandomFilm')
     }
   }
-}
+})
 </script>
 
 <style scoped>

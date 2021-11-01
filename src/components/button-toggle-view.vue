@@ -39,7 +39,8 @@ export default Vue.extend({
     }
   },
   methods: {
-    changeView: function () :void {
+    // eslint-disable-next-line no-use-before-define
+    changeView: function () {
       this.view = !this.view
       this.$emit('changeView')
     }
