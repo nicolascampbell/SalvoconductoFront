@@ -13,10 +13,12 @@
   </div>
 </template>
 
-<script>
+<script lang='ts'>
+import Vue from 'vue'
+
 import IconBase from './icon-base.vue'
 import IconArrowDown from './Icons/icon-arrow-down.vue'
-export default {
+export default Vue.extend({
   name: 'ButtonGoDown',
   components: {
     IconBase,
@@ -28,7 +30,7 @@ export default {
     }
   },
   methods: {
-    scrollDown: function () {
+    scrollDown: function () :void {
       window.scroll({
         top: 500,
         behavior: 'smooth'
@@ -36,7 +38,7 @@ export default {
       this.visitedClass = 'visited'
     }
   }
-}
+})
 </script>
 
 <style scoped>

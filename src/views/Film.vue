@@ -154,7 +154,7 @@ export default Vue.extend({
       const response = await axios.get(
         `https://salvoconducto.net/api/film/${this.$route.params.filmid}`
       )
-      if (response.data == null) {
+      if (response.data === null) {
         this.$router.push({ name: 'NotFound' })
       }
       this.film = response.data
@@ -166,7 +166,7 @@ export default Vue.extend({
   },
   methods: {
     // Checks if we are on mobile or not.
-    isMobile: function () {
+    isMobile: function ():boolean {
       return window.matchMedia('(max-width: 767px)').matches
     }
   }

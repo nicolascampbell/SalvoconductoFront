@@ -1,6 +1,7 @@
 <template>
   <div id="images-container-swiper">
     <swiper
+      v-if="photos.length !== 0"
       class="swiper"
       :options="swiperOption"
       @progress="progress"
@@ -36,10 +37,12 @@
 </template>
 
 <script lang='ts'>
+import Vue from 'vue'
+
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import photoCard from './card-photo.vue'
-import Vue from 'vue'
+import { Photo } from '@/customTypes'
 
 export default Vue.extend({
   name: 'ListPhotoSwiper',
@@ -52,8 +55,8 @@ export default Vue.extend({
     swiper: directive
   },
   props: {
-    photos: Array,
-    navigation: Boolean
+    photos: { type: Array, default: ():Array<Photo> => [] },
+    navigation: { type: Boolean, default: false }
   },
   data () {
     return {
@@ -73,7 +76,7 @@ export default Vue.extend({
   },
   created () {
     if (this.navigation) {
-      this.swiperOption.navigation =
+      this.swiperOption['navigation'] =
       {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
@@ -82,7 +85,7 @@ export default Vue.extend({
   },
   methods: {
     // this method gets called everytime I pass to new photo in galery
-    progress: function (progress) {
+    progress: function (progress:number):void {
       const a = document.getElementsByClassName('swiper-pagination-progressbar-fill')[0]
       if (progress >= 1) {
         a.classList.add('swiper-pagination-progressbar-filled')

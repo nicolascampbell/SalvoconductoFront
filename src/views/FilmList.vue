@@ -109,7 +109,7 @@ export default Vue.extend({
   async beforeMount () {
     try {
       const response = await axios.get('https://salvoconducto.net/api/films')
-      if (response.data == null) {
+      if (response.data === null) {
         this.$router.push({ name: 'NotFound' })
       } else {
         this.films = response.data.reverse()
@@ -121,21 +121,21 @@ export default Vue.extend({
     }
   },
   methods: {
-    changeOrder: function () {
+    changeOrder: function () :void {
       // maybe not super efficient but for now it works with the amount of films.
       // maybe change  in the future in the way you traverse the array?
       this.films.reverse()
       this.asc = !this.asc
     },
-    isMobile: function () {
+    isMobile: function () :boolean {
       return window.matchMedia('(max-width: 767px)').matches
     },
-    goToRandomFilm: function () {
+    goToRandomFilm: function () :void{
       if (this.films.length !== 0) {
         const film = this.films[Math.floor(Math.random() * this.films.length)]
         this.$router.push({
           name: 'Film',
-          params: { filmid: film._id }
+          params: { filmid: film['_id'] }
         })
       }
     }

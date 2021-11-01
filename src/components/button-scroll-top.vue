@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script>
+<script lang='ts'>
 import IconBase from './icon-base.vue'
 import IconArrow90degUp from './Icons/icon-arrow-90deg-up.vue'
 export default {
@@ -20,7 +20,7 @@ export default {
     IconArrow90degUp
   },
   methods: {
-    scrollToTop () {
+    scrollToTop () :void{
       window.scroll({
         top: 0,
         behavior: 'smooth'

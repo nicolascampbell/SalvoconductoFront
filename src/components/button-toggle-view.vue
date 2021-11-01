@@ -31,7 +31,7 @@ export default Vue.extend({
     IconGrid
   },
   props: {
-    label: String
+    label: { type: String, default: 'Change View' }
   },
   data () {
     return {
@@ -39,7 +39,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    changeView: function () {
+    changeView: function () :void {
       this.view = !this.view
       this.$emit('changeView')
     }

@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script>
+<script lang='ts'>
 import IconBase from '../components/icon-base.vue'
 import IconSortDown from '../components/Icons/icon-sort-down.vue'
 import IconSortUp from '../components/Icons/icon-sort-up.vue'
@@ -29,11 +29,11 @@ export default {
     IconSortUp
   },
   props: {
-    asc: Boolean,
-    label: String
+    asc: { type: Boolean, default: false },
+    label: { type: String, default: 'Date' }
   },
   methods: {
-    changeOrder: function () {
+    changeOrder: function () :void {
       this.$emit('changeOrder')
     }
   }

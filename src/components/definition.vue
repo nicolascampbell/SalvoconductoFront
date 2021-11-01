@@ -33,10 +33,10 @@
 export default {
   name: 'Definition',
   props: {
-    title: String,
-    subtitle: String,
-    type: String,
-    definitions: Array,
+    title: { type: String, default: 'Seems like it doesnt load.' },
+    subtitle: { type: String, default: '' },
+    type: { type: String, default: '' },
+    definitions: { type: Array, default: ():Array<string> => [] },
     withSlot: Boolean
   }
 }

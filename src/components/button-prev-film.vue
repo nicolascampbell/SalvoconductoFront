@@ -24,11 +24,11 @@ export default Vue.extend({
     IconArrowLeft
   },
   props: {
-    disable: Boolean,
-    prevId: String
+    disable: { type: Boolean, default: true },
+    prevId: { type: String, default: '' }
   },
   methods: {
-    prevFilm: function () {
+    prevFilm: function ()  :void{
       this.$router.push({
         name: 'Film',
         params: { filmid: this.prevId }

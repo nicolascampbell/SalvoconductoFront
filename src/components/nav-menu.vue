@@ -104,7 +104,7 @@ export default Vue.extend({
     document.addEventListener('click', this.documentClick)
   },
   methods: {
-    handleScroll: function () {
+    handleScroll: function ():void {
       // For now this method may be unecessary because we want to close it always
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop
@@ -119,11 +119,11 @@ export default Vue.extend({
       // Set the current scroll position as the last scroll position
       this.lastScrollPosition = currentScrollPosition
     },
-    documentClick: function () {
+    documentClick: function ():void {
       this.open = false
     },
     goToNextRoute (next: string) {
-      const currentRoute = this.$router.currentRoute.name!
+      const currentRoute = this.$router.currentRoute.name
       // Checks if the current rou
       if (currentRoute !== next) {
         this.$router.push({ name: next })

@@ -26,7 +26,8 @@ export default Vue.extend({
   name: 'FilmCard',
   props: {
     filmCard: {
-      type: Object as () => FilmCard
+      type: Object as () => FilmCard,
+      default: {}
     }
   },
   data () {

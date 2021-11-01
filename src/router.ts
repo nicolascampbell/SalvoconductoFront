@@ -42,7 +42,7 @@ export default new Router({
     name: 'NotFound',
     component: NotFound
   }],
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior () {
     // So that when you go to another route it shows you the start of the page
     return { x: 0, y: 0 }
   }

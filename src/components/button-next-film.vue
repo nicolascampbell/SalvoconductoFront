@@ -25,11 +25,11 @@ export default Vue.extend({
     IconArrowRight
   },
   props: {
-    disable: Boolean,
-    nextId: String
+    disable: { type: Boolean, default: false },
+    nextId: { type: String, default: '2' }
   },
   methods: {
-    nextFilm: function () {
+    nextFilm: function () :void {
       this.$router.push({
         name: 'Film',
         params: { filmid: this.nextId }

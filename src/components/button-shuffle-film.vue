@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script>
+<script lang='ts'>
 import IconShuffle from './Icons/icon-shuffle.vue'
 export default {
   name: 'ButtonShuffleFilm',
@@ -18,7 +18,7 @@ export default {
     IconShuffle
   },
   methods: {
-    goToRandomFilm: function () {
+    goToRandomFilm: function () :void {
       this.$emit('goToRandomFilm')
     }
   }

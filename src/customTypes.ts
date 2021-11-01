@@ -5,16 +5,6 @@ export type FilmCard = {
   place: string
   photoCover: number
 }
-export type Film = {
-  _id: string,
-  description: string,
-  size: number,
-  year: string,
-  place: string,
-  tags: Array<Object>,
-  photoCover: number,
-  photos:Array<Object>
-}
 export type Photo={
   title:string
   index: number
@@ -23,7 +13,18 @@ export type Photo={
   description: string
   relevance:number
 }
-export let empty_photo:{
+export type Film = {
+  _id: string,
+  description: string,
+  size: number,
+  year: string,
+  place: string,
+  tags: Array<unknown>,
+  photoCover: number,
+  photos:Array<Photo>
+}
+
+export let emptyPhoto:{
   title:''
   index: -1
   _id: '-1'
