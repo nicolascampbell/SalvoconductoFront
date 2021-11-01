@@ -1,7 +1,8 @@
 <template>
   <div id="modal">
-    <a v-b-modal.about-me-modal
-      >About me :)</a>
+    <a
+      v-b-modal.about-me-modal
+    >About me :)</a>
     <b-modal
       id="about-me-modal"
       centered
@@ -10,31 +11,35 @@
       ok-title="Okey"
     >
       <definition
-          :title="'Nicolás'"
-          :subtitle="'[Ni·co·lás]'"
-          :type="'Person'"
-          :definitions="[
-            'I come from Uruguay.',
-            'I started to take pictures in 2018.',
-            'I got an Olympus Trip 35 as a gift before moving to Germany, that is how it all started.',
-            'Even though I started to take pictures to save what I like, now they are in some way a documentary of my life for myself.',
-            'Please let me know if you find mistakes or errors, they know how to hide too well.'
-          ]"
-          :withSlot="true"
-        >
-         <span>You can find more about how this page is made 
-           <a href="https://github.com/nicolascampbell" target="_blank" rel="noopener noreferrer">here</a>!
-          </span>
+        :title="'Nicolás'"
+        :subtitle="'[Ni·co·lás]'"
+        :type="'Person'"
+        :definitions="[
+          'I come from Uruguay.',
+          'I started to take pictures in 2018.',
+          'I got an Olympus Trip 35 as a gift before moving to Germany, that is how it all started.',
+          'Even though I started to take pictures to save what I like, now they are in some way a documentary of my life for myself.',
+          'Please let me know if you find mistakes or errors, they know how to hide too well.'
+        ]"
+        :with-slot="true"
+      >
+        <span>You can find more about how this page is made
+          <a
+            href="https://github.com/nicolascampbell"
+            target="_blank"
+            rel="noopener noreferrer"
+          >here</a>!
+        </span>
       </definition>
     </b-modal>
   </div>
 </template>
 <script lang="ts">
-import definition from "./definition.vue"
+import definition from './definition.vue'
 
 export default {
-  name: "aboutMeModal",
-  components:{
+  name: 'AboutMeModal',
+  components: {
     definition
   }
 }
@@ -57,7 +62,7 @@ a{
   background-size: 200% 100%;
   background-position: 100%;
   transition: background-position 400ms ease;
-  
+
 }
 a:hover {
   background-position: 0 100%;
@@ -76,7 +81,5 @@ a:hover {
 ::v-deep .btn:last-of-type:hover{
   background-color: var(--purple);
 }
-
-  
 
 </style>

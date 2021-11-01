@@ -1,10 +1,13 @@
 <template>
   <div
     id="button-scroll-down"
-    @click="scrollDown()"
     :class="visitedClass"
+    @click="scrollDown()"
   >
-    <icon-base width="40" height="40">
+    <icon-base
+      width="40"
+      height="40"
+    >
       <icon-arrow-down />
     </icon-base>
   </div>
@@ -14,23 +17,23 @@
 import IconBase from './icon-base.vue'
 import IconArrowDown from './Icons/icon-arrow-down.vue'
 export default {
-  name: 'buttonGoDown',
-  data(){
-    return{
-      visitedClass:''
-    }
-  },
+  name: 'ButtonGoDown',
   components: {
     IconBase,
     IconArrowDown
   },
-  methods:{
-    scrollDown:function(){
+  data () {
+    return {
+      visitedClass: ''
+    }
+  },
+  methods: {
+    scrollDown: function () {
       window.scroll({
-        top:500,
+        top: 500,
         behavior: 'smooth'
-      });
-      this.visitedClass='visited'
+      })
+      this.visitedClass = 'visited'
     }
   }
 }
@@ -57,6 +60,5 @@ export default {
       transform: scale(1.05,1.05);
     }
   }
-  
 
 </style>

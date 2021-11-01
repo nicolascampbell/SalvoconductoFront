@@ -52,7 +52,6 @@ export default Vue.extend({
     column-gap: 30px;
     width:100%;
   }
-
   .small-image:nth-child(2n){
     margin-top:100px;
   }

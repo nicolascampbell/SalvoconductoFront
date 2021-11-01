@@ -1,41 +1,50 @@
-<template> 
-  <div class="photo-container overlay" @click="
-        $router.push({
-          name: 'Film',
-          params: { filmid: filmCard._id },
-        })">
-    <div class="film-info"> &ensp;FILM  {{filmCard._id}} &ensp;<span> {{filmCard.year}} </span></div>
-    <b-img-lazy v-bind="mainProps" class="photo" :src="getCoverSrc()" :alt="`Cover photo for film ${filmCard._id}`"/>
-    
+<template>
+  <div
+    class="photo-container overlay"
+    @click="
+      $router.push({
+        name: 'Film',
+        params: { filmid: filmCard._id },
+      })"
+  >
+    <div class="film-info">
+      &ensp;FILM  {{ filmCard._id }} &ensp;<span> {{ filmCard.year }} </span>
+    </div>
+    <b-img-lazy
+      v-bind="mainProps"
+      class="photo"
+      :src="getCoverSrc()"
+      :alt="`Cover photo for film ${filmCard._id}`"
+    />
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue"
-import{FilmCard} from '@/customTypes'
+import Vue from 'vue'
+import { FilmCard } from '@/customTypes'
 
 export default Vue.extend({
-  name:'filmCard',
+  name: 'FilmCard',
   props: {
     filmCard: {
-      type: Object as () => FilmCard,
-    },
+      type: Object as () => FilmCard
+    }
   },
-  data() {
+  data () {
     return {
       mainProps: {
         center: true,
         fluid: true,
         blank: true,
-        blankColor: "#bbb",
-      },
+        blankColor: '#bbb'
+      }
     }
   },
   methods: {
-    getCoverSrc() {
-      return require(`../assets/${this.filmCard._id}/${this.filmCard.photoCover}.jpg`);
-    },
-  },
-});
+    getCoverSrc () {
+      return require(`../assets/${this.filmCard._id}/${this.filmCard.photoCover}.jpg`)
+    }
+  }
+})
 </script>
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
@@ -66,13 +75,13 @@ export default Vue.extend({
     border:black solid 1px;
     margin-left: 0.5em;
     text-align: center;
-  } 
+  }
   .photo-container:hover .film-info {
     background-color:var(--purple);
   }
   .photo-container:hover .film-info span{
     color:var(--yellow)!important;
-  } 
+  }
   .photo-container{
     display: flex;
     flex-direction: row-reverse;

@@ -1,25 +1,44 @@
 <template>
   <div>
-    <h2 id="title" class="text-left">{{title}}</h2>
-    <h6 id="subtitle" class="text-left">{{subtitle}}</h6>
-    <p class="text-left">{{type}}</p>
+    <h2
+      id="title"
+      class="text-left"
+    >
+      {{ title }}
+    </h2>
+    <h6
+      id="subtitle"
+      class="text-left"
+    >
+      {{ subtitle }}
+    </h6>
+    <p class="text-left">
+      {{ type }}
+    </p>
     <ol class="text-left">
-      <li v-for="(defs,index) in definitions" :key="index"> {{defs}}</li>
-      <li v-if="withSlot"><slot></slot></li>
+      <li
+        v-for="(defs,index) in definitions"
+        :key="index"
+      >
+        {{ defs }}
+      </li>
+      <li v-if="withSlot">
+        <slot />
+      </li>
     </ol>
   </div>
 </template>
 <script lang="ts">
 
 export default {
-    name: 'definition',
-    props:{
-        title:String,
-        subtitle:String,
-        type: String,
-        definitions: Array,
-        withSlot:Boolean
-    },
+  name: 'Definition',
+  props: {
+    title: String,
+    subtitle: String,
+    type: String,
+    definitions: Array,
+    withSlot: Boolean
+  }
 }
 </script>
 <style>

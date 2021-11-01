@@ -1,10 +1,12 @@
 <template>
-  <div 
-    v-b-tooltip.hover title="Go back to top."
-    @click="scrollToTop()"
+  <div
     id="button-scroll-to-top"
-    class="purple-button">
-    <icon-base><icon-arrow-90deg-up/></icon-base>
+    v-b-tooltip.hover
+    title="Go back to top."
+    class="purple-button"
+    @click="scrollToTop()"
+  >
+    <icon-base><icon-arrow-90deg-up /></icon-base>
   </div>
 </template>
 
@@ -12,17 +14,17 @@
 import IconBase from './icon-base.vue'
 import IconArrow90degUp from './Icons/icon-arrow-90deg-up.vue'
 export default {
-  name:'buttonScrollTop',
-  components:{
+  name: 'ButtonScrollTop',
+  components: {
     IconBase,
     IconArrow90degUp
   },
-  methods:{
-    scrollToTop() {
+  methods: {
+    scrollToTop () {
       window.scroll({
-        top:0,
+        top: 0,
         behavior: 'smooth'
-      });
+      })
     }
   }
 }

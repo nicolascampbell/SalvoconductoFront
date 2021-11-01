@@ -1,28 +1,30 @@
 <template>
-  <div id="container" >
+  <div id="container">
     <navbar id="navbar" />
-    <router-view :key="$route.fullPath" class="view"></router-view>
+    <router-view
+      :key="$route.fullPath"
+      class="view"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue"
-import navbar from "./components/nav-menu.vue"
+import Vue from 'vue'
+import navbar from './components/nav-menu.vue'
 export default Vue.extend({
-  name: "app",
+  name: 'App',
   components: {
-    "navbar": navbar,
+    navbar: navbar
   },
-  data() {
+  data () {
     return {}
-  },
+  }
 })
 </script>
 
 <style>
 @import "./styles/yellow-button.css";
 @import "./styles/purple-button.css";
-
 
 @media screen and (min-width: 768px) {
   @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
@@ -35,7 +37,7 @@ export default Vue.extend({
   #container{
     font-family: 'Courier Prime', monospace;
   }
-  
+
   #navbar{
     top:5%;
     width:25em;

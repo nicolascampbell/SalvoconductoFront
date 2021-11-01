@@ -1,38 +1,46 @@
 <template>
   <div class="photo-card">
-    <a :href="getPhotoSrc()" target="_blank" rel="noopener noreferrer">
-      <b-img-lazy v-bind="mainProps" :src="getPhotoSrc()" :alt="`Photo ${photo.index} of film.`" />
+    <a
+      :href="getPhotoSrc()"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <b-img-lazy
+        v-bind="mainProps"
+        :src="getPhotoSrc()"
+        :alt="`Photo ${photo.index} of film.`"
+      />
     </a>
   </div>
 </template>
-    
+
 <script lang="ts">
-import Vue from "vue"
-import { Photo } from "@/customTypes"
+import Vue from 'vue'
+import { Photo } from '@/customTypes'
 
 export default Vue.extend({
-  name: "photoCard",
+  name: 'PhotoCard',
   props: {
     photo: {
       type: Object as () => Photo,
-      required: true,
-    },
+      required: true
+    }
   },
-  data() {
+  data () {
     return {
       mainProps: {
         center: true,
         fluid: true,
         blank: false,
-        blankColor: "#bbb",
-      },
+        blankColor: '#bbb'
+      }
     }
   },
   methods: {
     getPhotoSrc: function () {
       return require(`../assets/${this.photo.film}/${this.photo.index}.jpg`)
-    },
-  },
+    }
+  }
 })
 </script>
 <style scoped>

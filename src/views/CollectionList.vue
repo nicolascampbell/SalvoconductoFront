@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <b-row class="vh-100 text-center" align-v="center">
+    <b-row
+      class="vh-100 text-center"
+      align-v="center"
+    >
       <b-col cols="6">
         <div
           style="
@@ -17,11 +20,9 @@
             style="position: absolute"
             frameBorder="0"
             class="giphy-embed"
-          ></iframe>
-          
+          />
         </div>
         <h4>Working on it hihi</h4>
-        
       </b-col>
     </b-row>
   </div>
@@ -29,4 +30,3 @@
 <script lang="ts">
 export default {}
 </script>
-

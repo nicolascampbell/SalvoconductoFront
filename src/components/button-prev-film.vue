@@ -1,40 +1,41 @@
 <template>
   <div
-    v-b-tooltip.hover :title="disable?'There are no older films!':'Go to next film.'  "
     id="button-prev-film"
-    @click="disable?'':prevFilm()"
+    v-b-tooltip.hover
+    :title="disable?'There are no older films!':'Go to next film.' "
     :class="{ 'yellow-button': !disable, 'button-prev-film-disabled': disable }"
+    @click="disable?'':prevFilm()"
   >
     <icon-base>
-      <icon-arrow-left/>
+      <icon-arrow-left />
     </icon-base>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue"
+import Vue from 'vue'
 
 import IconBase from './icon-base.vue'
 import IconArrowLeft from './Icons/icon-arrow-left.vue'
-export default  Vue.extend({
-  name: 'buttonPrevFilm',
+export default Vue.extend({
+  name: 'ButtonPrevFilm',
   components: {
     IconBase,
     IconArrowLeft
   },
-  props:{
-    disable:Boolean,
-    prevId:String
+  props: {
+    disable: Boolean,
+    prevId: String
   },
-  methods:{
-    prevFilm:function(){
+  methods: {
+    prevFilm: function () {
       this.$router.push({
-          name: 'Film',
-          params: { filmid: this.prevId },
-      });
+        name: 'Film',
+        params: { filmid: this.prevId }
+      })
     }
   }
-});
+})
 </script>
 
 <style scoped>

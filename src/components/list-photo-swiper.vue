@@ -1,81 +1,97 @@
 <template>
   <div id="images-container-swiper">
-    <swiper @progress="progress" class="swiper" :options="swiperOption">
-      <swiper-slide 
+    <swiper
+      class="swiper"
+      :options="swiperOption"
+      @progress="progress"
+    >
+      <swiper-slide
         v-for="photo in photos"
         :key="photo.index"
       >
-        <photo-card :photo="photo" class="swiper-lazy"/>
-        <div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div>
-
+        <photo-card
+          :photo="photo"
+          class="swiper-lazy"
+        />
+        <div class="swiper-lazy-preloader swiper-lazy-preloader-black" />
       </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
-      <div id="prev"></div>
-      <div id="next"></div>
-      <div v-if="navigation" class="swiper-button-next swiper-button-black" slot="button-next"></div>
-      <div v-if="navigation" class="swiper-button-prev swiper-button-black" slot="button-prev"></div>
+      <div
+        slot="pagination"
+        class="swiper-pagination"
+      />
+      <div id="prev" />
+      <div id="next" />
+      <div
+        v-if="navigation"
+        slot="button-next"
+        class="swiper-button-next swiper-button-black"
+      />
+      <div
+        v-if="navigation"
+        slot="button-prev"
+        class="swiper-button-prev swiper-button-black"
+      />
     </swiper>
   </div>
 </template>
 
 <script lang='ts'>
-import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper"
-import "swiper/css/swiper.css"
-import photoCard from "./card-photo.vue"
-import Vue from "vue"
+import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
+import 'swiper/css/swiper.css'
+import photoCard from './card-photo.vue'
+import Vue from 'vue'
 
 export default Vue.extend({
-  name:'listPhotoSwiper',
+  name: 'ListPhotoSwiper',
   components: {
     Swiper,
     SwiperSlide,
-    photoCard,
+    photoCard
   },
   directives: {
-    swiper: directive,
+    swiper: directive
   },
-  props:{
-    photos:Array,
-    navigation:Boolean
+  props: {
+    photos: Array,
+    navigation: Boolean
   },
-  data() {
+  data () {
     return {
-      swiperOption: { 
-        lazy:true,
+      swiperOption: {
+        lazy: true,
         spaceBetween: 20,
         pagination: {
-          el: ".swiper-pagination",
-          type: "progressbar",
+          el: '.swiper-pagination',
+          type: 'progressbar'
         },
-         keyboard: {
+        keyboard: {
           enabled: true,
-          onlyInViewport: false,
-        },
-      },
+          onlyInViewport: false
+        }
+      }
     }
   },
-  methods:{
-    //this method gets called everytime I pass to new photo in galery
-    progress:function(progress){
-      let a =document.getElementsByClassName("swiper-pagination-progressbar-fill")[0];
-      if(progress>=1){
-        a.classList.add("swiper-pagination-progressbar-filled")
-        //We take the style with yellow bar only if its there
-      }else if(a.classList.contains("swiper-pagination-progressbar-filled")){
-        a.classList.remove("swiper-pagination-progressbar-filled")
-      }
-    },
-
-    
-  },
-  created(){
-    if(this.navigation){
-      this.swiperOption["navigation"] =
+  created () {
+    if (this.navigation) {
+      this.swiperOption.navigation =
       {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev'
       }
     }
+  },
+  methods: {
+    // this method gets called everytime I pass to new photo in galery
+    progress: function (progress) {
+      const a = document.getElementsByClassName('swiper-pagination-progressbar-fill')[0]
+      if (progress >= 1) {
+        a.classList.add('swiper-pagination-progressbar-filled')
+        // We take the style with yellow bar only if its there
+      } else if (a.classList.contains('swiper-pagination-progressbar-filled')) {
+        a.classList.remove('swiper-pagination-progressbar-filled')
+      }
+    }
+
   }
 })
 </script>
