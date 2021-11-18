@@ -59,6 +59,8 @@ export default Vue.extend({
 }
 .photo{
   box-shadow: -5px 1px var(--yellowHover);
+  width:750px;
+  height:500px;
 }
 
 @media screen and (min-width: 1001px) {
