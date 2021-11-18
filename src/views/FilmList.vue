@@ -61,7 +61,10 @@
         cols="11"
         md="5"
       >
-        <film-card :film-card="film" />
+        <film-card
+          v-if="film"
+          :film-card="film"
+        />
       </b-col>
     </b-row>
     <b-row

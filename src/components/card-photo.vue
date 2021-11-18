@@ -33,12 +33,13 @@ export default Vue.extend({
         fluid: true,
         blank: false,
         blankColor: '#bbb'
-      }
+      },
+      publicPath: process.env.BASE_URL
     }
   },
   methods: {
     getPhotoSrc: function () {
-      return require(`../assets/${this.photo.film}/${this.photo.index}.jpg`)
+      return `${this.publicPath}films/${this.photo.film}/${this.photo.index}.jpg`
     }
   }
 })

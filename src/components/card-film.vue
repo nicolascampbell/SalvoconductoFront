@@ -37,12 +37,13 @@ export default Vue.extend({
         fluid: true,
         blank: true,
         blankColor: '#bbb'
-      }
+      },
+      publicPath: process.env.BASE_URL
     }
   },
   methods: {
     getCoverSrc () {
-      return require(`../assets/${this.filmCard._id}/${this.filmCard.photoCover}.jpg`)
+      return `${this.publicPath}films/${this.filmCard._id}/${this.filmCard.photoCover}.jpg`
     }
   }
 })
