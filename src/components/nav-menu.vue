@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div  v-if="this.$route.name">
     <transition name="appear">
       <div
         v-if="open"
