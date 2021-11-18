@@ -2,7 +2,7 @@
   <div
     id="button-prev-film"
     v-b-tooltip.hover
-    :title="disable?'There are no older films!':'Go to next film.' "
+    :title="disable?'There are no older films!':'Go to prev film.' "
     :class="{ 'yellow-button': !disable, 'button-prev-film-disabled': disable }"
     @click="disable?'':prevFilm()"
   >
