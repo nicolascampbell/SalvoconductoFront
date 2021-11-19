@@ -8,7 +8,7 @@
       })"
   >
     <div class="film-info">
-      &ensp;FILM  {{ filmCard._id }} &ensp;<span> {{ filmCard.year }} </span>
+      &ensp;FILM  {{ filmCard._id }} &ensp;<span> {{ getYear() }} </span>
     </div>
     <b-img-lazy
       v-bind="mainProps"
@@ -44,6 +44,13 @@ export default Vue.extend({
   methods: {
     getCoverSrc () {
       return `${this.publicPath}films/${this.filmCard._id}/${this.filmCard.photoCover}.jpg`
+    },
+    getYear ():string {
+      const year = this.filmCard.year || ''
+      if (String(year).localeCompare('1819') === 0) {
+        return '18-19'
+      }
+      return year || ''
     }
   }
 })
@@ -59,7 +66,6 @@ export default Vue.extend({
 }
 .photo{
   box-shadow: -5px 1px var(--yellowHover);
-  width:100%
 }
 
 @media screen and (min-width: 1001px) {
