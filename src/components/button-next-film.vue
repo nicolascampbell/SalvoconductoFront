@@ -4,7 +4,7 @@
     :class="{ 'yellow-button': !disable, 'button-next-film-disabled': disable }"
     @click="disable?'':nextFilm()"
   >
-      Next Film
+    Next Film
   </div>
 </template>
 

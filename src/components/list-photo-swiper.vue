@@ -40,7 +40,7 @@
 import Vue from 'vue'
 
 import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper'
-import 'swiper/css/swiper.css'
+import 'swiper/swiper-bundle.css'
 import photoCard from './card-photo.vue'
 import { Photo } from '@/customTypes'
 

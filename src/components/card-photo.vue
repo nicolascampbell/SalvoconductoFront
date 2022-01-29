@@ -49,5 +49,6 @@ export default Vue.extend({
   background: white;
   cursor: pointer;
   object-fit: cover;
+  z-index: 100;
 }
 </style>
