@@ -13,7 +13,8 @@ export const previous = {
   15: '14',
   16: '15',
   17: '16',
-  40: '17'
+  40: '17',
+  41: '40'
 }
 export const next = {
   2: '3',
@@ -30,5 +31,6 @@ export const next = {
   15: '16',
   16: '17',
   17: '40',
-  40: false
+  40: '41',
+  41: false
 }

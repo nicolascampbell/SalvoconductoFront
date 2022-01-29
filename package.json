@@ -14,7 +14,7 @@
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
     "gsap": "^3.7.1",
-    "swiper": "^5.2.0",
+    "swiper": "^5.4.5",
     "vue": "^2.6.12",
     "vue-awesome-swiper": "^4.1.1",
     "vue-class-component": "^7.2.3",

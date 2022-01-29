@@ -1,28 +1,18 @@
 <template>
   <div
     id="button-prev-film"
-    v-b-tooltip.hover
-    :title="disable?'There are no older films!':'Go to prev film.' "
     :class="{ 'yellow-button': !disable, 'button-prev-film-disabled': disable }"
     @click="disable?'':prevFilm()"
   >
-    <icon-base>
-      <icon-arrow-left />
-    </icon-base>
+    Previous Film
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-import IconBase from './icon-base.vue'
-import IconArrowLeft from './Icons/icon-arrow-left.vue'
 export default Vue.extend({
   name: 'ButtonPrevFilm',
-  components: {
-    IconBase,
-    IconArrowLeft
-  },
   props: {
     disable: { type: Boolean, default: true },
     prevId: { type: String, default: '' }
@@ -46,6 +36,7 @@ export default Vue.extend({
     border-radius: 5px 5px 0px 0px;
     letter-spacing: 2px;
     margin-bottom: 100px;
+    font-size: 0.8em;
   }
   .button-prev-film-disabled{
     border: black solid 1px;

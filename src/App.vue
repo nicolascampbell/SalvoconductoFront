@@ -30,6 +30,7 @@ export default Vue.extend({
   @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
   :root{
     --purple:rgb(145, 107, 182);
+    --purpleTransparent:rgba(145, 107, 182, 0.651);
     --yellow:#fae844f8;
     --purpleHover:rgb(190, 153, 226);
     --yellowHover:#f3e77ef8;
@@ -39,9 +40,9 @@ export default Vue.extend({
   }
 
   #navbar{
-    top:5%;
-    width:25em;
-    height: 6em;
+    top:0;
+    width:100%;
+    height: 2em;
     position:fixed;
     z-index: 100  ;
     display:flex;
@@ -64,9 +65,9 @@ export default Vue.extend({
   }
   #navbar{
     top:0;
-    right:0px;
     width:100%;
     height: 10em;
+    /**Position is absolute so that navbar does not go with you everywhere. This frees up the screen */
     position:absolute;
     z-index: 100  ;
     display:flex;
