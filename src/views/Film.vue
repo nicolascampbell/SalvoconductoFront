@@ -33,7 +33,7 @@
         style="text-align: center"
       >
         <b-col
-          cols="3"
+          cols="4"
           lg="1"
         >
           <button-prev-film
@@ -42,16 +42,7 @@
           />
         </b-col>
         <b-col
-          v-if="!isMobile()"
-          cols="2"
-        >
-          <button-toggle-view
-            label="Change View to "
-            @changeView="desktopView = !desktopView"
-          />
-        </b-col>
-        <b-col
-          cols="3"
+          cols="4"
           lg="1"
         >
           <button-next-film
@@ -66,10 +57,9 @@
         no-gutters
       >
         <b-col :class="{ 'image-galery-col': !desktopView }">
-          <list-photo-swiper
-            v-if="isMobile() || !desktopView"
+          <list-photo-phone
+            v-if="isMobile()"
             :photos="film.photos"
-            :navigation="!isMobile() && !desktopView"
           />
           <list-photo-desktop
             v-else
@@ -78,34 +68,14 @@
         </b-col>
       </b-row>
       <b-row
-        v-if="!isMobile() && desktopView"
         class="row"
         align-h="around"
-        style="margin-top: 5%; text-align: center"
+        style="margin-top: 5%; text-align: center;margin-bottom:5%"
       >
         <b-col
-          cols="3"
-          md="1"
-        >
-          <button-prev-film
-            :disable="previous[$route.params.filmid] ? false : true"
-            :prev-id="previous[$route.params.filmid] || ''"
-          />
-        </b-col>
-        <b-col
           cols="4"
-          sm="2"
         >
           <btn-scroll-top />
-        </b-col>
-        <b-col
-          cols="3"
-          md="1"
-        >
-          <button-next-film
-            :disable="next[$route.params.filmid] ? false : true"
-            :next-id="next[$route.params.filmid] || ''"
-          />
         </b-col>
       </b-row>
     </b-container>
@@ -119,8 +89,7 @@ import definition from '../components/definition.vue'
 import { Film } from '@/customTypes'
 import btnScrollTop from '../components/button-scroll-top.vue'
 import ListPhotoDesktop from '../components/list-photo-desktop.vue'
-import listPhotoSwiper from '@/components/list-photo-swiper.vue'
-import buttonToggleView from '../components/button-toggle-view.vue'
+import listPhotoPhone from '@/components/list-photo-phone.vue'
 import buttonNextFilm from '../components/button-next-film.vue'
 import buttonPrevFilm from '../components/button-prev-film.vue'
 
@@ -132,8 +101,7 @@ export default Vue.extend({
     definition,
     btnScrollTop,
     ListPhotoDesktop,
-    listPhotoSwiper,
-    buttonToggleView,
+    listPhotoPhone,
     buttonNextFilm,
     buttonPrevFilm
   },
@@ -144,7 +112,6 @@ export default Vue.extend({
       },
       index: -1,
       loadedSources: false,
-      desktopView: true && !window.matchMedia('(max-width: 767px)').matches,
       previous: previous,
       next: next
     }
@@ -191,13 +158,12 @@ export default Vue.extend({
 }
 @media screen and (max-width: 767px) {
   #film-container {
-    padding-right: 7%;
-    padding-left: 7%;
+    padding-right: 6%;
+    padding-left: 6%;
   }
   .image-galery-row {
     width: 100%;
     padding-top: 10%;
-    padding-bottom: 80%;
   }
 }
 @media screen and (max-width: 767px) and (orientation: landscape) {

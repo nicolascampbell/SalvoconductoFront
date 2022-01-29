@@ -62,7 +62,7 @@
       class="yellow-button"
       @click="goToNextRoute(previousRoutes[$route.name])"
     >
-      <div class="arrow">
+      <div class="go-back-arrow">
         <icon-base><icon-arrow-return-left /></icon-base>
       </div>
     </div>
