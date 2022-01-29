@@ -1,29 +1,18 @@
 <template>
   <div
     id="button-next-film"
-    v-b-tooltip.hover
-    :title="disable?'There are no newer films!':'Go to next film.'"
     :class="{ 'yellow-button': !disable, 'button-next-film-disabled': disable }"
     @click="disable?'':nextFilm()"
   >
-    <icon-base>
-      <icon-arrow-right />
-    </icon-base>
+      Next Film
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-import IconBase from './icon-base.vue'
-import IconArrowRight from './Icons/icon-arrow-right.vue'
-
 export default Vue.extend({
   name: 'ButtonNextFilm',
-  components: {
-    IconBase,
-    IconArrowRight
-  },
   props: {
     disable: { type: Boolean, default: false },
     nextId: { type: String, default: '2' }
@@ -46,6 +35,7 @@ export default Vue.extend({
     border-radius: 5px 5px 0px 0px;
     letter-spacing: 2px;
     margin-bottom: 100px;
+    font-size: 0.8em;
   }
   .button-next-film-disabled{
     border: black solid 1px;
