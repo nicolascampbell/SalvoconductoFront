@@ -1,66 +1,19 @@
 @media screen and (min-width: 768px) {
-  #menu {
-    background-color: rgb(255, 255, 255);
-    border: black solid 1px;
-    overflow-x: hidden;
-    border-left: transparent!important;
-    text-align: center;
-    font-size:1.2em;
-    font-family: Arial, Helvetica, sans-serif;
-    color:rgb(43, 43, 43);
-    letter-spacing: 2px;
-  }
-  #nav-menu{
-    display:flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    z-index: 1;
-    position:absolute;
-    width: 100%;  
-  }
   #button-menu{
-    width:2em;
-    height:85%;
-    border-left: transparent!important;
+    width:25%;
+    left:37.5%;
+    height: 2em;
+    text-align: center;
+    position: relative;
+    padding-top: 5px!important;
+    background-color: var(--purpleTransparent)!important;
   }
   #button-back{
     width:2.2em;
-    height:100%;
-    border-left: transparent!important;
+    height:6em;
+    left:0;
+    top:10%;
     z-index: 2;
+    border-left:transparent!important;
   }
-  #button-menu-side{
-    position: relative; 
-    width: 0.7em;
-    height: 3em;
-    border-left: transparent!important;
-
-  }
-  .padd{
-    left: 2.2em!important;;
-  }
-  .appear-enter-active {
-    transition: all 0.4s ease-in;
-  }
-  .appear-leave-active {
-    transition: all 0.2s ease-out;
-  }
-  .appear-enter, .appear-leave-to
-  /* This is when the icon is on the left!*/ {
-    transform: translateX(-100%);
-    opacity:0.8;
-  }
-  
-  #item-home{
-    border:white solid 2px;
-    border-bottom: transparent;
-  } 
-  #item-films{
-    border:white solid 2px;
-    border-right:transparent;
-  } 
-  #item-collections{
-    border:white solid 2px;
-  } 
 } 
