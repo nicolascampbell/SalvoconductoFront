@@ -64,9 +64,6 @@ export default Vue.extend({
   transition: all 2s ease-in-out;
   color:var(--purple)!important;
 }
-.photo{
-  box-shadow: -5px 1px var(--yellowHover);
-}
 
 @media screen and (min-width: 1001px) {
   .film-info {
@@ -96,6 +93,11 @@ export default Vue.extend({
     flex-direction: row-reverse;
     justify-content: flex-end;
   }
+  .photo{
+    box-shadow: -5px 1px var(--yellowHover);
+    width:1000px;
+    height: 500px;
+  }
 }
 @media screen and (max-width: 1000px) {
   .film-info {
@@ -109,6 +111,9 @@ export default Vue.extend({
   .photo-container{
     display: flex;
     flex-direction: column;
+  }
+  .photo{
+    box-shadow: -5px 1px var(--yellowHover);
   }
 }
 </style>
