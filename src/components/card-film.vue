@@ -9,6 +9,7 @@
   >
     <div class="film-info">
       &ensp;FILM  {{ filmCard._id }} &ensp;<span> {{ getYear() }} </span>
+      <icon-enter />
     </div>
     <b-img-lazy
       v-bind="mainProps"
@@ -21,9 +22,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import { FilmCard } from '@/customTypes'
+import IconEnter from './Icons/icon-enter.vue'
 
 export default Vue.extend({
   name: 'FilmCard',
+  components: {
+    IconEnter
+  },
   props: {
     filmCard: {
       type: Object as () => FilmCard,
@@ -72,7 +77,7 @@ export default Vue.extend({
     padding: 0.2em;
     font-size: 1em;
     color: rgb(0, 0, 0);
-    transition: all 2s ease-in-out;
+    transition: all 1s ease-in-out;
     background-color:var(--yellow);
     font-family: "Varela", sans-serif;
     writing-mode: vertical-rl;
@@ -88,6 +93,11 @@ export default Vue.extend({
   .photo-container:hover .film-info span{
     color:var(--yellow)!important;
   }
+  .photo-container:hover .bi-box-arrow-in-right{
+    transition: all 1s cubic-bezier(.18,.89,.32,1.28);
+    transform: rotate(1turn);
+    color:var(--yellow)!important;
+  }
   .photo-container{
     display: flex;
     flex-direction: row-reverse;
@@ -96,7 +106,7 @@ export default Vue.extend({
   .photo{
     box-shadow: -5px 1px var(--yellowHover);
     width:1000px;
-    height: 500px;
+    max-height: 500px;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -114,6 +124,13 @@ export default Vue.extend({
   }
   .photo{
     box-shadow: -5px 1px var(--yellowHover);
+  }
+  .bi-box-arrow-in-right{
+    float: right;
+    margin-right: 4px;
+    margin-right: 4px;
+    top: 50%;
+    transform: translateY(20%);
   }
 }
 </style>
