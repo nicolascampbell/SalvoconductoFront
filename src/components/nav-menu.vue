@@ -140,11 +140,9 @@ export default Vue.extend({
     },
     handleTouchStart (event:any) {
       this.touchParameters.start = { Y: event.targetTouches[0].clientY }
-      console.log(this.touchParameters)
     },
     handleTouchEnd (event:any) {
       this.touchParameters.end = { Y: event.changedTouches[0].clientY }
-      console.log(this.touchParameters)
       if (Math.abs(this.touchParameters.start.Y - this.touchParameters.end.Y) > 20) {
         this.handleOpenMenu()
         this.resetParameters()

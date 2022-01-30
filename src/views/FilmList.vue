@@ -119,7 +119,6 @@ export default Vue.extend({
         this.loadedSources = true
       }
     } catch (e) {
-      console.log(e)
       this.$router.push({ name: 'NotFound' })
     }
   },

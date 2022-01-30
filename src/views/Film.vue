@@ -127,7 +127,6 @@ export default Vue.extend({
       this.film = response.data
       this.loadedSources = true
     } catch (e) {
-      console.log(e)
       this.$router.push({ name: 'NotFound' })
     }
   },
