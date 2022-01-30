@@ -1,6 +1,10 @@
 <template>
   <div v-if="this.$route.name">
-    <div id="nav-menu">
+    <div
+      id="nav-menu"
+      @touchstart="handleTouchStart"
+      @touchend="handleTouchEnd"
+    >
       <div :class="{ 'menu-closed': !open, 'menu-open': open }">
         <!--Actual MENU-->
         <b-container id="menu">
@@ -37,7 +41,7 @@
         <div
           id="button-menu"
           class="purple-button"
-          @click.stop="open = !open"
+          @click.stop="handleOpenMenu"
         >
           <icon-base
             width="20"
@@ -89,8 +93,15 @@ export default Vue.extend({
     return {
       open: false,
       lastScrollPosition: 0,
-      // TODO: check if this is necessary
-      previousRoutes: previousRoutes
+      previousRoutes: previousRoutes,
+      touchParameters: {
+        start: {
+          Y: 0
+        },
+        end: {
+          Y: 0
+        }
+      }
     }
   },
   created () {
@@ -126,7 +137,33 @@ export default Vue.extend({
       if (currentRoute !== next) {
         this.$router.push({ name: next })
       }
+    },
+    handleTouchStart (event:any) {
+      this.touchParameters.start = { Y: event.targetTouches[0].clientY }
+      console.log(this.touchParameters)
+    },
+    handleTouchEnd (event:any) {
+      this.touchParameters.end = { Y: event.changedTouches[0].clientY }
+      console.log(this.touchParameters)
+      if (Math.abs(this.touchParameters.start.Y - this.touchParameters.end.Y) > 20) {
+        this.handleOpenMenu()
+        this.resetParameters()
+      }
+    },
+    handleOpenMenu () {
+      this.open = !this.open
+    },
+    resetParameters () {
+      this.touchParameters = {
+        start: {
+          Y: 0
+        },
+        end: {
+          Y: 0
+        }
+      }
     }
+
   }
 })
 </script>
@@ -136,5 +173,4 @@ export default Vue.extend({
 @import "../styles/nav-menu.css";
 @import "../styles/yellow-button.css";
 @import "../styles/purple-button.css";
-
 </style>
