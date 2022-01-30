@@ -49,7 +49,6 @@ export default {
 ::v-deep #about-me-modal{
   font-family: 'Courier Prime', monospace;
   font-weight: 600;
-  background-color: var(--yellow);
 }
 a{
   overflow: hidden;
