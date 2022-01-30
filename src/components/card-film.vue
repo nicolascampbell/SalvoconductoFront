@@ -96,7 +96,6 @@ export default Vue.extend({
   .photo-container:hover .bi-box-arrow-in-right{
     transition: all 1s cubic-bezier(.18,.89,.32,1.28);
     transform: rotate(1turn);
-    color:var(--yellow)!important;
   }
   .photo-container{
     display: flex;
