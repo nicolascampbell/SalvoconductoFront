@@ -22,7 +22,7 @@
           :definitions="[
             'A place to share what my eyes see.',
             'Within can be found all my films and collections.',
-            'Freedom to do something without fear of punishment.',
+            `The name means: Freedom to do something without fear of punishment.`,
           ]"
           :with-slot="true"
         >
