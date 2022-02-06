@@ -49,10 +49,10 @@
 }
 .menu-closed{
   transform: translateY(-73%);
-  transition: all 0.4s ease-out;
+  transition: all 0.1s ease-out;
 }
 .menu-open{
-  transition: all 0.4s ease-in;
+  transition: all 0.1s ease-in;
 }
 .menu-arrow{
   animation: palpitate 0.5s linear infinite alternate-reverse;
