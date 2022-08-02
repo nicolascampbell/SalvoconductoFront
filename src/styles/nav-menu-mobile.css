@@ -1,18 +1,18 @@
-@media screen and (max-width: 767px) {  
-  #button-menu{
-    width:50%;
-    left:25%;
-    height: 2em;
-    text-align: center;
-    position: relative;
-    padding-top: 5px!important;
-  }
-  #button-back{
-    width:2em;
-    height:50%;
-    z-index: 2;
-    top:25%;
-    left:0;
-    border-left:transparent!important;
-  }
+@media screen and (max-width: 767px) {
+    #button-menu {
+        width: 50%;
+        left: 25%;
+        height: 2em;
+        text-align: center;
+        position: relative;
+        padding-top: 5px !important;
+    }
+    #button-back {
+        width: 2em;
+        height: 50%;
+        z-index: 2;
+        top: 25%;
+        left: 0;
+        border-left: transparent !important;
+    }
 }

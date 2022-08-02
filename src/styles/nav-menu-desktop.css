@@ -1,19 +1,19 @@
 @media screen and (min-width: 768px) {
-  #button-menu{
-    width:25%;
-    left:37.5%;
-    height: 2em;
-    text-align: center;
-    position: relative;
-    padding-top: 5px!important;
-    background-color: var(--purpleTransparent)!important;
-  }
-  #button-back{
-    width:2.2em;
-    height:6em;
-    left:0;
-    top:10%;
-    z-index: 2;
-    border-left:transparent!important;
-  }
-} 
+    #button-menu {
+        width: 25%;
+        left: 37.5%;
+        height: 2em;
+        text-align: center;
+        position: relative;
+        padding-top: 5px !important;
+        background-color: var(--purpleTransparent) !important;
+    }
+    #button-back {
+        width: 2.2em;
+        height: 6em;
+        left: 0;
+        top: 10%;
+        z-index: 2;
+        border-left: transparent !important;
+    }
+}

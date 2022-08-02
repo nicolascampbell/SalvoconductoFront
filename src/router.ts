@@ -10,41 +10,42 @@ const NotFound = () => import('./views/NotFound.vue')
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
-  routes: [{
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/Films',
-    name: 'FilmList',
-    component: FilmList
-  },
-  {
-    path: '/Collections',
-    name: 'CollectionList',
-    component: CollectionList
-  },
-  {
-    path: '/Films/:filmid',
-    name: 'Film',
-    component: Film,
-    props: true
-  },
-  {
-    path: '/Collections/:collectionId',
-    name: 'Collection',
-    component: Collection
-  },
-  {
-    path: '/:catchAll(.*)?',
-    name: 'NotFound',
-    component: NotFound
-  }],
-  scrollBehavior () {
-    // So that when you go to another route it shows you the start of the page
-    return { x: 0, y: 0 }
-  }
-
+    mode: 'history',
+    routes: [
+        {
+            path: '/',
+            name: 'Home',
+            component: Home,
+        },
+        {
+            path: '/Films',
+            name: 'FilmList',
+            component: FilmList,
+        },
+        {
+            path: '/Collections',
+            name: 'CollectionList',
+            component: CollectionList,
+        },
+        {
+            path: '/Films/:filmid',
+            name: 'Film',
+            component: Film,
+            props: true,
+        },
+        {
+            path: '/Collections/:collectionId',
+            name: 'Collection',
+            component: Collection,
+        },
+        {
+            path: '/:catchAll(.*)?',
+            name: 'NotFound',
+            component: NotFound,
+        },
+    ],
+    scrollBehavior() {
+        // So that when you go to another route it shows you the start of the page
+        return { x: 0, y: 0 }
+    },
 })

@@ -1,41 +1,39 @@
 {
-  "name": "salvoconducto",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "build-report": "vue-cli-service build --report"
-  },
-  "dependencies": {
-    "axios": "^0.21.1",
-    "bootstrap": "^4.6.0",
-    "bootstrap-vue": "^2.21.2",
-    "core-js": "^3.6.5",
-    "gsap": "^3.7.1",
-    "vue": "^2.6.12",
-    "vue-class-component": "^7.2.3",
-    "vue-property-decorator": "^9.1.2",
-    "vue-router": "^3.5.1"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.18.0",
-    "@typescript-eslint/parser": "^4.18.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-service": "^4.5.13",
-    "@vue/eslint-config-standard": "^5.1.2",
-    "@vue/eslint-config-typescript": "^7.0.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^6.2.2",
-    "typescript": "~3.9.3",
-    "vue-template-compiler": "^2.6.11",
-    "webpack-bundle-analyzer": "^3.9.0"
-  }
+    "name": "salvoconducto",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "build-report": "vue-cli-service build --report",
+        "lint": "npx eslint src",
+        "lint:fix": "npm run lint -- --fix",
+        "prettier": "npx prettier src --check",
+        "prettier:fix": "npm run prettier -- --write",
+        "format": "npm run prettier:fix && npm run lint:fix"
+    },
+    "dependencies": {
+        "axios": "^0.21.1",
+        "bootstrap": "^4.6.0",
+        "bootstrap-vue": "^2.21.2",
+        "core-js": "^3.6.5",
+        "gsap": "^3.7.1",
+        "vue": "^2.6.12",
+        "vue-class-component": "^7.2.3",
+        "vue-property-decorator": "^9.1.2",
+        "vue-router": "^3.5.1"
+    },
+    "devDependencies": {
+        "@typescript-eslint/parser": "^4.18.0",
+        "@vue/cli-plugin-babel": "^5.0.8",
+        "@vue/cli-plugin-typescript": "^5.0.8",
+        "@vue/cli-service": "^5.0.8",
+        "@vue/eslint-config-prettier": "^7.0.0",
+        "@vue/eslint-config-typescript": "^7.0.0",
+        "prettier": "2.7.1",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "~3.9.3",
+        "vue-template-compiler": "^2.6.11",
+        "webpack-bundle-analyzer": "^4.5.0"
+    }
 }
